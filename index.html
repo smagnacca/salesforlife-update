@@ -491,16 +491,32 @@
             CLIENT CASE STUDIES
         </div>
         <h2 style="margin-bottom: 2.5rem; color: #fff; font-family: 'Outfit', sans-serif; font-size: clamp(2rem, 3vw, 2.5rem); font-weight: 700;">Click Here For Audio Experiences</h2>
-        <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-            <a href="#" class="btn-secondary oval" style="display:flex; align-items:center; gap:0.5rem; padding: 1rem 2.5rem;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Olivia
-            </a>
-            <a href="#" class="btn-secondary oval" style="display:flex; align-items:center; gap:0.5rem; padding: 1rem 2.5rem;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Liam
-            </a>
-            <a href="#" class="btn-secondary oval" style="display:flex; align-items:center; gap:0.5rem; padding: 1rem 2.5rem;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Noah
-            </a>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2.5rem; justify-items: center; max-width: 1200px; margin: 0 auto;">
+            <!-- Anaaya (Video) -->
+            <div style="background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='translateY(0)';">
+                <video src="assets/Anaaya2.mp4" poster="assets/anaaya2.webp" controls style="width: 100%; aspect-ratio: 16/9; background:#000; object-fit: cover;"></video>
+                <div style="padding: 1rem; color: #fff; font-weight: 700; font-size: 1.1rem; text-transform: uppercase;">Anaaya</div>
+            </div>
+            
+            <!-- Pablo (Audio) -->
+            <div style="background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='translateY(0)';">
+                <img src="assets/FNPabloFNL.webp" alt="Pablo" style="width: 100%; aspect-ratio: 16/9; object-fit: cover;">
+                <audio src="assets/FNLPablo%20FNL.mp3" controls style="width: 100%; height: 40px; border-radius: 0; outline: none; margin-bottom: -4px;"></audio>
+                <div style="padding: 0.8rem 1rem; color: #fff; font-weight: 700; font-size: 1.1rem; text-transform: uppercase; border-top: 1px solid var(--border);">Pablo</div>
+            </div>
+            
+            <!-- GZ (Audio) -->
+            <div style="background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='translateY(0)';">
+                <img src="assets/GZFNL.webp" alt="GZ" style="width: 100%; aspect-ratio: 16/9; object-fit: cover;">
+                <audio src="assets/GZFNL.mp3" controls style="width: 100%; height: 40px; border-radius: 0; outline: none; margin-bottom: -4px;"></audio>
+                <div style="padding: 0.8rem 1rem; color: #fff; font-weight: 700; font-size: 1.1rem; text-transform: uppercase; border-top: 1px solid var(--border);">GZ</div>
+            </div>
+            
+            <!-- VS (Video) -->
+            <div style="background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='translateY(0)';">
+                <video src="assets/VSFNLK2.mp4" poster="assets/VSFNLK2.webp" controls style="width: 100%; aspect-ratio: 16/9; background:#000; object-fit: cover;"></video>
+                <div style="padding: 1rem; color: #fff; font-weight: 700; font-size: 1.1rem; text-transform: uppercase;">VS</div>
+            </div>
         </div>
     </section>
 
