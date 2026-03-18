@@ -163,41 +163,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Buffett Sketch Animation Sequence
     const sketches = document.querySelectorAll('.buffett-sketch');
-    const pencil = document.querySelector('.shading-pencil');
     if (sketches.length > 0) {
-        
-        const drawSketch = (index) => {
-            // Move active to holding
-            sketches.forEach(s => {
-                if (s.classList.contains('active')) {
-                    s.classList.remove('active');
-                    s.classList.add('holding');
-                }
-            });
-            
-            // Start wiping new sketch
-            sketches[index].classList.remove('holding');
-            sketches[index].classList.add('active');
-            
-            // Trigger pencil animation
-            if (pencil) {
-                pencil.classList.remove('drawing'); // reset
-                void pencil.offsetWidth; // force browser reflow
-                pencil.classList.add('drawing');
-            }
-        };
-
         const runSequence = () => {
-            sketches.forEach(s => {
-                s.classList.remove('active');
-                s.classList.remove('holding');
-            });
+            // Hide all
+            sketches.forEach(s => s.classList.remove('active'));
             
-            drawSketch(0);
+            // Draw Image 1
+            sketches[0].classList.add('active');
             
-            setTimeout(() => { drawSketch(1); }, 4000);
+            // Draw Image 2 after 4s
+            setTimeout(() => {
+                sketches[0].classList.remove('active');
+                sketches[1].classList.add('active');
+            }, 4000);
             
-            setTimeout(() => { drawSketch(2); }, 8000);
+            // Draw Image 3 after 8s
+            setTimeout(() => {
+                sketches[1].classList.remove('active');
+                sketches[2].classList.add('active');
+            }, 8000);
             
             // Hold Image 3 visible for the 2-minute pause
         };
