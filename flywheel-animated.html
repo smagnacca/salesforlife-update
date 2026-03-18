@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flywheel Animated</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #060b18;
+  }
+
+  /* Outer container — stays fixed, clips the rotating content */
+  .flywheel-clip {
+    position: relative;
+    width: 560px;
+    height: 560px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  /* Everything inside rotates as one unit */
+  .flywheel-rotating {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    animation: spinCW 30s linear infinite;
+    transform-origin: 50% 50%;
+  }
+
+  @keyframes spinCW {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  .flywheel-rotating img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 50%;
+  }
+
+  /* SVG overlay sits on top of the image, same size */
+  .overlay-svg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="flywheel-clip">
+  <div class="flywheel-rotating">
+    <img src="assets/flywheel.png" alt="Sales Flywheel">
+
+    <svg class="overlay-svg"
+         viewBox="0 0 630 630"
+         xmlns="http://www.w3.org/2000/svg">
+
+      <defs>
+        <!-- ===== GLOW FILTERS ===== -->
+        <filter id="goldGlowSoft" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur1"/>
+          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur2"/>
+          <feMerge>
+            <feMergeNode in="blur2"/>
+            <feMergeNode in="blur1"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+
+        <filter id="goldGlowHard" x="-80%" y="-80%" width="260%" height="260%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="b1"/>
+          <feGaussianBlur in="SourceGraphic" stdDeviation="8"  result="b2"/>
+          <feGaussianBlur in="SourceGraphic" stdDeviation="16" result="b3"/>
+          <feMerge>
+            <feMergeNode in="b3"/>
+            <feMergeNode in="b2"/>
+            <feMergeNode in="b1"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+
+        <!-- ===== ROTATING SHIMMER CONIC GRADIENT (via mask trick) ===== -->
+        <!-- Rotating sweep highlight for bubbles -->
+        <linearGradient id="sweepGrad" gradientUnits="userSpaceOnUse"
+                        x1="0" y1="0" x2="630" y2="630">
+          <stop offset="0%"   stop-color="#7a5500"/>
+          <stop offset="30%"  stop-color="#ffd700"/>
+          <stop offset="55%"  stop-color="#fff8dc"/>
+          <stop offset="70%"  stop-color="#ffd700"/>
+          <stop offset="100%" stop-color="#7a5500"/>
+        </linearGradient>
+
+        <!-- Animated rotating gradient for shimmer sweep -->
+        <linearGradient id="rotGold" gradientUnits="userSpaceOnUse"
+                        x1="0" y1="315" x2="630" y2="315">
+          <stop offset="0%"   stop-color="#b8860b"/>
+          <stop offset="35%"  stop-color="#ffd700"/>
+          <stop offset="65%"  stop-color="#fffacd"/>
+          <stop offset="100%" stop-color="#b8860b"/>
+          <animateTransform attributeName="gradientTransform"
+            type="rotate" from="0 315 315" to="360 315 315"
+            dur="4s" repeatCount="indefinite"/>
+        </linearGradient>
+        <filter id="blueGlow" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="4"  result="b1"/>
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="b2"/>
+          <feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+
+      <!-- ============================================================
+           LIGHTBULB BUBBLE — Glass circle on the left
+           Image coords: center ≈ (202, 313), radius ≈ 115
+      ============================================================ -->
+
+      <!-- STAR PINPOINT — IDEA at (202,313) -->
+      <circle cx="202" cy="313" r="14" fill="rgba(200,220,255,0.2)" filter="url(#goldGlowSoft)">
+        <animate attributeName="r"       values="10;22;10"     dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.2;0.65;0.2" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <!-- Long horizontal rays (gold/amber) -->
+      <line x1="202" y1="313" x2="202" y2="313" stroke="#ffcc44" stroke-width="3" stroke-linecap="round" filter="url(#goldGlowSoft)">
+        <animate attributeName="x2"           values="202;257;257;202" keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="stroke-width" values="1;3.5;2;1"       keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity"      values="0;1;0.6;0"       keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
+      </line>
+      <line x1="202" y1="313" x2="202" y2="313" stroke="#ff9922" stroke-width="3" stroke-linecap="round" filter="url(#goldGlowSoft)">
+        <animate attributeName="x2"           values="202;147;147;202" keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="stroke-width" values="1;3.5;2;1"       keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity"      values="0;1;0.6;0"       keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
+      </line>
+      <!-- Diagonal upper-right / lower-left (bright blue) -->
+      <line x1="202" y1="313" x2="202" y2="313" stroke="#55ccff" stroke-width="2" stroke-linecap="round" filter="url(#goldGlowSoft)">
+        <animate attributeName="x2"      values="202;237;237;202" keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="y2"      values="313;293;293;313" keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;0.9;0.5;0"     keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
+      </line>
+      <line x1="202" y1="313" x2="202" y2="313" stroke="#4499ff" stroke-width="2" stroke-linecap="round" filter="url(#goldGlowSoft)">
+        <animate attributeName="x2"      values="202;167;167;202" keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="y2"      values="313;333;333;313" keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;0.9;0.5;0"     keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
+      </line>
+      <!-- Diagonal upper-left / lower-right (purple/violet) -->
+      <line x1="202" y1="313" x2="202" y2="313" stroke="#aa55ff" stroke-width="2" stroke-linecap="round" filter="url(#goldGlowSoft)">
+        <animate attributeName="x2"      values="202;167;167;202" keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="y2"      values="313;293;293;313" keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;0.9;0.5;0"     keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
+      </line>
+      <line x1="202" y1="313" x2="202" y2="313" stroke="#cc44ff" stroke-width="2" stroke-linecap="round" filter="url(#goldGlowSoft)">
+        <animate attributeName="x2"      values="202;237;237;202" keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="y2"      values="313;333;333;313" keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;0.9;0.5;0"     keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
+      </line>
+      <!-- Short vertical rays (white) -->
+      <line x1="202" y1="313" x2="202" y2="313" stroke="white" stroke-width="1.5" stroke-linecap="round" filter="url(#goldGlowSoft)">
+        <animate attributeName="y2"      values="313;291;291;313" keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;0.7;0.35;0"   keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
+      </line>
+      <line x1="202" y1="313" x2="202" y2="313" stroke="white" stroke-width="1.5" stroke-linecap="round" filter="url(#goldGlowSoft)">
+        <animate attributeName="y2"      values="313;335;335;313" keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;0.7;0.35;0"   keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
+      </line>
+      <!-- Bright pinpoint core -->
+      <circle cx="202" cy="313" r="3" fill="white" filter="url(#goldGlowHard)">
+        <animate attributeName="r"       values="2;5;2"     dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
+      </circle>
+
+      <!-- ============================================================
+           STORY BOOK OUTER BORDER
+           The book is a crystal/gem shape at top-right
+           Center ≈ (462, 115), roughly 160w × 170h
+      ============================================================ -->
+
+      <!-- Dark fill to cover STORY text from underlying PNG -->
+      <polygon points="365,48 500,25 568,90 545,192 415,210 348,138"
+               fill="#060b18" opacity="0.90"/>
+      <!-- Outer border polygon approximating the book crystal shape -->
+      <polygon
+        points="365,48  500,25  568,90  545,192  415,210  348,138"
+        fill="rgba(255,200,0,0.04)"
+        stroke="url(#rotGold)"
+        stroke-width="3"
+        stroke-linejoin="round"
+        filter="url(#goldGlowSoft)">
+        <animate attributeName="opacity"
+          values="0.5;1;0.6;1;0.5" keyTimes="0;0.25;0.5;0.75;1"
+          dur="4s" repeatCount="indefinite" begin="0.8s"/>
+        <animate attributeName="stroke-width"
+          values="2;4.5;2.5;4.5;2" keyTimes="0;0.25;0.5;0.75;1"
+          dur="4s" repeatCount="indefinite" begin="0.8s"/>
+      </polygon>
+
+      <!-- Inner shimmer polygon -->
+      <polygon
+        points="370,55  495,35  560,95  538,185  420,200  357,132"
+        fill="none"
+        stroke="#ffe566"
+        stroke-width="1"
+        opacity="0.5">
+        <animate attributeName="opacity" values="0.2;0.7;0.2" dur="3.8s" repeatCount="indefinite"/>
+      </polygon>
+
+      <!-- Rotating glass-sheen highlight on book -->
+      <polygon
+        points="365,48  500,25  568,90  545,192  415,210  348,138"
+        fill="none"
+        stroke="white"
+        stroke-width="2"
+        stroke-dasharray="35 700"
+        stroke-linecap="round"
+        opacity="0.6">
+        <animateTransform attributeName="transform"
+          type="rotate" from="0 458 118" to="360 458 118"
+          dur="6s" repeatCount="indefinite"/>
+      </polygon>
+
+      <!-- MOMENTUM — single clockwise arc building over 3s -->
+      <!-- Cover existing 3 blue arrows on PNG -->
+      <circle cx="500" cy="415" r="78" fill="#060b18" opacity="0.93"/>
+      <!-- Building arc: 300° clockwise from 3 o'clock, repeats -->
+      <path d="M 562,415 A 62,62 0 1 1 531,361"
+            fill="none" stroke="#4fc3f7" stroke-width="5.5"
+            stroke-linecap="round" stroke-dasharray="325 325"
+            filter="url(#blueGlow)">
+        <animate attributeName="stroke-dashoffset"
+          values="325;0" dur="3s" calcMode="linear" repeatCount="indefinite"/>
+        <animate attributeName="opacity"
+          values="0.8;1;0.8;0" keyTimes="0;0.5;0.9;1"
+          dur="3s" repeatCount="indefinite"/>
+      </path>
+      <!-- Arrowhead at end — appears as arc completes -->
+      <polygon points="531,361 514,360 522,347" fill="#4fc3f7" filter="url(#blueGlow)">
+        <animate attributeName="opacity"
+          values="0;0;0.95;0" keyTimes="0;0.82;0.92;1"
+          dur="3s" repeatCount="indefinite"/>
+      </polygon>
+
+    </svg>
+  </div>
+</div>
+
+</body>
+</html>
