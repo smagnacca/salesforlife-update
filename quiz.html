@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>60 Second AI Risk Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Full-page vivid particle canvas (fixed, behind everything) -->
+    <canvas id="particleCanvas" aria-hidden="true"></canvas>
+
+    <!-- Announcement Scrolling Banner -->
+    <div class="announcement-banner" id="top">
+        <div class="banner-pulse-bg"></div>
+        <div class="banner-ticker-wrap">
+            <div class="banner-ticker">
+                <span>🔥 Next class is filling up quickly &mdash; <strong>38 of 50 seats</strong> have been reserved for <strong>April's</strong> class &nbsp;&nbsp;&bull;&nbsp;&nbsp; Submit your contact information to apply for the next online class &nbsp;&nbsp;&bull;&nbsp;&nbsp; Reserve your spot before it closes &nbsp;&nbsp;&bull;&nbsp;&nbsp;</span>
+                <span>🔥 Next class is filling up quickly &mdash; <strong>38 of 50 seats</strong> have been reserved for <strong>April's</strong> class &nbsp;&nbsp;&bull;&nbsp;&nbsp; Submit your contact information to apply for the next online class &nbsp;&nbsp;&bull;&nbsp;&nbsp; Reserve your spot before it closes &nbsp;&nbsp;&bull;&nbsp;&nbsp;</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header + Navigation -->
+    <header class="header" id="home">
+        <div class="container header-inner">
+            <h1 class="logo">60 Second AI Risk Quiz</h1>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#assessment" class="nav-link">Assessment</a>
+                <a href="#program" class="nav-link">The Program</a>
+                <a href="#imperative" class="nav-link">Why Now</a>
+                <a href="#about" class="nav-link">About Scott</a>
+                <button class="nav-cta-btn" onclick="startQuiz()">Get My Score &#8250;</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Inline Quiz Section -->
+    <section class="inline-quiz-section" id="quiz-embed">
+        <div class="container">
+            <div class="inline-quiz-hook">
+                <div class="iq-badge">⚡ FREE · 60 SECONDS · INSTANT RESULTS</div>
+                <h2 class="iq-headline">Find Out If Your Organization Is <span class="iq-highlight">AI-Ready or At Risk</span></h2>
+                <p class="iq-sub typewriter-container">
+                    <span class="typewriter-text" id="typewriterText"></span>
+                    <span class="typewriter-cursor">|</span>
+                </p>
+            </div>
+            <div class="inline-quiz-card">
+                <!-- Lock / computing visual header -->
+                <div class="iq-card-header">
+                    <div class="iq-lock-ring">
+                        <svg class="iq-lock-svg" width="48" height="48" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="10" y="26" width="36" height="24" rx="4" stroke="#4fa8e8" stroke-width="2.5" fill="rgba(79,168,232,0.1)"/>
+                            <path d="M18 26V18a10 10 0 0 1 20 0v8" stroke="#4fa8e8" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                            <circle cx="28" cy="38" r="4" fill="#4fa8e8"/>
+                            <line x1="28" y1="42" x2="28" y2="46" stroke="#4fa8e8" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                        <div class="iq-lock-glow"></div>
+                    </div>
+                    <div class="iq-header-text">
+                        <div class="iq-header-title">AI Readiness Assessment</div>
+                        <div class="iq-header-sub">Benchmarked against 5,000+ leaders</div>
+                    </div>
+                    <div class="iq-data-stream">
+                        <div class="iq-stream-bar"></div>
+                        <div class="iq-stream-bar"></div>
+                        <div class="iq-stream-bar"></div>
+                        <div class="iq-stream-bar"></div>
+                    </div>
+                </div>
+                <!-- Quiz rendered here -->
+                <div id="inlineQuizContainer" class="iq-body" style="border: 3px solid white; border-radius: 12px; box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero Section with Statistics -->
+    <section class="hero" id="assessment">
+        <div class="noise-overlay" aria-hidden="true"></div>
+        <div class="container">
+            <div class="typewriter-content">
+                <div class="typewriter-text">
+                    <span class="hero-headline-xl shimmer">Leverage AI like Fidelity, TIAA, and Edelman. Drive Billions in Growth—With Zero New Headcount.</span>
+                    <span class="hero-subheading-lg shimmer-delayed">Take the 60-Second Risk Assessment. Uncover the gaps in your strategy before they become permanent career losses.</span>
+                </div>
+            </div>
+
+            <h2 class="hero-title">Your Competitors Are Already Assessing Their AI Readiness</h2>
+            <p class="hero-subtitle">Find your gaps before they do</p>
+            <p class="hero-citation">Assessment framework based on the McKinsey AI Risk Framework (2024) · Validated by 50+ enterprise AI leaders</p>
+
+            <div class="stats-grid">
+                <div class="stat-card" data-stat-index="0">
+                    <div class="stat-number sticky-countdown">58%</div>
+                    <p class="stat-label">Of employers say universities are falling short on AI readiness</p>
+                    <p class="stat-citation">CarringtonCrisp See The Future 2026</p>
+                </div>
+                <div class="stat-card" data-stat-index="1">
+                    <div class="stat-number sticky-countdown">63%</div>
+                    <p class="stat-label">Of recruiters want graduates who leverage AI for strategic decisions</p>
+                    <p class="stat-citation">Peter Cohan, Babson Academic Leadership 2026</p>
+                </div>
+                <div class="stat-card" data-stat-index="2">
+                    <div class="stat-number sticky-countdown">56%</div>
+                    <p class="stat-label">Wage premium for workers with AI skills vs. those without</p>
+                    <p class="stat-citation">PwC Global AI Jobs Barometer 2025</p>
+                </div>
+                <div class="stat-card" data-stat-index="3">
+                    <div class="stat-number sticky-countdown">77%</div>
+                    <p class="stat-label">Of employers expect AI-ready graduates, yet 58% say universities are falling short</p>
+                    <p class="stat-citation">CarringtonCrisp, See The Future 2026</p>
+                </div>
+                <div class="stat-card" data-stat-index="4">
+                    <div class="stat-number sticky-countdown">56%</div>
+                    <p class="stat-label">Wage premium for workers with AI skills</p>
+                    <p class="stat-citation">PWC Global AI Jobs Barometer 2025</p>
+                </div>
+                <div class="stat-card" data-stat-index="5">
+                    <div class="stat-number sticky-countdown">40%</div>
+                    <p class="stat-label">Of prospective students name AI as essential to their education</p>
+                    <p class="stat-citation">AACS 2025</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Comparison Section -->
+    <section class="comparison">
+        <div class="container">
+            <h2 class="comparison-section-title">Two Paths. One Future.</h2>
+            <p class="comparison-section-sub">AI is reshaping every industry. The question isn't <em>if</em> it will affect you — it's whether you'll lead the change or be left behind.</p>
+            <div class="comparison-grid">
+                <!-- OLD WAY -->
+                <div class="comparison-card old-way">
+                    <div class="comparison-header">
+                        <span class="comparison-label">The Old Way</span>
+                    </div>
+                    <div class="extinction-video-wrap">
+                        <iframe
+                            class="extinction-video"
+                            src="https://www.youtube.com/embed/6tVM0Q-XoN0?rel=0&modestbranding=1"
+                            title="The Old Way — AI Disruption"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p class="extinction-caption">Extinction-level event incoming. Still no AI strategy.</p>
+                    <p class="old-way-desc">Traditional advisors relying on gut instinct, manual processes and outdated skills — while AI reshapes every industry around them. The dinosaurs didn't see the comet coming either.</p>
+                    <ul class="comparison-list old-way-list">
+                        <li class="typewrite-item">Manual research &amp; guesswork analysis</li>
+                        <li class="typewrite-item">Disconnected, siloed assessment processes</li>
+                        <li class="typewrite-item">Reactive — always catching up to risk</li>
+                        <li class="typewrite-item">Invisible AI gaps bleeding revenue daily</li>
+                    </ul>
+                </div>
+
+                <!-- HYBRID ADVISOR WAY -->
+                <div class="comparison-card hybrid-way">
+                    <div class="comparison-header">
+                        <span class="comparison-label">The Hybrid Advisor Way</span>
+                    </div>
+                    <div class="hybrid-video-container">
+                        <iframe
+                            width="100%"
+                            height="300"
+                            src="https://www.youtube.com/embed/xfMQyVrp3Co?loop=1&playlist=xfMQyVrp3Co&controls=1&modestbranding=1"
+                            frameborder="0"
+                            allow="autoplay; encrypted-media"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="hybrid-definition">
+                        <p class="hybrid-def-text"><strong>The Power of Three:</strong> Someone who learns to leverage AI to drive the productivity, profits and impact of three employees — without adding to headcount.</p>
+                        <p class="hybrid-def-text"><strong>The Human Edge:</strong> The ability to understand, connect and build powerful relationships through story and narrative — the one skill AI can never fully replace.</p>
+                    </div>
+                    <ul class="comparison-list hybrid-list">
+                        <li class="hybrid-item">
+                            <span class="hybrid-icon">🤖</span>
+                            <div>
+                                <strong>AI-Amplified Output</strong>
+                                <span>Do the work of 3 people with intelligent automation</span>
+                            </div>
+                        </li>
+                        <li class="hybrid-item">
+                            <span class="hybrid-icon">🧠</span>
+                            <div>
+                                <strong>Strategic AI Thinking</strong>
+                                <span>Integrated roadmaps that turn gaps into advantages</span>
+                            </div>
+                        </li>
+                        <li class="hybrid-item">
+                            <span class="hybrid-icon">🎯</span>
+                            <div>
+                                <strong>Proactive Risk Mastery</strong>
+                                <span>Identify and close gaps before competitors exploit them</span>
+                            </div>
+                        </li>
+                        <li class="hybrid-item">
+                            <span class="hybrid-icon">💬</span>
+                            <div>
+                                <strong>Human-First Storytelling</strong>
+                                <span>Build trust and relationships no algorithm can replicate</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <button class="cta-button" onclick="startQuiz()" style="margin-top: 40px;">Get My Readiness Report</button>
+        </div>
+    </section>
+
+    <!-- AI Imperative Section: Why This Matters NOW -->
+    <section class="ai-imperative-section" id="imperative">
+        <div class="container">
+            <div class="imperative-header">
+                <h2>The AI Imperative: Why This Matters NOW</h2>
+                <p class="imperative-subtitle">This is not evolution. This is revolution.</p>
+            </div>
+
+            <div class="imperative-grid">
+                <div class="imperative-card" style="animation-delay: 0.1s;">
+                    <div class="imperative-number">1</div>
+                    <div class="imperative-icon-wrapper">
+                        <div class="imperative-icon">
+                            <!-- Growth/Chart Icon -->
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3>The Defining Investment Theme of Our Lifetime</h3>
+                    <p>There will be no bigger secular theme than AI in our lifetime. AI is poised to transform the global economy at an unprecedented scale.</p>
+                </div>
+
+                <div class="imperative-card" style="animation-delay: 0.25s;">
+                    <div class="imperative-number">2</div>
+                    <div class="imperative-icon-wrapper">
+                        <div class="imperative-icon">
+                            <!-- Building/Company Icon -->
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                                <line x1="9" y1="22" x2="9" y2="22"></line>
+                                <line x1="15" y1="22" x2="15" y2="22"></line>
+                                <path d="M9 6h6M9 10h6M9 14h6M9 18h6"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3>Every Company Will Be an AI Company</h3>
+                    <p>In the last 20 years every company became a tech company. In the next 20, every company will be an AI company — or cease to exist.</p>
+                </div>
+
+                <div class="imperative-card" style="animation-delay: 0.4s;">
+                    <div class="imperative-number">3</div>
+                    <div class="imperative-icon-wrapper">
+                        <div class="imperative-icon">
+                            <!-- Target/Focus Icon -->
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <circle cx="12" cy="12" r="6"></circle>
+                                <circle cx="12" cy="12" r="2"></circle>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3>Invest or Underperform</h3>
+                    <p>Leaders and investors who don't gain exposure to AI will likely underperform as AI-driven growth accelerates. The global economy will be fundamentally transformed.</p>
+                </div>
+
+                <div class="imperative-card" style="animation-delay: 0.55s;">
+                    <div class="imperative-number">4</div>
+                    <div class="imperative-icon-wrapper">
+                        <div class="imperative-icon">
+                            <!-- Multiplier/Spark Icon -->
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3>The Biggest Economic Multiplier in History</h3>
+                    <p>AI will be the biggest economic multiplier in history, driving productivity gains beyond even past industrial revolutions. This is your decade to position for it.</p>
+                </div>
+            </div>
+
+            <div class="tech-confluence">
+                <h3>Why Now? Three Forces Converge for the First Time Ever</h3>
+                <div class="confluence-grid">
+                    <div class="confluence-item">
+                        <div class="confluence-icon">
+                            <svg class="quantum-processor" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="quantumGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#00D9FF;stop-opacity:1" />
+                                        <stop offset="50%" style="stop-color:#0099FF;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#0055FF;stop-opacity:1" />
+                                    </linearGradient>
+                                    <filter id="quantumBlur" x="-50%" y="-50%" width="200%" height="200%">
+                                        <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+                                    </filter>
+                                </defs>
+                                <!-- Outer glow -->
+                                <circle cx="60" cy="60" r="55" fill="none" stroke="url(#quantumGlow)" stroke-width="2" opacity="0.4" filter="url(#quantumBlur)">
+                                    <animate attributeName="r" values="55;58;55" dur="3s" repeatCount="indefinite" />
+                                </circle>
+                                <!-- Core processor -->
+                                <rect x="30" y="30" width="60" height="60" rx="8" fill="url(#quantumGlow)" opacity="0.3" />
+                                <!-- Fiber optic circuits -->
+                                <path d="M 45 60 Q 60 45, 75 60" stroke="url(#quantumGlow)" stroke-width="2" fill="none" opacity="0.8" stroke-linecap="round">
+                                    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2.5s" repeatCount="indefinite" />
+                                </path>
+                                <path d="M 60 45 Q 75 60, 60 75" stroke="url(#quantumGlow)" stroke-width="2" fill="none" opacity="0.8" stroke-linecap="round">
+                                    <animate attributeName="opacity" values="0.5;0.8;0.5" dur="2.5s" repeatCount="indefinite" begin="0.5s" />
+                                </path>
+                                <path d="M 45 60 Q 60 75, 75 60" stroke="url(#quantumGlow)" stroke-width="2" fill="none" opacity="0.8" stroke-linecap="round">
+                                    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2.5s" repeatCount="indefinite" begin="1s" />
+                                </path>
+                                <!-- Light nodes -->
+                                <circle cx="45" cy="45" r="3" fill="url(#quantumGlow)">
+                                    <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite" />
+                                </circle>
+                                <circle cx="75" cy="45" r="3" fill="url(#quantumGlow)">
+                                    <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite" begin="0.3s" />
+                                </circle>
+                                <circle cx="60" cy="60" r="4" fill="url(#quantumGlow)">
+                                    <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite" begin="0.6s" />
+                                </circle>
+                                <circle cx="45" cy="75" r="3" fill="url(#quantumGlow)">
+                                    <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite" begin="0.9s" />
+                                </circle>
+                                <circle cx="75" cy="75" r="3" fill="url(#quantumGlow)">
+                                    <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite" begin="1.2s" />
+                                </circle>
+                            </svg>
+                        </div>
+                        <h4>Infinite Compute</h4>
+                        <p>Moore's Law exponential curve continues climbing. Quantum computing on the horizon.</p>
+                    </div>
+                    <div class="confluence-item">
+                        <div class="confluence-icon">
+                            <svg class="data-nebula" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <radialGradient id="nebula" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0%" style="stop-color:#FF6B9D;stop-opacity:0.8" />
+                                        <stop offset="50%" style="stop-color:#4A90E2;stop-opacity:0.4" />
+                                        <stop offset="100%" style="stop-color:#1A237E;stop-opacity:0" />
+                                    </radialGradient>
+                                    <filter id="nebulaBglow" x="-50%" y="-50%" width="200%" height="200%">
+                                        <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
+                                    </filter>
+                                </defs>
+                                <!-- Background nebula -->
+                                <ellipse cx="60" cy="60" rx="50" ry="50" fill="url(#nebula)" filter="url(#nebulaBglow)" opacity="0.6">
+                                    <animate attributeName="opacity" values="0.4;0.7;0.4" dur="4s" repeatCount="indefinite" />
+                                </ellipse>
+                                <!-- Interconnected nodes - data points -->
+                                <circle cx="30" cy="30" r="2" fill="#FF6B9D" opacity="0.8">
+                                    <animate attributeName="r" values="2;4;2" dur="1.5s" repeatCount="indefinite" />
+                                </circle>
+                                <circle cx="90" cy="30" r="2" fill="#FF6B9D" opacity="0.8">
+                                    <animate attributeName="r" values="2;4;2" dur="1.5s" repeatCount="indefinite" begin="0.25s" />
+                                </circle>
+                                <circle cx="60" cy="20" r="2" fill="#4A90E2" opacity="0.8">
+                                    <animate attributeName="r" values="2;4;2" dur="1.5s" repeatCount="indefinite" begin="0.5s" />
+                                </circle>
+                                <circle cx="20" cy="60" r="2" fill="#4A90E2" opacity="0.8">
+                                    <animate attributeName="r" values="2;4;2" dur="1.5s" repeatCount="indefinite" begin="0.75s" />
+                                </circle>
+                                <circle cx="100" cy="60" r="2" fill="#FF6B9D" opacity="0.8">
+                                    <animate attributeName="r" values="2;4;2" dur="1.5s" repeatCount="indefinite" begin="1s" />
+                                </circle>
+                                <circle cx="60" cy="100" r="2" fill="#4A90E2" opacity="0.8">
+                                    <animate attributeName="r" values="2;4;2" dur="1.5s" repeatCount="indefinite" begin="1.25s" />
+                                </circle>
+                                <circle cx="30" cy="90" r="2" fill="#FF6B9D" opacity="0.8">
+                                    <animate attributeName="r" values="2;4;2" dur="1.5s" repeatCount="indefinite" begin="1.5s" />
+                                </circle>
+                                <circle cx="90" cy="90" r="2" fill="#4A90E2" opacity="0.8">
+                                    <animate attributeName="r" values="2;4;2" dur="1.5s" repeatCount="indefinite" begin="1.75s" />
+                                </circle>
+                                <circle cx="60" cy="60" r="2.5" fill="#FFD700" opacity="0.9">
+                                    <animate attributeName="r" values="2.5;4.5;2.5" dur="1.5s" repeatCount="indefinite" begin="0.1s" />
+                                </circle>
+                                <!-- Connection lines -->
+                                <line x1="30" y1="30" x2="90" y2="30" stroke="#4A90E2" stroke-width="0.8" opacity="0.3" />
+                                <line x1="90" y1="30" x2="100" y2="60" stroke="#FF6B9D" stroke-width="0.8" opacity="0.3" />
+                                <line x1="100" y1="60" x2="90" y2="90" stroke="#4A90E2" stroke-width="0.8" opacity="0.3" />
+                                <line x1="90" y1="90" x2="30" y2="90" stroke="#FF6B9D" stroke-width="0.8" opacity="0.3" />
+                                <line x1="30" y1="90" x2="20" y2="60" stroke="#4A90E2" stroke-width="0.8" opacity="0.3" />
+                                <line x1="20" y1="60" x2="30" y2="30" stroke="#FF6B9D" stroke-width="0.8" opacity="0.3" />
+                                <!-- Inner connections -->
+                                <line x1="60" y1="20" x2="60" y2="60" stroke="#FFD700" stroke-width="1" opacity="0.4" />
+                                <line x1="60" y1="60" x2="60" y2="100" stroke="#FFD700" stroke-width="1" opacity="0.4" />
+                            </svg>
+                        </div>
+                        <h4>Massive Data Availability</h4>
+                        <p>181 ZB of data generated globally annually. More data than ever existed before.</p>
+                    </div>
+                    <div class="confluence-item">
+                        <div class="confluence-icon">
+                            <svg class="neural-brain" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="neuralGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                                        <stop offset="50%" style="stop-color:#FFA500;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#FF8C00;stop-opacity:1" />
+                                    </linearGradient>
+                                    <filter id="neuralGlow" x="-50%" y="-50%" width="200%" height="200%">
+                                        <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" />
+                                    </filter>
+                                </defs>
+                                <!-- Profile outline -->
+                                <path d="M 50 25 Q 45 30, 45 40 L 45 70 Q 45 85, 55 90 L 65 90 Q 75 85, 75 70 L 75 40 Q 75 30, 70 25 Z" fill="none" stroke="url(#neuralGold)" stroke-width="1.5" opacity="0.6" />
+                                <!-- Neural pathways - complex geometry -->
+                                <path d="M 55 35 Q 60 40, 65 35" stroke="url(#neuralGold)" stroke-width="1.5" fill="none" opacity="0.7" filter="url(#neuralGlow)" stroke-linecap="round">
+                                    <animate attributeName="opacity" values="0.3;0.9;0.3" dur="2s" repeatCount="indefinite" />
+                                </path>
+                                <path d="M 50 45 Q 60 50, 70 45" stroke="url(#neuralGold)" stroke-width="1.5" fill="none" opacity="0.7" filter="url(#neuralGlow)" stroke-linecap="round">
+                                    <animate attributeName="opacity" values="0.4;0.9;0.4" dur="2.2s" repeatCount="indefinite" begin="0.3s" />
+                                </path>
+                                <path d="M 52 55 Q 60 60, 68 55" stroke="url(#neuralGold)" stroke-width="1.5" fill="none" opacity="0.7" filter="url(#neuralGlow)" stroke-linecap="round">
+                                    <animate attributeName="opacity" values="0.3;0.9;0.3" dur="2.1s" repeatCount="indefinite" begin="0.6s" />
+                                </path>
+                                <path d="M 50 65 Q 60 70, 70 65" stroke="url(#neuralGold)" stroke-width="1.5" fill="none" opacity="0.7" filter="url(#neuralGlow)" stroke-linecap="round">
+                                    <animate attributeName="opacity" values="0.4;0.9;0.4" dur="2.3s" repeatCount="indefinite" begin="0.9s" />
+                                </path>
+                                <!-- Vertical neural connections -->
+                                <path d="M 57 35 L 57 75" stroke="url(#neuralGold)" stroke-width="1" fill="none" opacity="0.5" stroke-dasharray="2,3">
+                                    <animate attributeName="opacity" values="0.2;0.7;0.2" dur="2.5s" repeatCount="indefinite" />
+                                </path>
+                                <path d="M 63 35 L 63 75" stroke="url(#neuralGold)" stroke-width="1" fill="none" opacity="0.5" stroke-dasharray="2,3">
+                                    <animate attributeName="opacity" values="0.2;0.7;0.2" dur="2.5s" repeatCount="indefinite" begin="0.5s" />
+                                </path>
+                                <!-- Synaptic nodes -->
+                                <circle cx="55" cy="35" r="2" fill="url(#neuralGold)" filter="url(#neuralGlow)">
+                                    <animate attributeName="r" values="2;3.5;2" dur="1.8s" repeatCount="indefinite" />
+                                </circle>
+                                <circle cx="65" cy="35" r="2" fill="url(#neuralGold)" filter="url(#neuralGlow)">
+                                    <animate attributeName="r" values="2;3.5;2" dur="1.8s" repeatCount="indefinite" begin="0.3s" />
+                                </circle>
+                                <circle cx="50" cy="50" r="2" fill="url(#neuralGold)" filter="url(#neuralGlow)">
+                                    <animate attributeName="r" values="2;3.5;2" dur="1.8s" repeatCount="indefinite" begin="0.6s" />
+                                </circle>
+                                <circle cx="70" cy="50" r="2" fill="url(#neuralGold)" filter="url(#neuralGlow)">
+                                    <animate attributeName="r" values="2;3.5;2" dur="1.8s" repeatCount="indefinite" begin="0.9s" />
+                                </circle>
+                                <circle cx="60" cy="65" r="2.5" fill="url(#neuralGold)" filter="url(#neuralGlow)">
+                                    <animate attributeName="r" values="2.5;4;2.5" dur="1.8s" repeatCount="indefinite" begin="1.2s" />
+                                </circle>
+                            </svg>
+                        </div>
+                        <h4>AI Algorithms at Scale</h4>
+                        <p>Generative AI breakthrough (ChatGPT). Advanced algorithms now accessible to all organizations.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-section">
+                <blockquote>
+                    "The development of AI is as fundamental as the creation of the microprocessor, the personal computer, the internet, and the mobile phone."
+                </blockquote>
+                <p class="quote-attribution">— Bill Gates</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof-section">
+        <div class="container">
+            <div class="proof-header">
+                <h2>Join 5,000+ Leaders Assessing Their AI Readiness</h2>
+                <p>Organizations trust our assessment to identify critical AI training gaps</p>
+            </div>
+
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <div class="testimonial-quote">
+                        <svg class="quote-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 16c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8-8-3.59-8-8z" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <path d="M14 14h-2v4h2v-4zm4 0h-2v4h2v-4z" fill="currentColor"/>
+                        </svg>
+                        <p class="testimonial-text">
+                            "This assessment helped us identify $2.3M in potential training investment gaps and compliance risks we didn't know we had. It became the foundation for our entire AI readiness program."
+                        </p>
+                    </div>
+                    <div class="testimonial-attribution">
+                        <div class="attribution-info">
+                            <div class="attribution-name">Sarah Chen</div>
+                            <div class="attribution-title">VP of Talent & Learning | Software Industry</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <div class="testimonial-quote">
+                        <svg class="quote-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 16c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8-8-3.59-8-8z" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <path d="M14 14h-2v4h2v-4zm4 0h-2v4h2v-4z" fill="currentColor"/>
+                        </svg>
+                        <p class="testimonial-text">
+                            "Our sales team's AI confidence went from 23% to 81% in 6 weeks. The Hybrid Advisor framework is the most practical AI training I've seen."
+                        </p>
+                    </div>
+                    <div class="testimonial-attribution">
+                        <div class="attribution-info">
+                            <div class="attribution-name">James Whitfield</div>
+                            <div class="attribution-title">VP Sales | Software Industry</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <div class="testimonial-quote">
+                        <svg class="quote-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 16c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8-8-3.59-8-8z" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <path d="M14 14h-2v4h2v-4zm4 0h-2v4h2v-4z" fill="currentColor"/>
+                        </svg>
+                        <p class="testimonial-text">
+                            "I was skeptical. 45 minutes after the quiz, I had a clear 4-week action plan. Enrolled the same day."
+                        </p>
+                    </div>
+                    <div class="testimonial-attribution">
+                        <div class="attribution-info">
+                            <div class="attribution-name">Dr. Priya Mehta</div>
+                            <div class="attribution-title">Director of L&D | Global 100 Financial Services Firm</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="proof-metrics">
+                <div class="metric-item">
+                    <div class="metric-value">5,000+</div>
+                    <div class="metric-label">Leaders Assessed</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value">92%</div>
+                    <div class="metric-label">Identified Critical Gaps</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value">★★★★★</div>
+                    <div class="metric-label">4.8 from 312 Assessment Takers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Urgency Banner -->
+    <div class="urgency-banner">
+        <div class="banner-content">
+            <span class="urgency-icon">⏰</span>
+            <span class="urgency-text">Q2 Cohort Starts April 1st | Limited Spots Available</span>
+        </div>
+    </div>
+
+    <!-- MBA Section -->
+    <section class="mba-section" id="venn">
+        <div class="container">
+            <p class="venn-eyebrow">THE HYBRID ADVISOR EDGE</p>
+            <h2 class="mba-title">Where AI Meets<br><span class="highlight">Human Brilliance</span></h2>
+            <p class="mba-subtitle">That intersection is where you operate — and where the <strong>56% wage premium lives</strong>.</p>
+
+            <!-- Hybrid Advisor Venn Diagram Section -->
+            <section class="py-24 px-6 border-t border-brand-border" style="position:relative; overflow:hidden;">
+                <!-- Ambient background glows -->
+                <div style="position:absolute; top:15%; left:15%; width:480px; height:480px; background: radial-gradient(circle, rgba(59,130,246,0.08), transparent 70%); transform:translate(-50%, -50%); pointer-events:none;"></div>
+                <div style="position:absolute; top:15%; right:15%; width:480px; height:480px; background: radial-gradient(circle, rgba(249,115,22,0.08), transparent 70%); transform:translate(50%, -50%); pointer-events:none;"></div>
+
+                <div class="max-w-5xl m-auto">
+                    <div class="text-center m-6-f">
+                        <h2 style="font-size:3rem; font-weight:bold; color:#fbbf24; margin-bottom:1rem;">The Hybrid Advisor Edge</h2>
+                        <p style="color:#d1d5db; margin-bottom:2rem;">Where artificial intelligence meets human brilliance — that's where you operate.</p>
+                    </div>
+
+        <svg viewBox="0 0 800 480" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:720px; height:auto; display: block; margin: 0 auto;">
+          <defs>
+            <!-- Cyan/blue fill for AI circle -->
+            <radialGradient id="venn-ai-glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.14"/>
+              <stop offset="50%" stop-color="#0891B2" stop-opacity="0.09375"/>
+              <stop offset="100%" stop-color="#0891B2" stop-opacity="0"/>
+            </radialGradient>
+            <!-- Orange fill for Human circle -->
+            <radialGradient id="venn-human-glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#F97316" stop-opacity="0.14"/>
+              <stop offset="50%" stop-color="#EA580C" stop-opacity="0.09375"/>
+              <stop offset="100%" stop-color="#EA580C" stop-opacity="0"/>
+            </radialGradient>
+            <!-- Overlap gradient -->
+            <radialGradient id="venn-overlap" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#f5d76e" stop-opacity="0.22"/>
+              <stop offset="50%" stop-color="#c8a415" stop-opacity="0.1"/>
+              <stop offset="100%" stop-color="#8a6a12" stop-opacity="0.02"/>
+            </radialGradient>
+            <!-- Heavy blur for diffusion glow -->
+            <filter id="venn-diffuse-cyan" x="-60%" y="-60%" width="220%" height="220%">
+              <feGaussianBlur stdDeviation="18"/>
+            </filter>
+            <filter id="venn-diffuse-orange" x="-60%" y="-60%" width="220%" height="220%">
+              <feGaussianBlur stdDeviation="18"/>
+            </filter>
+            <filter id="venn-blur" x="-40%" y="-40%" width="180%" height="180%">
+              <feGaussianBlur stdDeviation="12"/>
+            </filter>
+            <filter id="venn-glow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="4" result="g"/>
+              <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="venn-ring-glow-cyan" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="8" result="g"/>
+              <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="venn-ring-glow-orange" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="8" result="g"/>
+              <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <!-- Clip for overlap region -->
+            <clipPath id="venn-clip-left">
+              <circle cx="300" cy="230" r="185"/>
+            </clipPath>
+            <!-- Circular clip for images -->
+            <clipPath id="venn-ai-img-clip">
+              <circle cx="80" cy="80" r="52"/>
+            </clipPath>
+            <clipPath id="venn-human-img-clip">
+              <circle cx="80" cy="80" r="52"/>
+            </clipPath>
+          </defs>
+
+          <!-- ===== AI CIRCLE (left, cyan) ===== -->
+          <!-- Deep diffusion glow layer — pulses 0-3s -->
+          <circle cx="300" cy="230" r="195" fill="#22D3EE" opacity="0" filter="url(#venn-diffuse-cyan)">
+            <animate attributeName="opacity" values="0.08;0.25;0.08" dur="3s" repeatCount="indefinite" begin="0s"/>
+          </circle>
+          <!-- Medium diffusion ring -->
+          <circle cx="300" cy="230" r="190" fill="none" stroke="#22D3EE" stroke-width="6" opacity="0" filter="url(#venn-ring-glow-cyan)">
+            <animate attributeName="opacity" values="0.05;0.2;0.05" dur="3s" repeatCount="indefinite" begin="0s"/>
+          </circle>
+          <!-- Circle fill -->
+          <circle cx="300" cy="230" r="185" fill="url(#venn-ai-glow)"/>
+          <!-- Main ring with pulse -->
+          <circle cx="300" cy="230" r="185" fill="none" stroke="#22D3EE" stroke-width="2.5" opacity="0.4">
+            <animate attributeName="opacity" values="0.3;0.85;0.3" dur="3s" repeatCount="indefinite" begin="0s"/>
+            <animate attributeName="stroke-width" values="2;4;2" dur="3s" repeatCount="indefinite" begin="0s"/>
+          </circle>
+          <!-- Inner ring -->
+          <circle cx="300" cy="230" r="178" fill="none" stroke="#22D3EE" stroke-width="0.5" opacity="0.12">
+            <animate attributeName="opacity" values="0.08;0.2;0.08" dur="3s" repeatCount="indefinite" begin="0s"/>
+          </circle>
+          <!-- Outer expanding pulse ring -->
+          <circle cx="300" cy="230" r="185" fill="none" stroke="#22D3EE" stroke-width="1.5" opacity="0">
+            <animate attributeName="r" values="185;210;210" dur="3s" repeatCount="indefinite" begin="0s"/>
+            <animate attributeName="opacity" values="0;0.3;0" dur="3s" repeatCount="indefinite" begin="0s"/>
+          </circle>
+
+          <!-- ===== HUMAN CIRCLE (right, orange) ===== -->
+          <!-- Deep diffusion glow layer — pulses 1.5-4.5s (offset by half) -->
+          <circle cx="500" cy="230" r="195" fill="#F97316" opacity="0" filter="url(#venn-diffuse-orange)">
+            <animate attributeName="opacity" values="0.08;0.25;0.08" dur="3s" repeatCount="indefinite" begin="1.5s"/>
+          </circle>
+          <!-- Medium diffusion ring -->
+          <circle cx="500" cy="230" r="190" fill="none" stroke="#F97316" stroke-width="6" opacity="0" filter="url(#venn-ring-glow-orange)">
+            <animate attributeName="opacity" values="0.05;0.2;0.05" dur="3s" repeatCount="indefinite" begin="1.5s"/>
+          </circle>
+          <!-- Circle fill -->
+          <circle cx="500" cy="230" r="185" fill="url(#venn-human-glow)"/>
+          <!-- Main ring with pulse -->
+          <circle cx="500" cy="230" r="185" fill="none" stroke="#F97316" stroke-width="2.5" opacity="0.4">
+            <animate attributeName="opacity" values="0.3;0.85;0.3" dur="3s" repeatCount="indefinite" begin="1.5s"/>
+            <animate attributeName="stroke-width" values="2;4;2" dur="3s" repeatCount="indefinite" begin="1.5s"/>
+          </circle>
+          <!-- Inner ring -->
+          <circle cx="500" cy="230" r="178" fill="none" stroke="#F97316" stroke-width="0.5" opacity="0.12">
+            <animate attributeName="opacity" values="0.08;0.2;0.08" dur="3s" repeatCount="indefinite" begin="1.5s"/>
+          </circle>
+          <!-- Outer expanding pulse ring -->
+          <circle cx="500" cy="230" r="185" fill="none" stroke="#F97316" stroke-width="1.5" opacity="0">
+            <animate attributeName="r" values="185;210;210" dur="3s" repeatCount="indefinite" begin="1.5s"/>
+            <animate attributeName="opacity" values="0;0.3;0" dur="3s" repeatCount="indefinite" begin="1.5s"/>
+          </circle>
+
+          <!-- ===== OVERLAP ZONE ===== -->
+          <g clip-path="url(#venn-clip-left)">
+            <circle cx="500" cy="230" r="185" fill="url(#venn-overlap)"/>
+          </g>
+          <g clip-path="url(#venn-clip-left)">
+            <circle cx="500" cy="230" r="185" fill="none" stroke="#f5d76e" stroke-width="1.2" opacity="0.25"/>
+          </g>
+
+          <!-- ===== AI IMAGE (Neural Network Animation) ===== -->
+          <foreignObject x="80" y="148" width="160" height="160">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="width:160px;height:160px;border-radius:50%;overflow:hidden;border:2px solid rgba(34,211,238,0.4);box-shadow:0 0 24px rgba(34,211,238,0.3);animation:venn-img-float-ai 4s ease-in-out infinite;background:#000411;">
+              <canvas id="ai-neural-network-canvas" width="160" height="160" style="width:100%;height:100%;display:block;"></canvas>
+            </div>
+          </foreignObject>
+          <!-- AI Label -->
+          <text x="160" y="340" font-family="Inter,system-ui,sans-serif" font-size="18" fill="#22D3EE" font-weight="800" text-anchor="middle" letter-spacing="0.12em">AI</text>
+          <text x="160" y="358" font-family="Inter,system-ui,sans-serif" font-size="12" fill="#22D3EE" font-weight="700" text-anchor="middle" letter-spacing="0.1em" opacity="0.7">COMPUTATIONAL</text>
+          <text x="160" y="372" font-family="Inter,system-ui,sans-serif" font-size="12" fill="#22D3EE" font-weight="700" text-anchor="middle" letter-spacing="0.1em" opacity="0.7">POWER</text>
+
+          <!-- ===== HUMAN IMAGE (Unsplash: human connection / handshake) ===== -->
+          <foreignObject x="560" y="148" width="160" height="160">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="width:160px;height:160px;border-radius:50%;overflow:hidden;border:2px solid rgba(249,115,22,0.4);box-shadow:0 0 24px rgba(249,115,22,0.3);animation:venn-img-float-human 4s ease-in-out infinite;">
+              <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=200&h=200&fit=crop&crop=faces" alt="Human Connection" style="width:100%;height:100%;object-fit:cover;filter:saturate(1.1) brightness(0.85) sepia(0.15);" loading="lazy"/>
+            </div>
+          </foreignObject>
+          <!-- Human Label -->
+          <text x="640" y="340" font-family="Inter,system-ui,sans-serif" font-size="18" fill="#F97316" font-weight="800" text-anchor="middle" letter-spacing="0.12em">HUMAN</text>
+          <text x="640" y="358" font-family="Inter,system-ui,sans-serif" font-size="12" fill="#F97316" font-weight="700" text-anchor="middle" letter-spacing="0.1em" opacity="0.7">EMOTIONAL</text>
+          <text x="640" y="372" font-family="Inter,system-ui,sans-serif" font-size="12" fill="#F97316" font-weight="700" text-anchor="middle" letter-spacing="0.1em" opacity="0.7">INTELLIGENCE</text>
+
+          <!-- ===== CENTER OVERLAP CONTENT ===== -->
+          <ellipse cx="400" cy="210" rx="85" ry="45" fill="#f5d76e" opacity="0.05" filter="url(#venn-blur)"/>
+          <text x="400" y="205" font-family="Playfair Display,Georgia,serif" font-size="38" fill="#f5d76e" font-weight="900" text-anchor="middle" letter-spacing="0.04em" filter="url(#venn-glow)">HYBRID</text>
+          <text x="400" y="240" font-family="Playfair Display,Georgia,serif" font-size="38" fill="#f5d76e" font-weight="900" text-anchor="middle" letter-spacing="0.04em" filter="url(#venn-glow)">ADVISOR</text>
+          <text x="400" y="268" font-family="Inter,system-ui,sans-serif" font-size="15" fill="#d4a900" font-weight="700" text-anchor="middle" letter-spacing="0.2em">YOUR EDGE</text>
+          <line x1="355" y1="278" x2="445" y2="278" stroke="#f5d76e" stroke-width="0.5" opacity="0.3"/>
+        </svg>
+      </div>
+                </div>
+
+                <div class="gold-divider mt-16"></div>
+            </section>
+
+            <!-- Caption -->
+            <div class="venn-caption">
+                THE HYBRID ADVISOR INTERSECTION IS WHERE THE 56% WAGE PREMIUM LIVES
+            </div>
+
+            <!-- Typed-in definition block -->
+            <div class="venn-definition-block" id="vennDefBlock">
+                <div class="vdd-left">
+                    <div class="vdd-label">WHAT IS A HYBRID ADVISOR?</div>
+                    <p class="vdd-text" id="vddText1"></p>
+                </div>
+                <div class="vdd-divider"></div>
+                <div class="vdd-right">
+                    <div class="vdd-label">THE 56% WAGE PREMIUM</div>
+                    <p class="vdd-text" id="vddText2"></p>
+                    <div class="vdd-sources">
+                        <span class="vdd-source">PwC Global AI Jobs Barometer 2025</span>
+                        <span class="vdd-source">World Economic Forum Future of Jobs Report 2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Becoming Section -->
+    <section class="becoming-section" id="program">
+        <div class="container">
+            <h2 class="becoming-title">Master Critical AI skills in just 6 weekly online classes of 60 Minutes each</h2>
+            <div class="becoming-subtitle-wrap" style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 50px;">
+                <p class="becoming-subtitle" style="margin-bottom: 30px; max-width: 800px; text-align: center; color: #f9a826;">You will learn, experiment and develop your skills as a world class "Hybrid Advisor" and earn a Certification badge you can use on LinkedIn.</p>
+                
+                <div class="cert-badge-container" style="display: flex; align-items: center; gap: 20px;">
+                    <div class="cert-icon" style="width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, #e6a817, #d88a00); box-shadow: 0 0 30px rgba(230, 168, 23, 0.4); border: 3px solid #fff; display: flex; align-items: center; justify-content: center;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="#fff" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="cert-text-info" style="text-align: left;">
+                        <h4 style="margin: 0; color: #fbbf24; font-size: 18px; font-weight: 800; letter-spacing: 1px;">HYBRID ADVISOR™</h4>
+                        <p style="margin: 4px 0; color: #d1d5db; font-size: 14px;">Professional Certification Program</p>
+                        <span style="display: inline-block; background: rgba(30, 90, 150, 0.3); color: #4fa8e8; font-size: 10px; font-weight: 800; padding: 4px 8px; border-radius: 4px; letter-spacing: 0.5px; border: 1px solid rgba(79, 168, 232, 0.2);">ACCEPTED ON LINKEDIN</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-card strategic-app">
+                    <div class="skill-header">
+                        <svg class="skill-icon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="20" cy="20" r="12" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="20" cy="20" r="6" fill="currentColor"/>
+                            <line x1="20" y1="2" x2="20" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="38" y1="20" x2="32" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="20" y1="38" x2="20" y2="32" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="2" y1="20" x2="8" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <h3>Strategic Application</h3>
+                    </div>
+                    <ul class="skill-list" style="margin-top: 30px;">
+                        <li style="margin-bottom: 24px;"><strong>Online class 1.</strong> Strategic foundations — quantify your own gap and plot your 12-week roadmap</li>
+                        <li style="margin-bottom: 24px;"><strong>Online class 2.</strong> Win Big — create lead, a feature tour or a discovery meeting (repeat for 3 reps per rep, per week)</li>
+                        <li style="margin-bottom: 24px;"><strong>Online class 3.</strong> Opening intelligence — what to ask to create discovery meetings</li>
+                    </ul>
+                    <p class="skill-footer">→ See Strategic planning infrastructure & how our best customer stories</p>
+                </div>
+
+                <div class="skill-card technical-prof">
+                    <div class="skill-header">
+                        <svg class="skill-icon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="20" r="8" stroke="currentColor" stroke-width="2"/>
+                            <path d="M20 4v4M20 28v4M4 20h4M28 20h4M8.5 8.5l2.8 2.8M22.2 22.2l2.8 2.8M8.5 31.5l2.8-2.8M22.2 17.8l2.8-2.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <h3>Technical Proficiency</h3>
+                    </div>
+                    <ul class="skill-list" style="margin-top: 30px;">
+                        <li style="margin-bottom: 24px;"><strong>Online class 4.</strong> Prototyping for Power — advanced promptnineering for leads, features, and ROI impact</li>
+                        <li style="margin-bottom: 24px;"><strong>Online class 5.</strong> Coding & Workflow — build your-best-AI-2 conversational scripts and competitive positioning</li>
+                        <li style="margin-bottom: 24px;"><strong>Online class 6.</strong> Delivery & a Sales call — implementation roadmaps for value-realization + Hands-on Coaching</li>
+                    </ul>
+                    <p class="skill-footer">→ See technical deep dives with implementation roadmaps</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Endorsements Section -->
+    <section class="endorsements-section">
+        <div class="container">
+            <div class="endorsements-header">
+                <h2>Trusted by Enterprise Leaders</h2>
+                <p>Executives from Fortune 500 firms on Scott's impact</p>
+            </div>
+
+            <div class="endorsements-grid">
+                <!-- IRALOGIX: AI Training Impact -->
+                <div class="endorsement-card iralogix">
+                    <div class="endorsement-quote">
+                        <p>
+                            "Scott successfully demonstrated how to translate AI from a buzzword into a <span class="highlight-key">mission-critical operating capability</span>. His presentation provided the exact bridge needed: a blend of high-level psychological insight, practical, hands-on AI application, and a deep understanding of our business."
+                        </p>
+                    </div>
+                    <div class="endorsement-attribution">
+                        <div class="attribution-title">VP, National Sales</div>
+                        <div class="attribution-company">IRALOGIX</div>
+                    </div>
+                </div>
+
+                <!-- Fidelity: Strategic Impact & Growth -->
+                <div class="endorsement-card fidelity">
+                    <div class="endorsement-quote">
+                        <p>
+                            "Scott was the 'driver' and innovator in entry into a new market that resulted in investors bringing in <span class="highlight-key">$10 billion of new, net assets</span> to the firm. His ability to work at both the strategic and tactical levels—creating a strategic vision of relevance and understanding the tactical actions needed to achieve superior results—differentiates him from his peers."
+                        </p>
+                    </div>
+                    <div class="endorsement-attribution">
+                        <div class="attribution-title">Executive Vice President</div>
+                        <div class="attribution-company">Fidelity Investments</div>
+                    </div>
+                </div>
+
+                <!-- Financial Engines: Innovation & Leadership -->
+                <div class="endorsement-card financial-engines">
+                    <div class="endorsement-quote">
+                        <p>
+                            "Scott consistently set himself apart with his <span class="highlight-key">wide range of experience and skills</span>, notably his ability to quickly and completely generate a first draft or pass at a project concept. He can be counted on as a resource for new and different approaches, maintaining a wide network of professionals to inform his own intuition."
+                        </p>
+                    </div>
+                    <div class="endorsement-attribution">
+                        <div class="attribution-title">Channel Marketing Director</div>
+                        <div class="attribution-company">Financial Engines</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Author Bio Section -->
+    <section class="author-bio-section" id="about">
+        <div class="container">
+            <div class="bio-wrapper">
+                <div class="bio-book">
+                    <!-- Aura / glow rings around book -->
+                    <div class="book-aura">
+                        <div class="aura-ring ar1"></div>
+                        <div class="aura-ring ar2"></div>
+                        <div class="aura-ring ar3"></div>
+                        <div class="aura-particles">
+                            <span class="ap ap1"></span><span class="ap ap2"></span>
+                            <span class="ap ap3"></span><span class="ap ap4"></span>
+                            <span class="ap ap5"></span><span class="ap ap6"></span>
+                        </div>
+                    </div>
+
+                    <!-- Detailed Book Cover Recreation -->
+                    <div class="book-3d-wrap">
+                        <div class="book-3d-spine"></div>
+                        <div class="book-3d-front">
+                            <!-- Top badge -->
+                            <div class="bk-badge">NEW RELEASE</div>
+
+                            <!-- Title area -->
+                            <div class="bk-title-wrap">
+                                <div class="bk-title-main">Storyselling</div>
+                                <div class="bk-title-sub">in The Age of AI</div>
+                            </div>
+
+                            <!-- Central golden compass/star graphic (SVG) -->
+                            <div class="bk-graphic">
+                                <svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg" class="bk-svg">
+                                    <!-- Outer glow circle -->
+                                    <circle cx="70" cy="70" r="60" fill="none" stroke="rgba(218,165,32,0.15)" stroke-width="1"/>
+                                    <circle cx="70" cy="70" r="50" fill="none" stroke="rgba(218,165,32,0.2)" stroke-width="0.5"/>
+                                    <!-- Geometric star lines - compass style -->
+                                    <line x1="70" y1="5" x2="70" y2="135" stroke="#c8a820" stroke-width="1.2" opacity="0.7"/>
+                                    <line x1="5" y1="70" x2="135" y2="70" stroke="#c8a820" stroke-width="1.2" opacity="0.7"/>
+                                    <line x1="20" y1="20" x2="120" y2="120" stroke="#daa520" stroke-width="1" opacity="0.6"/>
+                                    <line x1="120" y1="20" x2="20" y2="120" stroke="#daa520" stroke-width="1" opacity="0.6"/>
+                                    <!-- Star points (sharp 4-pointed) -->
+                                    <polygon points="70,8 74,60 70,50 66,60" fill="url(#goldGrad)" opacity="0.9"/>
+                                    <polygon points="70,132 74,80 70,90 66,80" fill="url(#goldGrad)" opacity="0.9"/>
+                                    <polygon points="8,70 60,74 50,70 60,66" fill="url(#goldGrad)" opacity="0.9"/>
+                                    <polygon points="132,70 80,74 90,70 80,66" fill="url(#goldGrad)" opacity="0.9"/>
+                                    <!-- Diagonal star points -->
+                                    <polygon points="22,22 58,62 52,52 62,58" fill="#daa520" opacity="0.75"/>
+                                    <polygon points="118,22 78,62 88,52 82,58" fill="#daa520" opacity="0.75"/>
+                                    <polygon points="22,118 58,78 52,88 62,82" fill="#daa520" opacity="0.75"/>
+                                    <polygon points="118,118 78,78 88,88 82,82" fill="#daa520" opacity="0.75"/>
+                                    <!-- Central circle with chat bubble -->
+                                    <circle cx="70" cy="70" r="20" fill="rgba(218,165,32,0.15)" stroke="#daa520" stroke-width="1.5"/>
+                                    <!-- Chat bubble shape -->
+                                    <path d="M58 63 Q58 57 64 57 L76 57 Q82 57 82 63 L82 71 Q82 77 76 77 L68 77 L64 82 L64 77 Q58 77 58 71 Z" fill="#daa520" opacity="0.9"/>
+                                    <!-- Dots in chat bubble -->
+                                    <circle cx="64" cy="67" r="2" fill="#fff" opacity="0.8"/>
+                                    <circle cx="70" cy="67" r="2" fill="#fff" opacity="0.8"/>
+                                    <circle cx="76" cy="67" r="2" fill="#fff" opacity="0.8"/>
+                                    <!-- Inner ring glow -->
+                                    <circle cx="70" cy="70" r="28" fill="none" stroke="rgba(218,165,32,0.35)" stroke-width="1"/>
+                                    <defs>
+                                        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#ffe566"/>
+                                            <stop offset="50%" style="stop-color:#daa520"/>
+                                            <stop offset="100%" style="stop-color:#b8860b"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                                <!-- Rotating glow ring over graphic -->
+                                <div class="bk-glow-ring"></div>
+                            </div>
+
+                            <!-- Bottom dark section -->
+                            <div class="bk-bottom">
+                                <div class="bk-framework-title">The Narrative Intelligence Framework:</div>
+                                <div class="bk-quote">"Through my Harvard ALM in Psychology and Babson MBA, I learned that narrative intelligence is a core driver of sales, persuasion and influence"</div>
+                            </div>
+
+                            <!-- Shimmer overlay -->
+                            <div class="bk-shimmer"></div>
+                        </div>
+                    </div>
+                    <a href="https://a.co/d/0f2Sk6LY" target="_blank" class="get-book-btn">Get the Book</a>
+                </div>
+                <div class="bio-content">
+                    <div class="bio-tag">Meet Your Instructor</div>
+                    <h2 class="bio-name">Scott Magnacca</h2>
+                    <p class="bio-headline">Author · Keynote Speaker · AI Readiness Strategist</p>
+                    <p class="bio-description">Scott Magnacca has spent 20+ years helping financial advisors, sales leaders, and enterprise teams translate complexity into clarity. His book <em>Storyselling in the Age of AI</em> is used by Fortune 500 organizations to bridge the gap between AI capability and human connection.</p>
+                    <p class="bio-description">As the creator of the Hybrid Advisor framework, Scott has guided 5,000+ leaders through AI readiness assessments — helping them identify gaps, build confidence, and future-proof their careers before competitors do.</p>
+                    <p class="bio-why-built" style="font-style: italic; color: #ffb088; margin: 24px 0; line-height: 1.8;">
+                        "I spent 15 years helping top advisors craft compelling stories — then AI emerged and I watched some of the best professionals I know become invisible overnight. I didn't build the Hybrid Advisor framework for a business reason. I built it because I refused to let that happen to the people I admired."
+                    </p>
+                    <div class="bio-credentials">
+                        <div class="credential-item">
+                            <span class="credential-icon">📚</span>
+                            <span>Author of <em>Storyselling in the Age of AI</em></span>
+                        </div>
+                        <div class="credential-item">
+                            <span class="credential-icon">🎤</span>
+                            <span>Keynote Speaker — AI, Sales & Leadership</span>
+                        </div>
+                        <div class="credential-item">
+                            <span class="credential-icon">🏆</span>
+                            <span>Creator of the Hybrid Advisor Framework</span>
+                        </div>
+                        <div class="credential-item">
+                            <span class="credential-icon">👥</span>
+                            <span>5,000+ Leaders Trained Globally</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Motivational CTA Section with Sun Rays -->
+    <section class="motivational-cta-section">
+        <!-- Sun Rays Background -->
+        <svg class="sun-rays-bg" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <defs>
+                <radialGradient id="sunGradient" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" style="stop-color:#FFB366;stop-opacity:0.8" />
+                    <stop offset="40%" style="stop-color:#FF8C42;stop-opacity:0.6" />
+                    <stop offset="100%" style="stop-color:#FF6B1A;stop-opacity:0" />
+                </radialGradient>
+                <filter id="sunGlow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="4" />
+                </filter>
+            </defs>
+
+            <!-- Gradient background -->
+            <defs>
+                <linearGradient id="sectionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#FF8C42;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#FFB366;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#FF6B1A;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <rect width="1200" height="600" fill="url(#sectionGradient)" />
+
+            <!-- Sun rays emanating from center -->
+            <g class="rays-container">
+                <!-- Large rays -->
+                <line x1="600" y1="300" x2="600" y2="50" stroke="url(#sunGradient)" stroke-width="40" opacity="0.6" filter="url(#sunGlow)" />
+                <line x1="600" y1="300" x2="900" y2="100" stroke="url(#sunGradient)" stroke-width="35" opacity="0.5" filter="url(#sunGlow)" />
+                <line x1="600" y1="300" x2="1050" y2="300" stroke="url(#sunGradient)" stroke-width="40" opacity="0.6" filter="url(#sunGlow)" />
+                <line x1="600" y1="300" x2="900" y2="500" stroke="url(#sunGradient)" stroke-width="35" opacity="0.5" filter="url(#sunGlow)" />
+                <line x1="600" y1="300" x2="600" y2="550" stroke="url(#sunGradient)" stroke-width="40" opacity="0.6" filter="url(#sunGlow)" />
+                <line x1="600" y1="300" x2="300" y2="500" stroke="url(#sunGradient)" stroke-width="35" opacity="0.5" filter="url(#sunGlow)" />
+                <line x1="600" y1="300" x2="150" y2="300" stroke="url(#sunGradient)" stroke-width="40" opacity="0.6" filter="url(#sunGlow)" />
+                <line x1="600" y1="300" x2="300" y2="100" stroke="url(#sunGradient)" stroke-width="35" opacity="0.5" filter="url(#sunGlow)" />
+
+                <!-- Medium rays for more density -->
+                <line x1="600" y1="300" x2="800" y2="50" stroke="url(#sunGradient)" stroke-width="25" opacity="0.4" filter="url(#sunGlow)" />
+                <line x1="600" y1="300" x2="950" y2="200" stroke="url(#sunGradient)" stroke-width="25" opacity="0.4" filter="url(#sunGlow)" />
+                <line x1="600" y1="300" x2="1000" y2="450" stroke="url(#sunGradient)" stroke-width="25" opacity="0.4" filter="url(#sunGlow)" />
+                <line x1="600" y1="300" x2="800" y2="550" stroke="url(#sunGradient)" stroke-width="25" opacity="0.4" filter="url(#sunGlow)" />
+                <line x1="600" y1="300" x2="400" y2="550" stroke="url(#sunGradient)" stroke-width="25" opacity="0.4" filter="url(#sunGlow)" />
+                <line x1="600" y1="300" x2="250" y2="450" stroke="url(#sunGradient)" stroke-width="25" opacity="0.4" filter="url(#sunGlow)" />
+                <line x1="600" y1="300" x2="200" y2="200" stroke="url(#sunGradient)" stroke-width="25" opacity="0.4" filter="url(#sunGlow)" />
+                <line x1="600" y1="300" x2="400" y2="50" stroke="url(#sunGradient)" stroke-width="25" opacity="0.4" filter="url(#sunGlow)" />
+            </g>
+        </svg>
+
+        <!-- Content overlay -->
+        <div class="motivational-content">
+            <div class="motivational-message">
+                <h2 class="motivational-heading">
+                    <span class="heading-glow">Your AI Advantage</span>
+                    <span class="heading-starts">Starts Here</span>
+                </h2>
+                <p class="motivational-subheading">
+                    <span class="subheading-highlight">The next 30 days</span> will define your competitive position.
+                    <span class="subheading-highlight">Close your gap.</span>
+                    <span class="subheading-highlight">Secure your premium.</span>
+                    <span class="subheading-highlight">Transform your career.</span>
+                </p>
+            </div>
+
+            <!-- Contact Box -->
+            <div class="contact-box-cta">
+                <h3 class="contact-box-title">Ready to Get Started?</h3>
+                <p class="contact-box-subtitle">Get personalized guidance and join thousands of leaders mastering AI readiness.</p>
+                <form class="contact-form" onsubmit="handleContactSubmit(event)">
+                    <input type="email" class="contact-input" placeholder="Your email address" required />
+                    <button type="submit" class="contact-button">Get My Action Plan</button>
+                </form>
+                <p class="contact-privacy">No spam. Unsubscribe anytime.</p>
+            </div>
+
+            <!-- Typewriter Quote Section -->
+            <div class="typewriter-quote-section">
+                <p class="typewriter-quote">
+                    <span class="white-text">Leaders who know their score & take action to improve it can </span><span class="gold-pulse">triple productivity, profits, and performance.</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <p class="footer-logo">60 Second AI Risk Quiz</p>
+                    <p class="footer-tagline">Helping leaders identify AI readiness gaps before competitors do.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="mailto:info@hybridadvisor.com" class="footer-link">Contact Us</a>
+                    <span class="footer-divider">|</span>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <span class="footer-divider">|</span>
+                    <a href="#" class="footer-link">Terms of Use</a>
+                </div>
+            </div>
+            <div class="footer-legal">
+                <p>&copy; 2025 Hybrid Advisor. All rights reserved. Results are for educational purposes only and do not constitute professional advice. Individual results may vary.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quiz Modal -->
+    <div id="quizModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeQuiz()">&times;</span>
+            <h2>AI Risk & Readiness Assessment</h2>
+            <div id="quizContainer"></div>
+        </div>
+    </div>
+
+    <!-- Popup 1: Free Chapter -->
+    <div id="popup1" class="popup-modal">
+        <div class="popup-content">
+            <span class="popup-close" onclick="closePopup('popup1')">&times;</span>
+            <div class="popup-body">
+                <div class="popup-icon">📖</div>
+                <h3>Free Chapter: Storyselling in the Age of AI</h3>
+                <p class="popup-description">Discover how to craft compelling narratives that resonate with AI-era decision makers. This exclusive chapter reveals the frameworks used by Fortune 500 leaders.</p>
+
+                <form class="popup-form" onsubmit="submitPopupForm(event, 'chapter')">
+                    <div class="form-group">
+                        <label for="popup1FirstName" class="sr-only">First Name</label>
+                        <input type="text" id="popup1FirstName" placeholder="First Name" required class="popup-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="popup1LastName" class="sr-only">Last Name</label>
+                        <input type="text" id="popup1LastName" placeholder="Last Name" required class="popup-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="popup1Email" class="sr-only">Email Address</label>
+                        <input type="email" id="popup1Email" placeholder="Email Address" required class="popup-input">
+                    </div>
+                    <button type="submit" class="popup-button">Get Free Chapter</button>
+                </form>
+                <p class="popup-privacy">We'll send it to your inbox instantly. No spam, ever.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup 2: Free Video -->
+    <div id="popup2" class="popup-modal">
+        <div class="popup-content">
+            <span class="popup-close" onclick="closePopup('popup2')">&times;</span>
+            <div class="popup-body">
+                <div class="popup-icon">🎬</div>
+                <h3>3 Killer Prompts That Will Transform Your Business</h3>
+                <p class="popup-description">Watch a 3-minute video revealing the exact AI prompts used by top consultants to drive revenue and reduce costs. Limited distribution.</p>
+
+                <form class="popup-form" onsubmit="submitPopupForm(event, 'video')">
+                    <div class="form-group">
+                        <label for="popup2FirstName" class="sr-only">First Name</label>
+                        <input type="text" id="popup2FirstName" placeholder="First Name" required class="popup-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="popup2LastName" class="sr-only">Last Name</label>
+                        <input type="text" id="popup2LastName" placeholder="Last Name" required class="popup-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="popup2Email" class="sr-only">Email Address</label>
+                        <input type="email" id="popup2Email" placeholder="Email Address" required class="popup-input">
+                    </div>
+                    <button type="submit" class="popup-button">Watch Free Video</button>
+                </form>
+                <p class="popup-privacy">Video link will be sent to your email immediately.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup 3: Free Presentation -->
+    <div id="popup3" class="popup-modal">
+        <div class="popup-content">
+            <span class="popup-close" onclick="closePopup('popup3')">&times;</span>
+            <div class="popup-body">
+                <div class="popup-icon">💼</div>
+                <h3>Turn LinkedIn Into Your Marketing Machine</h3>
+                <p class="popup-description">Download the presentation showing how to generate consistent qualified leads using LinkedIn. Includes templates, scripts, and a 30-day action plan.</p>
+
+                <form class="popup-form" onsubmit="submitPopupForm(event, 'presentation')">
+                    <div class="form-group">
+                        <label for="popup3FirstName" class="sr-only">First Name</label>
+                        <input type="text" id="popup3FirstName" placeholder="First Name" required class="popup-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="popup3LastName" class="sr-only">Last Name</label>
+                        <input type="text" id="popup3LastName" placeholder="Last Name" required class="popup-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="popup3Email" class="sr-only">Email Address</label>
+                        <input type="email" id="popup3Email" placeholder="Email Address" required class="popup-input">
+                    </div>
+                    <button type="submit" class="popup-button">Download Presentation</button>
+                </form>
+                <p class="popup-privacy">PDF will be delivered to your inbox in 2 minutes.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Cohort Urgency Bar -->
+    <div id="cohort-urgency-bar" class="cohort-urgency-bar">
+        <div class="urgency-content">
+            <span class="urgency-text">⏰ Q2 Cohort Enrollment Closes in <span id="enrollment-countdown">12 days</span> | Only 8 Spots Available</span>
+            <button class="urgency-cta" onclick="startQuiz()">Enroll Now →</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+    // Inline Particle System
+    class VennParticle {
+        constructor(x, y, radius, isCoreNode = false) {
+            this.x = x;
+            this.y = y;
+            this.radius = radius;
+            this.isCoreNode = isCoreNode;
+            this.vx = (Math.random() - 0.5) * 2;
+            this.vy = (Math.random() - 0.5) * 2;
+            this.mass = isCoreNode ? 1.5 : 0.8;
+            this.friction = 0.95;
+            // Rainbow spectrum colors (full 0-360 HSL range)
+            const rainbowHue = Math.random() * 360;
+            this.color = `hsl(${rainbowHue}, 100%, ${isCoreNode ? 60 : 50}%)`;
+            this.pulsePhase = Math.random() * Math.PI * 2;
+            this.sparklePhase = Math.random() * Math.PI * 2;
+            // Pre-compute gradient colors for consistency
+            this.gradientColorInner = `hsla(${rainbowHue}, 100%, 90%, 0.8)`;
+            this.gradientColorOuter = `hsla(${rainbowHue}, 100%, 40%, 0.2)`;
+        }
+
+        update(centerX, centerY, noiseOffset, aiCircleRadius) {
+            const dx = centerX - this.x;
+            const dy = centerY - this.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance > 1) {
+                // Stronger attraction to keep particles in tight cluster
+                this.vx += (dx / distance) * 0.0008;
+                this.vy += (dy / distance) * 0.0008;
+            }
+
+            const noiseScale = 0.02;
+            this.vx += Math.sin(this.x * noiseScale + noiseOffset) * 0.003;
+            this.vy += Math.cos(this.y * noiseScale + noiseOffset) * 0.003;
+            this.vx += (Math.random() - 0.5) * 0.05;
+            this.vy += (Math.random() - 0.5) * 0.05;
+
+            this.vx *= this.friction;
+            this.vy *= this.friction;
+            this.x += this.vx;
+            this.y += this.vy;
+
+            // Constrain particles to stay within a tight radius (max 40px spread from center)
+            const currentDistance = Math.sqrt((this.x - centerX) ** 2 + (this.y - centerY) ** 2);
+            const maxClusterRadius = 40;
+            if (currentDistance > maxClusterRadius) {
+                const angle = Math.atan2(this.y - centerY, this.x - centerX);
+                this.x = centerX + Math.cos(angle) * maxClusterRadius;
+                this.y = centerY + Math.sin(angle) * maxClusterRadius;
+            }
+        }
+
+        draw(ctx, globalOpacity, pulseTime) {
+            const pulseFactor = 0.8 + Math.sin(pulseTime + this.pulsePhase) * 0.2;
+            // Sparkle effect: size pulsing on a faster cycle
+            const sparkleSizeFactor = 0.7 + Math.sin((pulseTime * 3) + this.sparklePhase) * 0.3;
+            // Opacity flashing: brief brightness bursts
+            const sparkleOpacityFactor = 0.6 + Math.sin((pulseTime * 4) + this.sparklePhase) * 0.4;
+            const opacity = globalOpacity * pulseFactor * sparkleOpacityFactor;
+
+            const effectiveRadius = this.radius * sparkleSizeFactor;
+            const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, effectiveRadius * 1.5);
+            gradient.addColorStop(0, this.gradientColorInner.replace('0.8', opacity));
+            gradient.addColorStop(1, this.gradientColorOuter.replace('0.2', opacity * 0.3));
+
+            ctx.fillStyle = gradient;
+            ctx.fillRect(this.x - effectiveRadius * 1.5, this.y - effectiveRadius * 1.5, effectiveRadius * 3, effectiveRadius * 3);
+
+            ctx.fillStyle = this.color;
+            ctx.globalAlpha = opacity;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, effectiveRadius, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.globalAlpha = 1;
+        }
+    }
+
+    class VennParticleSystem {
+        constructor(canvas) {
+            this.canvas = canvas;
+            this.ctx = canvas.getContext('2d');
+            this.particles = [];
+            // SVG viewBox is "0 0 800 400" but we need to map to canvas pixels
+            // Scale factor: canvas.width corresponds to 800 SVG units
+            this.scale = canvas.width / 800;
+            // AI circle center in SVG coords: cx=280, cy=238 - at actual center of circle
+            this.centerX = 280 * this.scale;
+            this.centerY = 238 * this.scale;
+            // AI circle radius in SVG coords: r=185
+            this.aiCircleRadius = 185 * this.scale;
+            this.globalOpacity = 0.25;
+            this.pulseTime = 0;
+            this.noiseOffset = 0;
+
+            // Create tight constellation of 30 particles clustered around center
+            // 8 larger particles in inner ring (very tight, 15-20px)
+            for (let i = 0; i < 8; i++) {
+                const angle = (i / 8) * Math.PI * 2;
+                const x = this.centerX + Math.cos(angle) * 15 * this.scale;
+                const y = this.centerY + Math.sin(angle) * 15 * this.scale;
+                this.particles.push(new VennParticle(x, y, 3.5, true));
+            }
+
+            // 22 smaller particles in outer ring (still very tight, 20-35px)
+            for (let i = 0; i < 22; i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const distance = Math.random() * 15 + 20;
+                const x = this.centerX + Math.cos(angle) * distance * this.scale;
+                const y = this.centerY + Math.sin(angle) * distance * this.scale;
+                this.particles.push(new VennParticle(x, y, 1.5, false));
+            }
+
+            this.animate();
+        }
+
+        animate() {
+            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            this.pulseTime += 0.02;
+            const pulseCycle = 3000 / 16.67;
+            this.pulseTime = this.pulseTime % pulseCycle;
+            this.globalOpacity = 0.25 + Math.sin((this.pulseTime / pulseCycle) * Math.PI * 2) * 0.15;
+            this.noiseOffset += 0.03;
+
+            this.particles.forEach(p => p.update(this.centerX, this.centerY, this.noiseOffset, this.aiCircleRadius));
+
+            for (let i = 0; i < this.particles.length; i++) {
+                for (let j = i + 1; j < this.particles.length; j++) {
+                    const p1 = this.particles[i];
+                    const p2 = this.particles[j];
+                    const dx = p2.x - p1.x;
+                    const dy = p2.y - p1.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 50) {
+                        const opacity = (1 - distance / 50) * 0.2 * this.globalOpacity;
+                        this.ctx.strokeStyle = `rgba(0, 255, 255, ${opacity * 0.6})`;
+                        this.ctx.lineWidth = 0.8;
+                        this.ctx.lineCap = 'round';
+                        this.ctx.lineJoin = 'round';
+                        this.ctx.shadowColor = `rgba(0, 255, 255, ${opacity})`;
+                        this.ctx.shadowBlur = 4;
+                        this.ctx.beginPath();
+                        this.ctx.moveTo(p1.x, p1.y);
+                        this.ctx.lineTo(p2.x, p2.y);
+                        this.ctx.stroke();
+                        this.ctx.shadowColor = 'transparent';
+                        this.ctx.shadowBlur = 0;
+                    }
+                }
+            }
+
+            this.particles.forEach(p => p.draw(this.ctx, this.globalOpacity, this.pulseTime));
+            requestAnimationFrame(() => this.animate());
+        }
+    }
+
+    function initParticles() {
+        const svg = document.querySelector('svg[viewBox="0 0 800 400"]');
+        if (!svg) return;
+
+        const parent = svg.parentElement;
+        const canvas = document.createElement('canvas');
+        canvas.style.position = 'absolute';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        canvas.style.pointerEvents = 'none';
+        canvas.style.zIndex = '1';
+
+        const w = svg.offsetWidth || 728;
+        const h = svg.offsetHeight || 400;
+        canvas.width = w;
+        canvas.height = h;
+
+        parent.style.position = 'relative';
+        parent.insertBefore(canvas, svg);
+
+        new VennParticleSystem(canvas);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initParticles);
+    } else {
+        initParticles();
+    }
+    </script>
+
+  <!-- Neural Network Animation -->
+  <script>
+  (function(){
+    const canvas = document.getElementById('ai-neural-network-canvas');
+    if(!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    const animationDuration = 8000; // 8 seconds
+
+    class Node {
+      constructor(index, totalNodes) {
+        this.index = index;
+        this.totalNodes = totalNodes;
+        this.angle = (index / totalNodes) * Math.PI * 2;
+        this.depth = Math.random() * 0.6 + 0.4; // 0.4 to 1.0
+        this.baseRadius = 35;
+        this.pulse = Math.random() * Math.PI * 2;
+        this.pulseSpeed = 0.02 + Math.random() * 0.01;
+        this.colors = ['#22D3EE', '#06B6D4', '#0891B2', '#67E8F9', '#38BDF8', '#FF1493', '#FF00FF', '#00FF00', '#FFD700', '#FF6B35', '#FF0080', '#00FFFF', '#FFFF00', '#FF4500', '#00FF7F', '#FF69B4', '#00FFFF', '#FF00FF'];
+        this.color = this.colors[Math.floor(Math.random() * this.colors.length)];
+        this.glowIntensity = 0.5 + Math.random() * 0.5;
+      }
+
+      update(time) {
+        this.pulse += this.pulseSpeed;
+        this.angle += 0.0003; // Slow rotation
+      }
+
+      getPosition(time) {
+        const rotationOffset = (time % animationDuration) / animationDuration * Math.PI * 2 * 0.5;
+        const angle = this.angle + rotationOffset;
+        const radius = this.baseRadius * this.depth;
+        return {
+          x: centerX + Math.cos(angle) * radius,
+          y: centerY + Math.sin(angle) * radius,
+          depth: this.depth
+        };
+      }
+
+      draw(ctx, time) {
+        const pos = this.getPosition(time);
+        const pulseAmount = (Math.sin(this.pulse) + 1) / 2;
+        const size = 1.5 + pulseAmount * 0.8;
+
+        // Outer glow
+        const gradient = ctx.createRadialGradient(pos.x, pos.y, 0, pos.x, pos.y, size * 4);
+        gradient.addColorStop(0, this.color + Math.floor(this.glowIntensity * 255 * 0.6).toString(16).padStart(2, '0'));
+        gradient.addColorStop(1, this.color + '00');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(pos.x - size * 4, pos.y - size * 4, size * 8, size * 8);
+
+        // Core node
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(pos.x, pos.y, size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    // Create nodes
+    const nodeCount = 24;
+    const nodes = [];
+    for(let i = 0; i < nodeCount; i++) {
+      nodes.push(new Node(i, nodeCount));
+    }
+
+    function drawConnections(time) {
+      ctx.lineWidth = 0.8;
+      for(let i = 0; i < nodes.length; i++) {
+        for(let j = i + 1; j < nodes.length; j++) {
+          const pos1 = nodes[i].getPosition(time);
+          const pos2 = nodes[j].getPosition(time);
+          const distance = Math.hypot(pos2.x - pos1.x, pos2.y - pos1.y);
+          const maxDistance = 50;
+
+          if(distance < maxDistance) {
+            const opacity = (1 - distance / maxDistance) * 0.6;
+            ctx.strokeStyle = `rgba(34, 211, 238, ${opacity})`;
+            ctx.beginPath();
+            ctx.moveTo(pos1.x, pos1.y);
+            ctx.lineTo(pos2.x, pos2.y);
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function drawBackground() {
+      // Golden diffuse background
+      const goldenGlow = ctx.createRadialGradient(centerX, centerY, 10, centerX, centerY, 120);
+      goldenGlow.addColorStop(0, 'rgba(218, 165, 32, 0.15)');
+      goldenGlow.addColorStop(0.5, 'rgba(218, 165, 32, 0.08)');
+      goldenGlow.addColorStop(1, 'rgba(218, 165, 32, 0)');
+      ctx.fillStyle = goldenGlow;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Dark space background
+      const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, 100);
+      gradient.addColorStop(0, '#0f0f1e');
+      gradient.addColorStop(1, '#000411');
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Subtle stars
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+      for(let i = 0; i < 5; i++) {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        ctx.beginPath();
+        ctx.arc(x, y, 0.3, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    let animationFrameId;
+    let startTime = Date.now();
+
+    function animate() {
+      const elapsed = Date.now() - startTime;
+      const time = elapsed;
+
+      drawBackground();
+      drawConnections(time);
+
+      // Draw nodes sorted by depth (back to front)
+      const sortedNodes = nodes.slice().sort((a, b) => a.depth - b.depth);
+      sortedNodes.forEach(node => {
+        node.update(time);
+        node.draw(ctx, time);
+      });
+
+      animationFrameId = requestAnimationFrame(animate);
+    }
+
+    animate();
+  })();
+  </script>
+</body>
+</html>

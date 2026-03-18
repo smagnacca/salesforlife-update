@@ -1,0 +1,2125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>I Help Salespeople Rapidly Boost Income &amp; Effectiveness — Scott Magnacca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --surface2: #1a1a26;
+    --border: #323246; 
+    --accent: #3b6ef6;
+    --accent-hover: #2d5ce0;
+    --accent2: #60a5fa;
+    --text: #f0f0f5; 
+    --muted: #aeb0c4; 
+    --gold: #f5c842;
+    --error: #fb7185;
+    --success: #34d399;
+  }
+  
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  
+  /* BASE TYPOGRAPHY */
+  body { 
+    background: var(--bg); 
+    color: var(--text); 
+    font-family: 'DM Sans', sans-serif; 
+    font-size: 20px; 
+    line-height: 1.7; 
+    -webkit-font-smoothing: antialiased; 
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  @media (min-width: 1400px) {
+    body { font-size: 22px; } 
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 3rem; height: 76px;
+    background: rgba(10,10,15,0.92); backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 1.3rem; color: #fff; text-decoration: none; letter-spacing: -0.02em; }
+  .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 1.05rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a:focus { color: #fff; outline: none; }
+  .nav-cta { background: var(--accent); color: #fff !important; padding: 0.65rem 1.6rem; border-radius: 8px; font-weight: 600 !important; transition: background 0.2s; box-shadow: 0 4px 14px rgba(59,110,246,0.25); }
+  .nav-cta:hover { background: var(--accent-hover) !important; box-shadow: 0 6px 20px rgba(59,110,246,0.4); }
+
+  /* HERO */
+  .hero-wrap { max-width: 1300px; margin: 0 auto; }
+  .hero {
+    min-height: 100vh; display: flex; align-items: center;
+    padding: 8rem 3rem 6rem;
+    background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(59,110,246,0.12) 0%, transparent 70%);
+    gap: 5rem; position: relative; z-index: 1;
+  }
+  .hero-text { flex: 1; }
+  @keyframes eyebrowPulse {
+    0%, 100% { color: var(--accent2); text-shadow: 0 0 8px rgba(96,165,250,0.3), 0 0 20px rgba(96,165,250,0.15); }
+    50% { color: #93c5fd; text-shadow: 0 0 14px rgba(96,165,250,0.7), 0 0 35px rgba(96,165,250,0.4), 0 0 60px rgba(59,110,246,0.2); }
+  }
+  .hero-eyebrow { font-size: 1.05rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent2); margin-bottom: 1.4rem; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3.2rem, 6vw, 5.5rem); font-weight: 900; line-height: 1.1; color: #fff; margin-bottom: 0.8rem; letter-spacing: -0.01em; }
+  .hero h1 span { color: var(--accent2); }
+  .hero-sub2 { font-size: 1.6rem; font-weight: 500; color: var(--muted); margin-bottom: 2rem; }
+  .hero-body { color: var(--muted); font-size: 1.2rem; margin-bottom: 2.8rem; max-width: 600px; line-height: 1.8; }
+  .hero-body strong { color: #fff; font-weight: 600; }
+  .hero-btns { display: flex; gap: 1.4rem; flex-wrap: wrap; }
+  
+  .btn-primary { background: var(--accent); color: #fff; padding: 1.1rem 2.2rem; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 1.15rem; transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; border: none; font-family: 'DM Sans', sans-serif; box-shadow: 0 4px 15px rgba(59,110,246,0.3); }
+  .btn-primary:hover, .btn-primary:focus { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(59,110,246,0.45); outline: none; }
+  .btn-secondary { background: transparent; color: var(--text); padding: 1.1rem 2.2rem; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 1.15rem; border: 2px solid var(--border); transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center; }
+  .btn-secondary:hover, .btn-secondary:focus { border-color: var(--accent2); background: rgba(96,165,250,0.05); outline: none; }
+  
+  .hero-img { flex: 0 0 420px; }
+  .hero-img img { width: 100%; border-radius: 0; box-shadow: none; border: none; background: transparent; }
+
+  /* SECTIONS */
+  section { padding: 7rem 3rem; position: relative; overflow: hidden; }
+  .container { max-width: 1240px; margin: 0 auto; position: relative; z-index: 2; }
+  .section-label { font-size: 0.9rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 4vw, 3.6rem); font-weight: 800; color: #fff; margin-bottom: 1.4rem; line-height: 1.15; letter-spacing: -0.01em; }
+  .section-sub { color: var(--muted); font-size: 1.25rem; max-width: 700px; margin-bottom: 4rem; line-height: 1.7; }
+
+  /* BACKGROUND EFFECTS */
+  #hero-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; opacity: 0.6; }
+  .quiz-section { background: #0e0e18; }
+  .bg-fx { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; z-index: 0; overflow: hidden; }
+  .radar-ring { position: absolute; border-radius: 50%; border: 2px solid rgba(59,110,246,0.55); animation: radarExpand 4s ease-out infinite; }
+  .radar-ring:nth-child(1) { width: 260px; height: 260px; animation-delay: 0s; }
+  .radar-ring:nth-child(2) { width: 460px; height: 460px; animation-delay: 1s; }
+  .radar-ring:nth-child(3) { width: 660px; height: 660px; animation-delay: 2s; }
+  .radar-ring:nth-child(4) { width: 860px; height: 860px; animation-delay: 3s; }
+  @keyframes radarExpand { 0% { transform: scale(0.3); opacity: 1; } 100% { transform: scale(1.1); opacity: 0; } }
+
+  /* QUIZ GRID LAYOUT */
+  .quiz-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1100px; margin: 0 auto; align-items: start; }
+  @media (max-width: 900px) { .quiz-layout { grid-template-columns: 1fr; gap: 2rem; } }
+  .quiz-wrap { max-width: 100%; margin: 0; background: rgba(18,18,26,0.6); padding: 2.5rem; border-radius: 14px; border: 2px solid var(--accent); backdrop-filter: blur(10px); text-align: center; display: flex; flex-direction: column; min-height: 500px; justify-content: center; }
+  
+  /* PULSING LABEL & WAVE TEXT */
+  .pulse-label { font-size: 0.95rem; font-weight: 900; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.75rem; animation: pulseGlow 3s infinite alternate ease-in-out; }
+  @keyframes pulseGlow {
+    0% { color: #3b6ef6; text-shadow: 0 0 10px rgba(59,110,246,0.6), 0 0 20px rgba(20,184,166,0.4); transform: scale(1); }
+    100% { color: #14b8a6; text-shadow: 0 0 20px rgba(20,184,166,0.8), 0 0 40px rgba(59,110,246,0.6); transform: scale(1.02); }
+  }
+  .wave-text { background: linear-gradient(90deg, #3b6ef6 0%, #60a5fa 25%, #93c5fd 50%, #60a5fa 75%, #3b6ef6 100%); background-size: 200% auto; color: transparent; -webkit-background-clip: text; background-clip: text; animation: waveWash 4s linear infinite; display: inline-block; padding-bottom: 0.2rem; }
+  @keyframes waveWash { to { background-position: 200% center; } }
+  .risk-wave { display: inline-block; color: #fff; }
+
+  /* DYNAMIC PIE CHART SIDEBAR */
+  .quiz-sidebar { background: rgba(18,18,26,0.6); padding: 2.5rem; border-radius: 14px; border: 2px solid var(--accent); backdrop-filter: blur(10px); text-align: center; position: sticky; top: 100px; display: flex; flex-direction: column; min-height: 500px; justify-content: center; align-items: center; }
+  .pie-chart-container { width: 160px; height: 160px; margin: 0 auto 1.5rem; border-radius: 50%; background: conic-gradient(var(--accent) var(--progress, 0%), var(--accent2) calc(var(--progress, 0%) + 10%), var(--surface2) 0deg); display: flex; align-items: center; justify-content: center; position: relative; box-shadow: 0 0 30px rgba(59,110,246,0.25); transition: background 1s cubic-bezier(0.4, 0, 0.2, 1); animation: piePulse 3s infinite alternate; }
+  @keyframes piePulse { 0% { box-shadow: 0 0 20px rgba(59,110,246,0.15); } 100% { box-shadow: 0 0 40px rgba(96,165,250,0.4); } }
+  .pie-chart-inner { width: 120px; height: 120px; background: var(--bg); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 900; color: #fff; font-family: 'Playfair Display', serif; }
+  .sidebar-text { color: var(--muted); font-size: 1.1rem; line-height: 1.6; max-width: 280px; margin: 0 auto; }
+  .congrats-msg { color: var(--success); font-weight: 800; font-size: 1.1rem; display: none; margin-top: 1rem; animation: textPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); line-height: 1.4; }
+  @keyframes textPop { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+
+  /* QUIZ FUNCTIONALITY */
+  .quiz-step { display: none; }
+  .quiz-step.active { display: block; animation: fadeIn 0.4s ease-in; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  .quiz-counter { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; color: var(--muted); margin-bottom: 0.4rem; }
+  .quiz-category { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
+  .quiz-q { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; line-height: 1.3; }
+  .quiz-hint { font-size: 0.75rem; color: var(--muted); margin-bottom: 1.25rem; font-style: italic; }
+  .quiz-options { display: grid; gap: 0.5rem; }
+  .quiz-option { display: flex; align-items: center; gap: 0.65rem; padding: 0.65rem 0.9rem; background: var(--bg); border: 1.5px solid var(--border); border-radius: 8px; cursor: pointer; transition: all 0.2s; text-align: left; font-size: 0.8rem; font-weight: 500; color: var(--text); }
+  .quiz-option:hover, .quiz-option:focus { border-color: var(--accent2); background: rgba(96,165,250,0.05); outline: none; }
+  .quiz-option.selected { border-color: var(--accent); background: rgba(59,110,246,0.15); box-shadow: 0 3px 10px rgba(59,110,246,0.1); }
+  .quiz-option .opt-letter { font-weight: 700; color: var(--accent2); min-width: 1rem; font-size: 0.85rem; }
+  .quiz-option .opt-check { margin-left: auto; color: var(--accent); display: none; font-size: 0.8rem; }
+  .quiz-option.selected .opt-check { display: block; }
+  .quiz-progress { display: flex; gap: 0.35rem; justify-content: center; margin-bottom: 1.75rem; }
+  .quiz-dot { width: 25px; height: 4px; border-radius: 2px; background: var(--border); transition: background 0.3s; }
+  .quiz-dot.done { background: var(--accent); }
+  .quiz-dot.active { background: var(--accent2); box-shadow: 0 0 6px rgba(96,165,250,0.4); }
+  .quiz-error { color: var(--error); font-size: 0.7rem; margin-top: 0.6rem; display: none; font-weight: 500; }
+  
+  .quiz-email-wrap, .quiz-result-wrap { display: none; animation: fadeIn 0.4s ease-in; }
+  .quiz-input { width: 100%; padding: 0.65rem 0.85rem; background: var(--bg); border: 1.5px solid var(--border); border-radius: 7px; color: #fff; font-size: 0.8rem; margin-bottom: 0.65rem; font-family: 'DM Sans', sans-serif; transition: border-color 0.2s; }
+  .quiz-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(59,110,246,0.15); }
+  
+  .score-circle { width: 120px; height: 120px; border-radius: 50%; border: 5px solid var(--accent); margin: 0 auto 1rem; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: inset 0 0 18px rgba(0,0,0,0.5), 0 0 18px rgba(59,110,246,0.2); }
+  .score-num { font-size: 2.4rem; font-weight: 900; color: #fff; line-height: 1; font-family: 'Playfair Display', serif; }
+  .score-pct { font-size: 0.8rem; font-weight: 700; color: var(--muted); }
+  .score-label { font-size: 1rem; font-weight: 800; margin-bottom: 0.4rem; letter-spacing: -0.01em; }
+  .score-desc { color: var(--muted); margin-bottom: 1.25rem; font-size: 0.8rem; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+  .score-legend { display: flex; gap: 1rem; justify-content: center; font-size: 0.7rem; font-weight: 600; color: var(--muted); margin-bottom: 1.25rem; flex-wrap: wrap; }
+  .score-legend span { display: flex; align-items: center; gap: 0.4rem; }
+  .legend-dot { width: 9px; height: 9px; border-radius: 50%; }
+  .legend-high { background: var(--error); }
+  .legend-mod { background: var(--gold); }
+  .legend-low { background: var(--success); }
+  .privacy-note { font-size: 0.95rem; color: var(--muted); margin-top: 1.2rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+
+  /* LOGOS */
+  .logos-section { padding: 4rem 3rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: #0c0c16; position: relative; overflow: hidden; }
+  .logos-shimmer { position: absolute; top: 0; left: -60%; width: 60%; height: 100%; background: linear-gradient(90deg, transparent, rgba(96,165,250,0.45), transparent); animation: shimmerSweep 3s linear infinite; pointer-events: none; z-index: 0; }
+  @keyframes shimmerSweep { 0% { left: -60%; } 100% { left: 160%; } }
+  .logos-label { text-align: center; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 2.5rem; position: relative; z-index: 2; }
+  .logos-row { display: flex; align-items: center; justify-content: center; gap: 4.5rem; flex-wrap: wrap; position: relative; z-index: 2; }
+  .logos-row img { height: 45px; filter: grayscale(1) opacity(0.7); transition: all 0.3s ease; }
+  .logos-row img:hover { filter: grayscale(0) opacity(1); transform: scale(1.05); }
+  .logo-text { font-size: 1.4rem; font-weight: 800; color: var(--muted); letter-spacing: 0.08em; transition: color 0.3s; text-transform: uppercase; line-height: 1; }
+  .logo-text:hover { color: #fff; }
+  .logo-text span { font-size: 0.85rem; display: block; font-weight: 500; letter-spacing: 0.05em; margin-top: 0.2rem; }
+
+  /* QUOTE */
+  .quote-section { background: #11111c; text-align: center; }
+  .quote-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 65% 55% at 50% 50%, rgba(59,110,246,0.1) 0%, rgba(96,165,250,0.04) 45%, transparent 70%); pointer-events: none; z-index: 0; }
+  .quote-wave-top { position: absolute; top: -2px; left: 0; right: 0; height: 120px; pointer-events: none; z-index: 0; animation: waveFloat 8s ease-in-out infinite alternate-reverse; }
+  .quote-wave-bottom { position: absolute; bottom: -2px; left: 0; right: 0; height: 140px; pointer-events: none; z-index: 0; animation: waveFloat 6s ease-in-out infinite alternate; }
+  @keyframes waveFloat { 0% { transform: translateX(-20px) scaleY(1); } 100% { transform: translateX(20px) scaleY(1.3); } }
+  .quote-section blockquote { position: relative; z-index: 2; font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 3.5vw, 3.2rem); color: #fff; font-style: italic; margin-bottom: 2.5rem; max-width: 860px; margin-left: auto; margin-right: auto; line-height: 1.3; }
+  .quote-body { position: relative; z-index: 2; color: var(--muted); max-width: 740px; margin: 0 auto; font-size: 1.25rem; line-height: 1.8; }
+  .quote-body strong { color: #fff; }
+  .quote-body em { color: var(--accent2); font-style: normal; font-weight: 600; }
+
+  /* PILLARS */
+  .pillars-section-bg { background: #0a0a14; }
+  .pillars-grid-bg { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(59,110,246,0.55) 1.5px, transparent 1.5px); background-size: 40px 40px; animation: gridDrift 20s linear infinite; opacity: 0.8; pointer-events: none; z-index: 0; }
+  @keyframes gridDrift { 0% { background-position: 0 0; } 100% { background-position: 40px 40px; } }
+  .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 4rem; }
+  .pillar-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 24px; padding: 3.5rem 2.5rem; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s; text-align: center; }
+  .pillar-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+  .pillar-card:nth-child(1):hover { border-color: #14b8a6; }
+  .pillar-card:nth-child(2):hover { border-color: #818cf8; }
+  .pillar-card:nth-child(3):hover { border-color: #fb923c; }
+
+  .pillar-icon-wrap { width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 2rem; display: flex; align-items: center; justify-content: center; position: relative; }
+  .pillar-card:nth-child(1) .pillar-icon-wrap { background: radial-gradient(circle, rgba(20,184,166,0.2) 0%, rgba(20,184,166,0.05) 70%); box-shadow: 0 0 0 2px rgba(20,184,166,0.3), 0 0 40px rgba(20,184,166,0.15); }
+  .pillar-card:nth-child(2) .pillar-icon-wrap { background: radial-gradient(circle, rgba(99,102,241,0.2) 0%, rgba(99,102,241,0.05) 70%); box-shadow: 0 0 0 2px rgba(99,102,241,0.3), 0 0 40px rgba(99,102,241,0.15); }
+  .pillar-card:nth-child(3) .pillar-icon-wrap { background: radial-gradient(circle, rgba(251,146,60,0.2) 0%, rgba(251,146,60,0.05) 70%); box-shadow: 0 0 0 2px rgba(251,146,60,0.3), 0 0 40px rgba(251,146,60,0.15); }
+
+  /* Orbiting glow spot */
+  .pillar-icon-wrap::after {
+    content: '';
+    position: absolute;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform-origin: 0 0;
+    animation: orbitSpot 4s linear infinite;
+    pointer-events: none;
+    z-index: 3;
+  }
+  @keyframes orbitSpot {
+    0%   { transform: rotate(0deg)   translateX(58px) translateY(-2.5px); }
+    25%  { transform: rotate(90deg)  translateX(58px) translateY(-2.5px); }
+    50%  { transform: rotate(180deg) translateX(58px) translateY(-2.5px); }
+    75%  { transform: rotate(270deg) translateX(58px) translateY(-2.5px); }
+    100% { transform: rotate(360deg) translateX(58px) translateY(-2.5px); }
+  }
+  .pillar-card:nth-child(1) .pillar-icon-wrap::after {
+    background: #f472b6;
+    box-shadow: 0 0 4px 2px rgba(244,114,182,0.7), 0 0 8px 3px rgba(244,114,182,0.35);
+    animation: orbitSpot 4s linear infinite, orbitPulse1 2s ease-in-out infinite;
+  }
+  @keyframes orbitPulse1 {
+    0%,100% { background: #f472b6; box-shadow: 0 0 4px 2px rgba(244,114,182,0.7), 0 0 8px 3px rgba(244,114,182,0.35); }
+    50%     { background: #fb7185; box-shadow: 0 0 5px 3px rgba(251,113,133,0.85), 0 0 10px 5px rgba(251,113,133,0.45); }
+  }
+  .pillar-card:nth-child(2) .pillar-icon-wrap::after {
+    background: #fbbf24;
+    box-shadow: 0 0 4px 2px rgba(251,191,36,0.7), 0 0 8px 3px rgba(251,191,36,0.35);
+    animation: orbitSpot 4s linear infinite 0.5s, orbitPulse2 2s ease-in-out infinite;
+  }
+  @keyframes orbitPulse2 {
+    0%,100% { background: #fbbf24; box-shadow: 0 0 4px 2px rgba(251,191,36,0.7), 0 0 8px 3px rgba(251,191,36,0.35); }
+    50%     { background: #f59e0b; box-shadow: 0 0 5px 3px rgba(245,158,11,0.85), 0 0 10px 5px rgba(245,158,11,0.45); }
+  }
+  .pillar-card:nth-child(3) .pillar-icon-wrap::after {
+    background: #60a5fa;
+    box-shadow: 0 0 4px 2px rgba(96,165,250,0.7), 0 0 8px 3px rgba(96,165,250,0.35);
+    animation: orbitSpot 4s linear infinite 1s, orbitPulse3 2s ease-in-out infinite;
+  }
+  @keyframes orbitPulse3 {
+    0%,100% { background: #60a5fa; box-shadow: 0 0 4px 2px rgba(96,165,250,0.7), 0 0 8px 3px rgba(96,165,250,0.35); }
+    50%     { background: #38bdf8; box-shadow: 0 0 5px 3px rgba(56,189,248,0.85), 0 0 10px 5px rgba(56,189,248,0.45); }
+  }
+
+  .pillar-title { font-size: 2rem; font-weight: 700; color: #f5c842; margin-bottom: 1rem; min-height: 2.4em; }
+  .pillar-title .typewriter-cursor { display: inline-block; width: 2px; height: 1em; background: #f5c842; margin-left: 2px; animation: blink 0.6s step-end infinite; vertical-align: text-bottom; }
+  @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0;} }
+  @keyframes titleFlash {
+    0% { text-shadow: 0 0 30px rgba(245,200,66,1), 0 0 60px rgba(245,200,66,0.7), 0 0 90px rgba(245,200,66,0.4); color: #fff; }
+    100% { text-shadow: none; color: #f5c842; }
+  }
+  .pillar-title.flash { animation: titleFlash 0.6s ease-out forwards; }
+
+  .pillar-icon-wrap svg { transform-origin: center; display: block; }
+  .pillar-body { color: var(--muted); font-size: 1.15rem; margin-bottom: 1.5rem; line-height: 1.7; min-height: 6em; }
+  .pillar-body .typewriter-cursor { display: inline-block; width: 2px; height: 1em; background: #fff; margin-left: 2px; animation: blink 0.6s step-end infinite; vertical-align: text-bottom; }
+  @keyframes bodyToGold {
+    0%   { color: #fff; }
+    100% { color: #f5c842; }
+  }
+  .pillar-body.to-gold { animation: bodyToGold 2s ease-in forwards; }
+  .pillar-stat { font-size: 1rem; font-weight: 600; color: var(--accent2); font-style: italic; background: rgba(96,165,250,0.1); padding: 0.8rem; border-radius: 8px; }
+
+  /* STATS */
+  .stats-section { background: #0e0e1a; padding: 6rem 3rem; }
+  .aurora-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 80% at 15% 50%, rgba(59,110,246,0.32) 0%, transparent 55%), radial-gradient(ellipse 60% 70% at 85% 50%, rgba(96,165,250,0.26) 0%, transparent 55%), radial-gradient(ellipse 50% 60% at 50% 100%, rgba(59,110,246,0.2) 0%, transparent 50%); animation: auroraShift 10s ease-in-out infinite alternate; pointer-events: none; z-index: 0; }
+  @keyframes auroraShift { 0% { transform: scale(1) rotate(0deg); } 100% { transform: scale(1.05) rotate(2deg); } }
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; }
+  .stat-item { text-align: center; position: relative; z-index: 2; }
+  @keyframes statPulse {
+    0%, 100% { color: var(--accent2); text-shadow: 0 4px 20px rgba(96,165,250,0.35), 0 0 40px rgba(96,165,250,0.2); }
+    50% { color: #fff; text-shadow: 0 4px 30px rgba(255,255,255,0.5), 0 0 60px rgba(96,165,250,0.35); }
+  }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 5vw, 4.5rem); font-weight: 900; color: var(--accent2); line-height: 1; margin-bottom: 0.5rem; text-shadow: 0 4px 20px rgba(96,165,250,0.2); animation: statPulse 5s ease-in-out infinite; }
+  .stat-label { color: var(--text); font-size: 1.2rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+  /* TESTIMONIALS */
+  .testimonials-section { background: #0c0c18; }
+  .sparkle-bg { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+  .sparkle { position: absolute; border-radius: 50%; animation: sparkleDrift linear infinite; opacity: 0; }
+  @keyframes sparkleDrift {
+    0%   { transform: translateY(105%); opacity: 0; }
+    8%   { opacity: 1; }
+    88%  { opacity: 0.7; }
+    100% { transform: translateY(-80px); opacity: 0; }
+  }
+  .sparkle:nth-child(1)  { left:  4%; width:3px; height:3px; background:rgba(245,158,11,0.75); animation-duration:14s; animation-delay:  0s; }
+  .sparkle:nth-child(2)  { left: 11%; width:2px; height:2px; background:rgba(96,165,250,0.6);  animation-duration:19s; animation-delay: -4s; }
+  .sparkle:nth-child(3)  { left: 20%; width:3px; height:3px; background:rgba(245,158,11,0.55); animation-duration:12s; animation-delay: -8s; }
+  .sparkle:nth-child(4)  { left: 31%; width:2px; height:2px; background:rgba(96,165,250,0.65); animation-duration:16s; animation-delay: -2s; }
+  .sparkle:nth-child(5)  { left: 43%; width:3px; height:3px; background:rgba(245,158,11,0.65); animation-duration:11s; animation-delay:-10s; }
+  .sparkle:nth-child(6)  { left: 53%; width:2px; height:2px; background:rgba(245,158,11,0.8);  animation-duration:15s; animation-delay: -5s; }
+  .sparkle:nth-child(7)  { left: 64%; width:3px; height:3px; background:rgba(96,165,250,0.5);  animation-duration:18s; animation-delay: -1s; }
+  .sparkle:nth-child(8)  { left: 74%; width:2px; height:2px; background:rgba(245,158,11,0.65); animation-duration:13s; animation-delay: -7s; }
+  .sparkle:nth-child(9)  { left: 83%; width:3px; height:3px; background:rgba(96,165,250,0.6);  animation-duration:17s; animation-delay: -3s; }
+  .sparkle:nth-child(10) { left: 93%; width:2px; height:2px; background:rgba(245,158,11,0.7);  animation-duration:10s; animation-delay: -9s; }
+  .sparkle:nth-child(11) { left: 27%; width:2px; height:2px; background:rgba(245,158,11,0.5);  animation-duration:21s; animation-delay:-12s; }
+  .sparkle:nth-child(12) { left: 57%; width:3px; height:3px; background:rgba(96,165,250,0.4);  animation-duration:16s; animation-delay:-14s; }
+  .sparkle:nth-child(13) { left: 38%; width:2px; height:2px; background:rgba(245,158,11,0.6);  animation-duration:13s; animation-delay: -6s; }
+  .sparkle:nth-child(14) { left: 69%; width:3px; height:3px; background:rgba(96,165,250,0.55); animation-duration:20s; animation-delay:-11s; }
+  .sparkle:nth-child(15) { left: 88%; width:2px; height:2px; background:rgba(245,158,11,0.45); animation-duration:15s; animation-delay: -0s; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+  .testimonial-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; position: relative; transition: transform 0.2s, box-shadow 0.2s; }
+  .testimonial-card:hover { transform: translateY(-4px); box-shadow: 0 15px 40px rgba(0,0,0,0.3); }
+  .testimonial-card::before { content: '\201C'; position: absolute; top: 1.2rem; left: 1.8rem; font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--accent); opacity: 0.4; line-height: 1; }
+  .testimonial-quote { color: var(--text); font-size: 1.15rem; line-height: 1.75; margin-bottom: 1.8rem; padding-top: 1.5rem; font-style: italic; }
+  .testimonial-source { display: flex; flex-direction: column; gap: 0.2rem; }
+  .testimonial-title { font-weight: 700; color: #fff; font-size: 1rem; }
+  .testimonial-company { color: var(--accent2); font-size: 0.95rem; font-weight: 500; }
+
+  /* STORY */
+  .story-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 5rem; align-items: center; }
+  .story-img img { width: 100%; border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.4); border: 1px solid var(--border); }
+  .story-body { color: var(--muted); font-size: 1.2rem; line-height: 1.8; }
+  .story-body p { margin-bottom: 1.5rem; }
+  .story-body strong { color: #fff; font-weight: 600; }
+  .beam-bg { position: absolute; top: -100%; left: -45%; width: 55%; height: 300%; background: linear-gradient(108deg, transparent 25%, rgba(96,165,250,0.18) 50%, transparent 75%); animation: beamSweep 12s ease-in-out infinite; pointer-events: none; z-index: 0; }
+  @keyframes beamSweep { 0% { left: -50%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { left: 140%; opacity: 0; } }
+
+  /* PHOTOS */
+  .photos-section { background: #0f0f1a; }
+  .vignette-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 80% at center, transparent 35%, rgba(5,5,15,0.9) 100%); pointer-events: none; z-index: 0; animation: vignettePulse 8s ease-in-out infinite alternate; }
+  @keyframes vignettePulse { 0% { opacity: 0.6; transform: scale(1.04); } 100% { opacity: 1; transform: scale(0.97); } }
+  .photos-label { text-align: center; font-size: 1rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin: 0; position: relative; z-index: 2;}
+  .summit-banner-wrap {
+    position: relative; overflow: hidden;
+    margin: 0 -3rem 3rem;
+    padding: 1.4rem 3rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.025);
+    z-index: 2;
+  }
+  .summit-banner-wrap::before {
+    content: '';
+    position: absolute; top: 0; bottom: 0;
+    left: -70%; width: 65%;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(245,180,40,0.28) 18%,
+      rgba(230,245,255,0.65) 40%,
+      rgba(96,165,250,0.55) 58%,
+      rgba(129,140,248,0.3) 78%,
+      transparent 100%
+    );
+    animation: summitWave 60s linear infinite;
+    pointer-events: none; z-index: 1;
+  }
+  @keyframes summitWave {
+    0%     { left: -70%; opacity: 1; }
+    10%    { left: 100%; opacity: 1; }
+    10.01% { left: -70%; opacity: 0; }
+    99.99% { left: -70%; opacity: 0; }
+    100%   { left: -70%; opacity: 1; }
+  }
+  .photos-row { display: flex; justify-content: center; align-items: center; gap: 2.5rem; flex-wrap: wrap; position: relative; z-index: 2;}
+  .photo-frame { flex: 0 0 420px; height: 300px; overflow: hidden; border-radius: 20px; border: 1px solid var(--border); background: var(--surface2); box-shadow: 0 15px 45px rgba(0,0,0,0.6); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s; }
+  .photo-frame:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 25px 60px rgba(59,110,246,0.25); }
+  .photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+
+  /* OFFERS */
+  .offers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+  .offer-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 20px; padding: 2.8rem 2.5rem; position: relative; display: flex; flex-direction: column; transition: transform 0.2s; }
+  .offer-card:hover { transform: translateY(-4px); }
+  .offer-card.featured { border: 2px solid var(--accent); background: linear-gradient(180deg, var(--surface2) 0%, rgba(59,110,246,0.05) 100%); box-shadow: 0 10px 30px rgba(59,110,246,0.15); }
+  .offer-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #fff; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.35rem 1.2rem; border-radius: 20px; white-space: nowrap; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+  .offer-label { font-size: 0.9rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent2); margin-bottom: 1rem; }
+  .offer-title { font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 1rem; line-height: 1.3; }
+  .offer-body { color: var(--muted); font-size: 1.15rem; margin-bottom: 2rem; flex: 1; line-height: 1.7; }
+  .offer-link { color: #fff; font-weight: 700; text-decoration: none; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
+  .offer-link:hover { color: var(--accent2); }
+  
+  .mesh-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 5% 15%, rgba(59,110,246,0.28) 0%, transparent 55%), radial-gradient(ellipse 50% 60% at 95% 85%, rgba(96,165,250,0.22) 0%, transparent 55%); animation: meshMorph 15s ease-in-out infinite alternate; pointer-events: none; z-index: 0; }
+  @keyframes meshMorph { 0% { transform: scale(1); opacity: 0.7; } 100% { transform: scale(1.05); opacity: 1; } }
+
+  /* BOOKS */
+  .books-section { background: #0e0e1a; }
+  .spotlight-bg { position: absolute; top: 0; bottom: 0; left: -400px; width: 400px; background: linear-gradient(90deg, transparent, rgba(96,165,250,0.28), transparent); animation: spotlightSweep 8s linear infinite; pointer-events: none; z-index: 0; }
+  @keyframes spotlightSweep { 0% { left: -400px; } 100% { left: calc(100% + 400px); } }
+  .books-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; }
+  .book-card { background: var(--bg); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s; }
+  .book-card:hover { border-color: var(--accent); transform: translateY(-6px); box-shadow: 0 15px 40px rgba(0,0,0,0.4); }
+  .book-img { width: 100%; aspect-ratio: 3/4; overflow: hidden; position: relative; background: var(--surface2); }
+  .book-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform 0.5s ease; }
+  .book-card:hover .book-img img { transform: scale(1.03); }
+  .book-badge { position: absolute; top: 15px; right: 15px; background: var(--accent); color: #fff; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+  .book-content { padding: 2rem; flex: 1; display: flex; flex-direction: column; }
+  .book-num { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent2); margin-bottom: 0.8rem; }
+  .book-title { font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 1rem; line-height: 1.3; }
+  .book-desc { color: var(--muted); font-size: 1.1rem; line-height: 1.7; flex: 1; margin-bottom: 1.8rem; }
+  .book-link { display: block; background: var(--surface2); color: #fff; padding: 0.9rem 1.5rem; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 1.05rem; text-align: center; border: 1px solid var(--border); transition: all 0.2s; }
+  .book-link:hover, .book-link:focus { background: var(--accent); border-color: var(--accent); outline: none; }
+
+  /* PLATFORMS */
+  .platforms-section { background: #08080f; }
+  .datarain-bg { position: absolute; inset: 0; background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 19px, rgba(59,110,246,0.18) 19px, rgba(59,110,246,0.18) 21px); animation: dataRain 3s linear infinite; pointer-events: none; z-index: 0; }
+  @keyframes dataRain { 0% { background-position: 0 0; } 100% { background-position: 0 42px; } }
+  .platforms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .platform-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 24px; padding: 3.5rem; position: relative; z-index: 2;}
+  .platform-card.featured-plat { border: 2px solid var(--accent); background: linear-gradient(145deg, var(--surface2) 0%, rgba(18,18,26,0.8) 100%); box-shadow: 0 15px 40px rgba(59,110,246,0.1); }
+  .platform-label { font-size: 1.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.2rem; display: block; }
+  .platform-icon { font-size: 3.2rem; margin-bottom: 1.5rem; display: inline-block; }
+  .platform-title { font-size: 2.6rem; font-weight: 900; color: #fff; margin-bottom: 1.5rem; line-height: 1.1; letter-spacing: -0.02em; }
+  .platform-body { color: var(--muted); font-size: 1.25rem; margin-bottom: 2rem; line-height: 1.7; }
+  .platform-features { list-style: none; margin-bottom: 2.8rem; display: flex; flex-direction: column; gap: 1rem; }
+  .platform-features li { color: #fff; font-size: 1.2rem; display: flex; align-items: flex-start; gap: 0.8rem; line-height: 1.5; font-weight: 500; }
+  .platform-features li::before { content: "✓"; color: var(--success); font-weight: 900; font-size: 1.3rem; }
+  .platform-link { display: inline-block; padding: 1.1rem 2.5rem; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 1.15rem; transition: all 0.2s; text-align: center; width: 100%; box-sizing: border-box; }
+  .platform-link.primary { background: var(--accent); color: #fff; box-shadow: 0 4px 15px rgba(59,110,246,0.3); }
+  .platform-link.primary:hover, .platform-link.primary:focus { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(59,110,246,0.45); outline: none; }
+  .platform-link.secondary { background: var(--bg); color: #fff; border: 2px solid var(--border); }
+  .platform-link.secondary:hover, .platform-link.secondary:focus { border-color: var(--accent2); background: rgba(96,165,250,0.05); outline: none; }
+
+  /* CTA */
+  .cta-section { background: #0e0e1a; text-align: center; padding: 8rem 3rem; }
+  .gold-shimmer { position: absolute; top: 0; left: -80%; width: 80%; height: 100%; background: linear-gradient(90deg, transparent, rgba(245,200,66,0.22), rgba(245,200,66,0.35), rgba(245,200,66,0.22), transparent); animation: goldShimmer 5s ease-in-out infinite; pointer-events: none; z-index: 0; }
+  .cta-glow { position: absolute; inset: 0; background: radial-gradient(ellipse 75% 75% at 50% 115%, rgba(59,110,246,0.3) 0%, transparent 60%); animation: ctaGlow 6s ease-in-out infinite alternate; pointer-events: none; z-index: 0; }
+  @keyframes goldShimmer { 0% { left: -80%; } 100% { left: 180%; } }
+  @keyframes ctaGlow { 0% { opacity: 0.5; } 100% { opacity: 1; } }
+  .cta-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.6rem, 5vw, 4rem); font-weight: 900; color: #fff; margin-bottom: 1.5rem; line-height: 1.15; letter-spacing: -0.01em; position: relative; z-index: 2; max-width: 900px; margin-left: auto; margin-right: auto; animation: ctaHeadingPulse 5s ease-in-out infinite; }
+  .cta-section p { color: var(--muted); font-size: 1.35rem; margin-bottom: 2.5rem; position: relative; z-index: 2; }
+  .cta-note { font-size: 1.05rem; color: var(--muted); margin-top: 1.5rem; position: relative; z-index: 2; font-style: italic; }
+
+  /* MODAL */
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 200; align-items: center; justify-content: center; backdrop-filter: blur(8px); }
+  .modal-overlay.open { display: flex; animation: fadeIn 0.2s ease-out; }
+  .modal { background: var(--surface); border: 1px solid var(--border); border-radius: 24px; padding: 3.5rem; max-width: 550px; width: 90%; position: relative; box-shadow: 0 25px 60px rgba(0,0,0,0.6); }
+  .modal-close { position: absolute; top: 1.5rem; right: 1.5rem; background: var(--bg); border: 1px solid var(--border); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 1.8rem; cursor: pointer; transition: all 0.2s; line-height: 1; padding-bottom: 4px; }
+  .modal-close:hover, .modal-close:focus { color: #fff; border-color: #fff; outline: none; }
+  .modal h2 { font-family: 'Playfair Display', serif; font-size: 2.4rem; color: #fff; margin-bottom: 0.5rem; line-height: 1.1; }
+  .modal p { color: var(--muted); margin-bottom: 2rem; font-size: 1.15rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  .form-group { margin-bottom: 1.2rem; }
+  .form-group label { display: block; font-size: 0.95rem; font-weight: 600; color: var(--muted); margin-bottom: 0.5rem; }
+  .form-group input { width: 100%; padding: 1.1rem 1.4rem; background: var(--bg); border: 2px solid var(--border); border-radius: 8px; color: #fff; font-size: 1.1rem; font-family: 'DM Sans', sans-serif; transition: border-color 0.2s; }
+  .form-group input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(59,110,246,0.15); }
+  .honeypot { display: none !important; }
+  .form-error { color: var(--error); font-size: 1.05rem; margin-top: 0.5rem; display: none; font-weight: 500; }
+  .form-success { display: none; text-align: center; padding: 2rem 0; }
+  .form-success .check { font-size: 4rem; margin-bottom: 1.5rem; color: var(--success); }
+  .form-success h3 { font-size: 2rem; color: #fff; margin-bottom: 0.8rem; font-family: 'Playfair Display', serif; }
+  .form-success p { color: var(--muted); font-size: 1.2rem; }
+
+  /* FOOTER */
+  footer { background: var(--bg); border-top: 1px solid var(--border); padding: 3rem; text-align: center; color: var(--muted); font-size: 1.1rem; }
+  footer a { color: var(--muted); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+  footer a:hover, footer a:focus { color: #fff; outline: none; }
+  .footer-links { display: flex; gap: 3rem; justify-content: center; margin-bottom: 1.5rem; flex-wrap: wrap; }
+
+  /* HAMBURGER NAV */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .story-grid, .platforms-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .hero-img { display: none; }
+    .photos-row { flex-wrap: wrap; }
+    .photo-frame { flex: 0 0 100%; height: 260px; }
+  }
+  @media (max-width: 768px) {
+    body { font-size: 18px; }
+    .hero { padding: 8rem 2rem 5rem; text-align: center; }
+    .hero-text { display: flex; flex-direction: column; align-items: center; }
+    .hero-btns { justify-content: center; }
+    .nav-hamburger { display: flex; }
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 76px;
+      left: 0;
+      right: 0;
+      background: rgba(10,10,15,0.98);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      gap: 1.5rem;
+      z-index: 99;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { font-size: 1.2rem; }
+    .nav-cta { width: 100%; text-align: center; }
+    .form-row { grid-template-columns: 1fr; }
+    section { padding: 5rem 2rem; }
+    .modal { padding: 2.5rem 1.5rem; }
+  }
+
+  /* ── Timed auto-popups ─────────────────────────────────────────── */
+  .apop-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,0.82); z-index: 300;
+    align-items: center; justify-content: center;
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+  }
+  .apop-overlay.open { display: flex; animation: fadeIn 0.3s ease-out; }
+  .apop {
+    background: #0e0e1c;
+    border: 1.5px solid rgba(59,110,246,0.45);
+    border-radius: 14px;
+    padding: 1.6rem 1.5rem 1.3rem;
+    max-width: 300px; width: 100%;
+    position: relative;
+    box-shadow: 0 0 0 1px rgba(59,110,246,0.12),
+                0 20px 45px rgba(0,0,0,0.7),
+                0 0 40px rgba(59,110,246,0.08);
+    text-align: center;
+  }
+  .apop-close {
+    position: absolute; top: 0.6rem; right: 0.7rem;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 50%; width: 26px; height: 26px;
+    display: flex; align-items: center; justify-content: center;
+    color: #aeb0c4; font-size: 1.1rem; cursor: pointer;
+    transition: all 0.2s; line-height: 1; padding-bottom: 2px;
+    font-family: sans-serif;
+  }
+  .apop-close:hover { color: #fff; border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.1); }
+  .apop-icon { font-size: 1.5rem; margin-bottom: 0.5rem; display: block; }
+  .apop-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 0.3rem; }
+  .apop-sub { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; color: #3b6ef6; margin-bottom: 0.75rem; text-transform: uppercase; }
+  .apop-box {
+    background: rgba(59,110,246,0.07);
+    border: 1px solid rgba(59,110,246,0.22);
+    border-radius: 8px; padding: 0.6rem 0.75rem;
+    margin-bottom: 0.75rem; text-align: left;
+  }
+  .apop-box strong { color: #f0f0f5; font-size: 0.85rem; display: block; margin-bottom: 0.3rem; }
+  .apop-box p { color: #aeb0c4; font-size: 0.78rem; line-height: 1.5; margin: 0; }
+  .apop input[type="email"] {
+    width: 100%; box-sizing: border-box;
+    background: #1a1a28; border: 1.5px solid #323246;
+    border-radius: 7px; color: #f0f0f5;
+    font-size: 0.8rem; padding: 0.5rem 0.7rem;
+    margin-bottom: 0.5rem; outline: none;
+    font-family: 'DM Sans', sans-serif;
+    transition: border-color 0.2s;
+  }
+  .apop input[type="email"]:focus { border-color: #3b6ef6; }
+  .apop input[type="email"]::placeholder { color: #5a5c72; }
+  .apop-btn {
+    width: 100%; background: linear-gradient(135deg, #3b6ef6, #60a5fa);
+    color: #fff; border: none; border-radius: 7px;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em;
+    padding: 0.55rem 0.75rem; cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.2s; text-transform: uppercase;
+    box-shadow: 0 3px 12px rgba(59,110,246,0.35);
+  }
+  .apop-btn:hover { transform: translateY(-1px); box-shadow: 0 5px 16px rgba(59,110,246,0.5); }
+  .apop-note { font-size: 0.68rem; color: #5a5c72; margin-top: 0.4rem; }
+  .apop-success { display: none; padding: 0.5rem 0 0.25rem; }
+  .apop-success .apop-check { font-size: 1.6rem; color: #14b8a6; margin-bottom: 0.3rem; }
+  .apop-success h3 { color: #fff; font-size: 0.9rem; margin-bottom: 0.3rem; }
+  .apop-success p { color: #aeb0c4; font-size: 0.75rem; }
+  @media (max-width: 520px) { .apop { padding: 1.3rem 1rem 1.1rem; } .apop-title { font-size: 1rem; } }
+
+  /* ── NEW ANIMATIONS ─────────────────────────────────────────────── */
+
+  /* Coach pulse: white to blue, 4s */
+  @keyframes coachWhiteBluePulse {
+    0%, 100% { color: #fff; text-shadow: none; }
+    50% { color: var(--accent); text-shadow: 0 0 20px rgba(59,110,246,0.8), 0 0 40px rgba(59,110,246,0.4); }
+  }
+  .coach-pulse { animation: coachWhiteBluePulse 4s ease-in-out infinite; }
+
+  /* Hero H1 blue shimmer wave, 6s */
+  @keyframes heroH1Wave {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+
+  /* Harvard red glow pulse every 5s */
+  @keyframes harvardCrimsonFlash {
+    0%, 78%, 100% { color: #ff000d; text-shadow: none; }
+    80%, 94% { color: #ff000d; text-shadow: 0 0 12px rgba(255,0,13,0.9), 0 0 30px rgba(255,0,13,0.5); }
+  }
+  .harvard-logo { animation: harvardCrimsonFlash 5s ease-in-out infinite; color: #ff000d !important; font-weight: 900 !important; }
+
+  /* Babson green flash every 5s */
+  @keyframes babsonGreenFlash {
+    0%, 78%, 100% { filter: grayscale(1) opacity(0.7); }
+    80%, 94% { filter: sepia(1) saturate(8) hue-rotate(78deg) brightness(0.6) opacity(1); }
+  }
+  .babson-logo { animation: babsonGreenFlash 5s ease-in-out infinite; }
+
+  /* Trusted by Leaders blue wave, 10s */
+  @keyframes trustedBlueWave {
+    0% { background-position: -300% center; }
+    100% { background-position: 300% center; }
+  }
+  .trusted-wave {
+    background: linear-gradient(90deg, #fff 0%, #fff 30%, #3b6ef6 42%, #60a5fa 50%, #3b6ef6 58%, #fff 70%, #fff 100%);
+    background-size: 400% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: trustedBlueWave 10s linear infinite;
+    display: inline-block;
+  }
+
+  /* Section citations / footnotes */
+  .section-cite { font-size: 0.65rem; color: #fff; text-align: center; margin-top: 1.5rem; padding: 0 1rem; line-height: 1.6; letter-spacing: 0.01em; }
+  .section-cite a { color: #fff; text-decoration: none; }
+  .section-cite a:hover { color: #fff; text-decoration: underline; }
+
+  /* CTA heading: white → blue → white flash, 5s */
+  @keyframes ctaHeadingPulse {
+    0%   { color: #fff; text-shadow: none; }
+    50%  { color: #60a5fa; text-shadow: 0 0 25px rgba(96,165,250,0.6); }
+    80%  { color: #3b6ef6; text-shadow: 0 0 10px rgba(59,110,246,0.4); }
+    88%  { color: #fff; text-shadow: 0 0 50px rgba(255,255,255,1), 0 0 80px rgba(96,165,250,0.8); }
+    100% { color: #fff; text-shadow: none; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+<nav aria-label="Main Navigation">
+  <a href="/" class="nav-logo" aria-label="Scott Magnacca Home">Scott Magnacca</a>
+  <div class="nav-links" id="navLinks">
+    <a href="#why">Why AI</a>
+    <a href="#story">Story</a>
+    <a href="#offers">Work With Me</a>
+    <a href="#books">Books</a>
+    <a href="https://salesforlife.ai" target="_blank" rel="noopener noreferrer">SalesForLife.ai</a>
+    <button class="nav-cta btn-primary" style="border:none; cursor:pointer;" onclick="openModal(event)">Register for a Free Guest Event →</button>
+  </div>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main>
+<div class="hero-wrap">
+  <section class="hero" id="top">
+    <div class="hero-text">
+      <div class="hero-eyebrow"><span class="coach-pulse">Your AI Sales Coach &amp; Consultant</span> · Harvard &amp; Babson Educated</div>
+      <h1>I Help Salespeople Rapidly <span>Boost Income &amp; Effectiveness</span></h1>
+      <p class="hero-sub2">Without Adding Headcount.</p>
+      <p class="hero-body">
+        I'm Scott Magnacca. I spent years at Fidelity Investments, TIAA &amp; Edelman Financial Engines building sales teams and programs around one goal: <strong>deepening client relationships and maximizing sales effectiveness.</strong><br><br>
+        The result? Over <strong>$103M+</strong> in direct sales pipeline generated. Knowledge alone doesn't move the needle — a proven framework does. I've encoded mine into AI-powered coaching and tools so your team can replicate those results. <strong>Let me help you do the same.</strong>
+      </p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="window.location.href='#why'">Take the Free AI Risk Assessment →</button>
+        <a href="#events" class="btn-secondary">View Free Guest Events</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="/Headshot 1.png" alt="Scott Magnacca - AI Sales Coach" loading="eager" onerror="this.style.display='none'"/>
+    </div>
+  </section>
+</div>
+
+
+
+<section class="logos-section" aria-label="Credentials and Past Clients">
+  <div class="logos-shimmer" aria-hidden="true"></div>
+  <div class="logos-label">Educated At · Client Experience With</div>
+  <div class="logos-row">
+    <span class="logo-text harvard-logo">HARVARD<span style="color:#ff000d; font-weight:900;">UNIVERSITY</span></span>
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5a/Babson_College_seal.svg/200px-Babson_College_seal.svg.png" alt="Babson College" loading="lazy" class="babson-logo"/>
+    <span class="logo-text">FIDELITY</span>
+    <span class="logo-text">TIAA</span>
+    <span class="logo-text">EDELMAN<span>Financial</span></span>
+  </div>
+</section>
+
+
+<section class="quiz-section" id="why" aria-labelledby="quiz-heading">
+  <div class="bg-fx" aria-hidden="true">
+    <div class="radar-ring"></div>
+    <div class="radar-ring"></div>
+  </div>
+  <div class="container">
+    
+    <div class="quiz-layout">
+      <div class="quiz-wrap">
+        <div class="pulse-label">FREE · 60-SECOND ASSESSMENT</div>
+        <h2 id="quiz-heading" class="section-title">12-Month AI Disruption <span class="risk-wave">Risk Assessment:</span> <br><span class="wave-text">Will Your Job Be Next?</span></h2>
+        <p class="section-sub" style="margin:0 auto 1.25rem; font-size:0.85rem;">Answer 3 research-backed questions to instantly generate your personalized AI vulnerability score.</p>
+        
+        <div class="quiz-progress" id="quizProgress" aria-hidden="true">
+          <div class="quiz-dot active" id="dot0"></div>
+          <div class="quiz-dot" id="dot1"></div>
+          <div class="quiz-dot" id="dot2"></div>
+        </div>
+        
+        <div class="quiz-step active" id="step0" role="group" aria-labelledby="q0-title">
+          <div class="quiz-counter">01 / 03</div>
+          <div class="quiz-category">Automatable Tasks</div>
+          <h3 id="q0-title" class="quiz-q">How repetitive or rule-following is your daily work?</h3>
+          <p class="quiz-hint">e.g., data entry, standard reports, basic processing</p>
+          <div class="quiz-options" role="radiogroup">
+            <button class="quiz-option" role="radio" aria-checked="false" onclick="selectOption(0,0,4)"><span class="opt-letter">A</span> Very Repetitive / Solely Data <span class="opt-check">✓</span></button>
+            <button class="quiz-option" role="radio" aria-checked="false" onclick="selectOption(0,1,3)"><span class="opt-letter">B</span> Predominantly Routine <span class="opt-check">✓</span></button>
+            <button class="quiz-option" role="radio" aria-checked="false" onclick="selectOption(0,2,2)"><span class="opt-letter">C</span> Varies / Moderate <span class="opt-check">✓</span></button>
+            <button class="quiz-option" role="radio" aria-checked="false" onclick="selectOption(0,3,1)"><span class="opt-letter">D</span> Minimal Routine / Highly Unique <span class="opt-check">✓</span></button>
+          </div>
+          <p class="quiz-error" id="err0" role="alert">⚠ Please select an option before continuing.</p>
+          <button class="btn-primary" style="margin-top:1rem;" onclick="nextStep(0)">Next Question →</button>
+        </div>
+        
+        <div class="quiz-step" id="step1" role="group" aria-labelledby="q1-title">
+          <div class="quiz-counter">02 / 03</div>
+          <div class="quiz-category">Industry Adoption Rate</div>
+          <h3 id="q1-title" class="quiz-q">To what extent are competitors already deploying AI for efficiency or cost-cutting?</h3>
+          <div class="quiz-options" role="radiogroup">
+            <button class="quiz-option" role="radio" aria-checked="false" onclick="selectOption(1,0,4)"><span class="opt-letter">A</span> Widespread &amp; Disruptive <span class="opt-check">✓</span></button>
+            <button class="quiz-option" role="radio" aria-checked="false" onclick="selectOption(1,1,3)"><span class="opt-letter">B</span> Significant Implementation <span class="opt-check">✓</span></button>
+            <button class="quiz-option" role="radio" aria-checked="false" onclick="selectOption(1,2,2)"><span class="opt-letter">C</span> Just Started / Small Projects <span class="opt-check">✓</span></button>
+            <button class="quiz-option" role="radio" aria-checked="false" onclick="selectOption(1,3,1)"><span class="opt-letter">D</span> No Adoption or Planning <span class="opt-check">✓</span></button>
+          </div>
+          <p class="quiz-error" id="err1" role="alert">⚠ Please select an option.</p>
+          <button class="btn-primary" style="margin-top:1rem;" onclick="nextStep(1)">Next Question →</button>
+        </div>
+        
+        <div class="quiz-step" id="step2" role="group" aria-labelledby="q2-title">
+          <div class="quiz-counter">03 / 03</div>
+          <div class="quiz-category">Human Skill Resiliency</div>
+          <h3 id="q2-title" class="quiz-q">How critical are empathy, complex social navigation, or strategic reasoning to your core duties?</h3>
+          <p class="quiz-hint">Higher human need = lower risk</p>
+          <div class="quiz-options" role="radiogroup">
+            <button class="quiz-option" role="radio" aria-checked="false" onclick="selectOption(2,0,1)"><span class="opt-letter">A</span> Highly Empathetic / Creative <span class="opt-check">✓</span></button>
+            <button class="quiz-option" role="radio" aria-checked="false" onclick="selectOption(2,1,2)"><span class="opt-letter">B</span> Moderate Human Connection <span class="opt-check">✓</span></button>
+            <button class="quiz-option" role="radio" aria-checked="false" onclick="selectOption(2,2,3)"><span class="opt-letter">C</span> Minimal, Mostly Analytical <span class="opt-check">✓</span></button>
+            <button class="quiz-option" role="radio" aria-checked="false" onclick="selectOption(2,3,4)"><span class="opt-letter">D</span> Never Required <span class="opt-check">✓</span></button>
+          </div>
+          <p class="quiz-error" id="err2" role="alert">⚠ Please select an option.</p>
+          <button class="btn-primary" style="margin-top:1rem;" onclick="submitQuiz()">Calculate My Risk Score</button>
+          <p class="privacy-note">🔒 Private &amp; confidential — no spam, ever.</p>
+        </div>
+        
+        <div class="quiz-email-wrap" id="quizEmail">
+          <h3 class="section-title" style="font-size:1.2rem;">Your Assessment is Ready!</h3>
+          <p style="color:var(--muted);margin-bottom:1rem;font-size:0.8rem;">Enter your email to unlock your personalized score (0–100%) and survival strategy.</p>
+          <label for="emailInput" class="honeypot">Email Address</label>
+          <input type="email" class="quiz-input" id="emailInput" placeholder="your@email.com" aria-label="Enter email to unlock score"/>
+          <p class="quiz-error" id="emailErr" role="alert">⚠ Please enter a valid email address.</p>
+          <button class="btn-primary" style="width:100%;font-size:0.8rem;padding:0.65rem;" onclick="unlockScore()">🔓 Unlock My Score</button>
+          <p class="privacy-note" style="margin-top:1.5rem;">No spam. Unsubscribe anytime.</p>
+        </div>
+        
+        <div class="quiz-result-wrap" id="quizResult" aria-live="polite">
+          <div class="section-label">12-Month AI Disruption Risk Assessment</div>
+          <div class="score-circle" id="scoreCircle">
+            <div class="score-num" id="scoreNum">0</div>
+            <div class="score-pct">%</div>
+          </div>
+          <p style="color:var(--muted);font-size:1.1rem;margin-bottom:1rem;font-weight:600;" id="scoreAnalyzing">Analyzing parameters...</p>
+          <div class="score-label" id="scoreLabel"></div>
+          <p class="score-desc" id="scoreDesc"></p>
+          <div class="score-legend" aria-hidden="true">
+            <span><span class="legend-dot legend-high"></span> 71–100% High</span>
+            <span><span class="legend-dot legend-mod"></span> 36–70% Moderate</span>
+            <span><span class="legend-dot legend-low"></span> 0–35% Minimal</span>
+          </div>
+          <div class="hero-btns" style="justify-content:center;">
+            <button class="btn-primary" onclick="openModal(event)">Get Your Free AI Survival Strategy →</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="quiz-sidebar">
+        <h3 style="color:#fff; margin-bottom: 1.5rem; font-size: 1.4rem;">Progress Tracker</h3>
+        <div class="pie-chart-container" id="pieChart" style="--progress: 0%;">
+          <div class="pie-chart-inner" id="pieChartText">0%</div>
+        </div>
+        <p class="sidebar-text" id="sidebarText">Complete the 3 questions to unlock your AI survival strategy.</p>
+        <div class="congrats-msg" id="congratsMsg">You're Finished! Congratulations...</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section class="stats-section" aria-label="Performance Statistics">
+  <div class="aurora-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-num">$1B+</div>
+        <div class="stat-label">Client Value Generated</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="836">0</div>
+        <div class="stat-label">Professionals Coached</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="26" data-suffix="+">0</div>
+        <div class="stat-label">Years Field Experience</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="quote-section" aria-label="Sales Philosophy">
+  <svg class="quote-wave-top" viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="rgba(96,165,250,0.05)" d="M0,50 C480,0 960,100 1440,50 L1440,0 L0,0 Z"/></svg>
+  <div class="container">
+    <blockquote>"Most sales teams are running a 2015 playbook in a 2026 world."</blockquote>
+    <p class="quote-body">
+      AI hasn't made selling easier. It has made the gap between elite sales teams and average ones <strong>wider than ever.</strong><br><br>
+      My Narrative Intelligence framework, developed during my master's capstone project at Harvard, has been battle-tested with thousands of professionals. It is now encoded into my latest book, <em>Storyselling in the Age of AI</em>, and deployed in AI systems that work 24/7. <strong>This is the competitive edge your peers don't have yet.</strong>
+    </p>
+  </div>
+  <svg class="quote-wave-bottom" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="rgba(59,110,246,0.06)" d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z"/></svg>
+</section>
+
+
+
+<section id="story" aria-labelledby="story-heading">
+  <div class="beam-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-img">
+        <img src="/headshot 3.png" alt="Scott Magnacca - Author and Consultant" loading="lazy" onerror="this.style.display='none'"/>
+      </div>
+      <div>
+        <div class="section-label">THE ORIGIN STORY</div>
+        <h2 id="story-heading" class="section-title">I Studied the Science of Influence at Harvard. Then I Had to Actually Sell.</h2>
+        <div class="story-body">
+          <p>At Babson, I learned how businesses are built. At Harvard, I learned why people say yes.</p>
+          <p>But my real MBA came from cold calls, lost deals, and the relentless grind of quota. I wasn't just studying sales strategy in a classroom—I was living it on the front lines.</p>
+          <p>When AI emerged, I didn't see a threat to sellers. I saw an unprecedented opportunity. It is an unfair advantage that everyone has access to, but very few know how to effectively apply.</p>
+          <p>SalesForLife.ai is designed to help you become a <strong>"Hybrid Advisor"</strong>—combining the raw processing power of AI with the irreplaceable human skills of relationship building, deep connection, and storyselling.</p>
+          <p><strong>Learn in days what took me decades to master. Discover the shortcut I never had.</strong></p>
+          <button class="btn-primary" style="margin-top:1.5rem;" onclick="openModal(event)">Partner With Scott →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="testimonials-section" aria-labelledby="testimonials-heading">
+  <div class="sparkle-bg" aria-hidden="true">
+    <span class="sparkle"></span><span class="sparkle"></span><span class="sparkle"></span>
+    <span class="sparkle"></span><span class="sparkle"></span><span class="sparkle"></span>
+    <span class="sparkle"></span><span class="sparkle"></span><span class="sparkle"></span>
+    <span class="sparkle"></span><span class="sparkle"></span><span class="sparkle"></span>
+    <span class="sparkle"></span><span class="sparkle"></span><span class="sparkle"></span>
+  </div>
+  <div class="container">
+    <div class="section-label" style="font-size:1.35rem;">WHAT PEOPLE ARE SAYING</div>
+    <h2 id="testimonials-heading" class="section-title"><span class="trusted-wave">Trusted by Leaders. Proven in the Field.</span></h2>
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"Scott was the 'driver' and innovator in Fidelity's entry into the retirement income planning market — a market that resulted in investors bringing in $10 billion of new, net assets to the firm. This led to the President of Fidelity forming a new group to pursue this opportunity."</p>
+        <div class="testimonial-source">
+          <span class="testimonial-title">Executive Vice President, Marketing &amp; Sales</span>
+          <span class="testimonial-company">Fidelity Investments</span>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"Your presentation provided the exact bridge my advisor clients needed: a blend of psychological insight, practical AI application, and a deep understanding of our business."</p>
+        <div class="testimonial-source">
+          <span class="testimonial-title">VP Sales</span>
+          <span class="testimonial-company">IRALOGIX</span>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"Scott demonstrated exceptional interpersonal and communication skills. His ability to teach, connect, and facilitate meaningful discussions significantly enhanced the collaborative learning atmosphere we strive to create."</p>
+        <div class="testimonial-source">
+          <span class="testimonial-title">Professor</span>
+          <span class="testimonial-company">Babson College</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section class="photos-section" aria-label="Speaking Events">
+  <div class="vignette-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="summit-banner-wrap">
+      <p class="photos-label">Pittsburgh AI Summit &middot; Capital Grille</p>
+    </div>
+    <div class="photos-row">
+      <div class="photo-frame"><img src="/Capitalgrill1.png" alt="Speaking at Pittsburgh AI Summit" loading="lazy"/></div>
+      <div class="photo-frame"><img src="/Capitalgrill2.png" alt="Pittsburgh AI Summit Presentation View" loading="lazy"/></div>
+    </div>
+  </div>
+</section>
+
+
+
+<section aria-labelledby="pillars-heading">
+  <div class="pillars-grid-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="section-label" style="font-size:1.35rem;">THE THREE PILLARS OF SALES MASTERY</div>
+    <h2 id="pillars-heading" class="section-title">The Foundational Skills That Separate Good From Great</h2>
+    <p class="section-sub">This training is built on three core capabilities that compound over time—the difference between a salesperson who plateaus and one who continually scales their income.</p>
+    <div class="pillars-grid">
+
+      <div class="pillar-card" data-pillar="0">
+        <div class="pillar-icon-wrap" aria-hidden="true">
+          <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="23" cy="19" r="11" stroke="#14b8a6" stroke-width="2.4" fill="none"/>
+            <circle cx="23" cy="19" r="3.5" fill="#14b8a6" opacity="0.75"/>
+            <line x1="23" y1="30" x2="23" y2="39" stroke="#14b8a6" stroke-width="2.4" stroke-linecap="round"/>
+            <line x1="17" y1="39" x2="29" y2="39" stroke="#14b8a6" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="pillar-title" data-text="Curiosity"></h3>
+        <p class="pillar-body" data-text="The questions you ask reveal opportunities others miss. Elite salespeople never stop asking why—they uncover what clients truly need before competitors even know to ask."></p>
+        <div class="pillar-stat">92% of top performers cite curiosity as their #1 trait</div>
+      </div>
+
+      <div class="pillar-card" data-pillar="1">
+        <div class="pillar-icon-wrap" aria-hidden="true">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 9 L42 18 L24 27 L6 18 Z" stroke="#818cf8" stroke-width="2.4" fill="rgba(99,102,241,0.1)" stroke-linejoin="round"/>
+            <path d="M6 18 L6 30 C6 30 15 36 24 36 C33 36 42 30 42 30 L42 18" stroke="#818cf8" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+            <line x1="42" y1="18" x2="42" y2="38" stroke="#818cf8" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="pillar-title" data-text="Lifelong Learning"></h3>
+        <p class="pillar-body" data-text="The market rewards those who never stop growing. What you master today becomes tomorrow's competitive advantage. Compound your knowledge like compound interest."></p>
+        <div class="pillar-stat">Skills learned in days compound into decades of results</div>
+      </div>
+
+      <div class="pillar-card" data-pillar="2">
+        <div class="pillar-icon-wrap" aria-hidden="true">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="14" stroke="#fb923c" stroke-width="2.4" fill="none"/>
+            <path d="M24 10 C24 10 33 15 33 24 C33 33 24 38 24 38" stroke="#fb923c" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+            <path d="M24 10 C24 10 15 15 15 24 C15 33 24 38 24 38" stroke="#fb923c" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.45"/>
+          </svg>
+        </div>
+        <h3 class="pillar-title" data-text="Adaptive Agility"></h3>
+        <p class="pillar-body" data-text="Professional change is constant. Those who adapt fastest don't just survive—they pull ahead permanently while others are still figuring out what happened."></p>
+        <div class="pillar-stat">Adaptability is the ultimate long-term sales advantage</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section id="events" aria-labelledby="events-heading">
+  <div class="mesh-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="section-label">CHOOSE YOUR PATH</div>
+    <h2 id="events-heading" class="section-title">Exclusive Free Guest Events</h2>
+    <p class="section-sub">Join me live to experience the frameworks that add millions to pipelines. See the exact systems I teach to executives, entirely free.</p>
+    <div class="offers-grid">
+      
+      <div class="offer-card">
+        <div class="offer-label">SPEED &amp; EFFICIENCY</div>
+        <h3 class="offer-title">15-Minute AI Sales Sprint</h3>
+        <p class="offer-body" style="margin-bottom: 1.5rem; font-size: 1.05rem;"><strong style="color:#fff;">The Fix:</strong> Stop "data dumping." Use AI to quickly research and refine compelling narratives in minutes, not hours.</p>
+        <p style="color: #fff; font-weight: 700; font-size: 1rem; margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em;">What You Will Master:</p>
+        <ul style="list-style: none; margin-bottom: 2rem; color: var(--muted); font-size: 1rem; display: flex; flex-direction: column; gap: 0.8rem; line-height: 1.5;">
+          <li style="display: flex; gap: 0.6rem;"><span style="color:var(--success); font-weight:900;">✓</span> <span><strong style="color:var(--text);">The 5-Minute Strategy:</strong> Deploy our "AI-Story Generator" to uncover hidden sales opportunities instantly.</span></li>
+          <li style="display: flex; gap: 0.6rem;"><span style="color:var(--success); font-weight:900;">✓</span> <span><strong style="color:var(--text);">LinkedIn Connection Generator:</strong> Generate an “Intelligence Brief” on your most important prospects.</span></li>
+          <li style="display: flex; gap: 0.6rem;"><span style="color:var(--success); font-weight:900;">✓</span> <span><strong style="color:var(--text);">The Buffett Rule:</strong> Brainpower is useless if you can’t transmit it. Use Narrative Intelligence to connect immediately.</span></li>
+        </ul>
+        <button class="btn-primary" style="width: 100%; margin-top: auto;" onclick="openModal(event)">Reserve 15-Min Spot →</button>
+      </div>
+      
+      <div class="offer-card featured">
+        <div class="offer-badge">DEEP DIVE</div>
+        <div class="offer-label">IMPLEMENTATION LAB</div>
+        <h3 class="offer-title">45-Minute "Brain on Story" Workshop</h3>
+        <p class="offer-body" style="margin-bottom: 1.5rem; font-size: 1.05rem;"><strong style="color:#fff;">The Offer:</strong> Bring a real-world client challenge. We will build the narrative &amp; story assets to solve it together, live.</p>
+        <p style="color: #fff; font-weight: 700; font-size: 1rem; margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em;">What You Will Master:</p>
+        <ul style="list-style: none; margin-bottom: 2rem; color: var(--muted); font-size: 1rem; display: flex; flex-direction: column; gap: 0.8rem; line-height: 1.5;">
+          <li style="display: flex; gap: 0.6rem;"><span style="color:var(--accent2); font-weight:900;">✓</span> <span><strong style="color:var(--text);">Neural Coupling:</strong> Align your listener’s brain patterns with yours to engineer biological trust.</span></li>
+          <li style="display: flex; gap: 0.6rem;"><span style="color:var(--accent2); font-weight:900;">✓</span> <span><strong style="color:var(--text);">The 22x Factor:</strong> Leverage the cognitive reality that stories are up to 22x more memorable than facts alone.</span></li>
+          <li style="display: flex; gap: 0.6rem;"><span style="color:var(--accent2); font-weight:900;">✓</span> <span><strong style="color:var(--text);">Asset Ecosystems:</strong> Transform one idea into a suite of podcasts, FAQs, and flashcards using "grounded" AI.</span></li>
+        </ul>
+        <button class="btn-primary" style="width: 100%; margin-top: auto;" onclick="openModal(event)">Claim 45-Min Workshop Spot →</button>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+
+<section id="books" class="books-section" aria-labelledby="books-heading">
+  <div class="spotlight-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="section-label">BESTSELLING AUTHOR</div>
+    <h2 id="books-heading" class="section-title">The Playbooks That Built the System</h2>
+    <p class="section-sub">Four books. Decades of intensive research. One mission: handing you the unfair advantage.</p>
+    <div class="books-grid">
+
+      <div class="book-card">
+        <div class="book-img">
+          <img src="https://images.squarespace-cdn.com/content/v1/67f94d633efa1f02237d9229/f625290c-aa82-4991-bead-a4f3eb7cf592/Screenshot+2026-02-07+at+11.10.59%E2%80%AFAM.png?format=500w" alt="Cover of Why Professional Help Matters" loading="lazy"/>
+        </div>
+        <div class="book-content">
+          <div class="book-num">BOOK 1</div>
+          <h3 class="book-title">Why Professional Help Matters: The Human Premium in the Age of AI</h3>
+          <p class="book-desc">The most successful people have never worked alone. This book provides the exact framework top performers use to compress decades of expertise into weeks, ensuring you pull ahead permanently.</p>
+          <a href="https://a.co/d/0ddYJ0Nl" class="book-link" target="_blank" rel="noopener noreferrer">Secure Your Copy →</a>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-img">
+          <img src="/7-Strategies.jpeg" alt="Cover of The 7 Strategies for a Successful Retirement" loading="lazy" style="display:block;" onerror="this.style.display='none'; this.parentElement.querySelector('.book-cover-fallback').style.display='flex';"/>
+          <div class="book-cover-fallback" style="display:none;" aria-hidden="true">
+            <div class="bnum">7</div>
+            <div class="btitle">STRATEGIES FOR A SUCCESSFUL RETIREMENT</div>
+          </div>
+        </div>
+        <div class="book-content">
+          <div class="book-num">BOOK 2</div>
+          <h3 class="book-title">The 7 Strategies for a Successful Retirement</h3>
+          <p class="book-desc">The rules of building wealth have fundamentally changed. Learn how to spot opportunities faster and make your capital work as relentlessly as you do using these seven proven strategies.</p>
+          <a href="https://a.co/d/gVCC3yS" class="book-link" target="_blank" rel="noopener noreferrer">Secure Your Copy →</a>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-img">
+          <img src="https://images.squarespace-cdn.com/content/v1/67f94d633efa1f02237d9229/3d51e69b-d147-414b-b500-994604c7bb0c/Screenshot+2025-04-03+074312.png?format=500w" alt="Cover of Top Gun: Relationship Based Selling" loading="lazy"/>
+        </div>
+        <div class="book-content">
+          <div class="book-num">BOOK 3</div>
+          <h3 class="book-title">Top Gun: The Secrets of Relationship-Based Selling</h3>
+          <p class="book-desc">Master high-stakes conversations and walk into every client meeting with absolute confidence. This is the elite communication and persuasion training program you never had.</p>
+          <a href="https://a.co/d/6ZCSyTm" class="book-link" target="_blank" rel="noopener noreferrer">Secure Your Copy →</a>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-img">
+          <div class="book-badge">NEW RELEASE</div>
+          <img src="https://images.squarespace-cdn.com/content/v1/67f94d633efa1f02237d9229/751f7068-f7f3-416a-87a6-42c258c9d59f/Storyselling+cover+12.21.25.jpg?format=500w" alt="Cover of Storyselling in the Age of AI" loading="lazy"/>
+        </div>
+        <div class="book-content">
+          <div class="book-num">BOOK 4</div>
+          <h3 class="book-title">Storyselling in the Age of AI</h3>
+          <p class="book-desc">AI can out-calculate any human—meaning data alone no longer wins. Discover the one skill separating highly trusted advisors from the rest: the ancient power of a story that makes clients feel seen.</p>
+          <a href="https://a.co/d/50enZFL" class="book-link" target="_blank" rel="noopener noreferrer">Secure Your Copy →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section class="platforms-section" aria-label="Ecosystem Platforms">
+  <div class="datarain-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="section-label">EXPLORE THE ECOSYSTEM</div>
+    <h2 class="section-title">Two Platforms. One Mission: Build Deeper Relationships, Close More Deals.</h2>
+    <div class="platforms-grid">
+      
+      <div class="platform-card featured-plat">
+        <span class="platform-label">AI SALES PLATFORM</span>
+        <span class="platform-icon" aria-hidden="true" style="font-size:0;">
+          <svg viewBox="0 0 184 115" width="276" height="173" xmlns="http://www.w3.org/2000/svg" style="display:block;margin-bottom:0.5rem;border-radius:6px;overflow:hidden;">
+            <!-- Page background: dark green -->
+            <rect width="184" height="115" fill="#195c3a" rx="6"/>
+            <!-- Nav bar -->
+            <rect width="184" height="18" fill="#134d30" rx="0"/>
+            <!-- Globe icon in nav -->
+            <circle cx="12" cy="9" r="5" stroke="#ffffff" stroke-width="0.9" fill="none"/>
+            <line x1="12" y1="4" x2="12" y2="14" stroke="#ffffff" stroke-width="0.7" opacity="0.7"/>
+            <line x1="7" y1="9" x2="17" y2="9" stroke="#ffffff" stroke-width="0.7" opacity="0.7"/>
+            <ellipse cx="12" cy="9" rx="2.5" ry="5" stroke="#ffffff" stroke-width="0.7" fill="none" opacity="0.7"/>
+            <!-- Nav brand text -->
+            <text x="20" y="12" fill="#ffffff" font-size="5.5" font-family="Arial,sans-serif" font-weight="bold" letter-spacing="0.2">SalesForLife.ai</text>
+            <!-- Nav links (simplified lines) -->
+            <rect x="55" y="7" width="20" height="1.5" fill="#ffffff" opacity="0.35" rx="0.8"/>
+            <rect x="79" y="7" width="16" height="1.5" fill="#ffffff" opacity="0.35" rx="0.8"/>
+            <rect x="99" y="7" width="26" height="1.5" fill="#ffffff" opacity="0.35" rx="0.8"/>
+            <rect x="129" y="7" width="18" height="1.5" fill="#ffffff" opacity="0.35" rx="0.8"/>
+            <!-- Main headline "Stop Talking" -->
+            <text x="9" y="36" fill="#ffffff" font-size="13" font-family="Arial,sans-serif" font-weight="900" letter-spacing="-0.3">Stop Talking</text>
+            <!-- "Start " + "Persuading" in yellow -->
+            <text x="9" y="51" fill="#ffffff" font-size="12" font-family="Arial,sans-serif" font-weight="900">Start </text>
+            <text x="38" y="51" fill="#f5c518" font-size="12" font-family="Arial,sans-serif" font-weight="900">Persuading</text>
+            <!-- "Information Tells & Stories Sell" -->
+            <text x="9" y="63" fill="#a8d8b0" font-size="5.8" font-family="Arial,sans-serif" font-weight="600">Information Tells &amp; Stories Sell</text>
+            <!-- Bullet rows -->
+            <circle cx="12" cy="72" r="1.2" fill="#f5c518"/>
+            <text x="16" y="75" fill="#e0f0e8" font-size="5" font-family="Arial,sans-serif">Clarify Your Message</text>
+            <circle cx="12" cy="80" r="1.2" fill="#f5c518"/>
+            <text x="16" y="83" fill="#e0f0e8" font-size="5" font-family="Arial,sans-serif">Persuade Your Audience</text>
+            <circle cx="12" cy="88" r="1.2" fill="#f5c518"/>
+            <text x="16" y="91" fill="#e0f0e8" font-size="5" font-family="Arial,sans-serif">Grow Your Business</text>
+            <!-- Right side portrait box -->
+            <rect x="118" y="20" width="60" height="90" fill="#1f6e44" rx="4"/>
+            <!-- Portrait: head/face simplified sketch -->
+            <ellipse cx="148" cy="60" rx="22" ry="27" fill="none" stroke="#c8b89a" stroke-width="0.8" opacity="0.7"/>
+            <ellipse cx="148" cy="50" rx="16" ry="18" fill="#d4c4a0" opacity="0.55"/>
+            <!-- Hair lines (white/grey sketch style) -->
+            <ellipse cx="148" cy="36" rx="15" ry="8" fill="#e8dcc0" opacity="0.5"/>
+            <!-- Face features: eyes -->
+            <ellipse cx="143" cy="50" rx="2" ry="1.5" fill="#5a4030" opacity="0.6"/>
+            <ellipse cx="153" cy="50" rx="2" ry="1.5" fill="#5a4030" opacity="0.6"/>
+            <!-- Glasses -->
+            <rect x="139" y="47.5" width="7" height="5" rx="2.5" stroke="#444" stroke-width="0.8" fill="none" opacity="0.7"/>
+            <rect x="149" y="47.5" width="7" height="5" rx="2.5" stroke="#444" stroke-width="0.8" fill="none" opacity="0.7"/>
+            <line x1="146" y1="50" x2="149" y2="50" stroke="#444" stroke-width="0.8" opacity="0.7"/>
+            <!-- Smile line -->
+            <path d="M143 58 Q148 62 153 58" stroke="#5a4030" stroke-width="0.9" fill="none" opacity="0.5"/>
+            <!-- Suit collar hint -->
+            <path d="M130 90 L140 70 L148 78 L156 70 L166 90" fill="#2a3a50" opacity="0.6"/>
+          </svg>
+        </span>
+        <h3 class="platform-title">SalesForLife.ai Platform &amp; Academy</h3>
+        <p class="platform-body">The SalesForLife.ai Academy is your free training ground. Learn to clarify your message, persuade your audience, and scale your business using cutting-edge AI automation combined with human engagement.</p>
+        <ul class="platform-features" aria-label="SalesForLife Features">
+          <li>Access the Free Academy Training</li>
+          <li>Learn to Persuade &amp; Clarify Your Message</li>
+          <li>Develop a Growth Mindset Using AI Role Play</li>
+        </ul>
+        <a href="https://salesforlife.ai" class="platform-link primary" target="_blank" rel="noopener noreferrer">Visit SalesForLife.ai →</a>
+      </div>
+      
+      <div class="platform-card">
+        <span class="platform-label">STORYSELLING FRAMEWORK</span>
+        <span class="platform-icon" aria-hidden="true" style="font-size:0;">
+          <svg viewBox="0 0 180 110" width="270" height="165" xmlns="http://www.w3.org/2000/svg" style="display:block; margin-bottom:0.5rem;">
+            <defs>
+              <radialGradient id="ssVgL" cx="40%" cy="50%" r="60%">
+                <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="#3b6ef6" stop-opacity="0.04"/>
+              </radialGradient>
+              <radialGradient id="ssVgR" cx="60%" cy="50%" r="60%">
+                <stop offset="0%" stop-color="#fb923c" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="#f97316" stop-opacity="0.04"/>
+              </radialGradient>
+              <radialGradient id="ssVgC" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#e2e8f0" stop-opacity="0.2"/>
+                <stop offset="100%" stop-color="#e2e8f0" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <!-- Left circle: AI -->
+            <circle cx="70" cy="55" r="44" fill="url(#ssVgL)">
+              <animate attributeName="opacity" values="0.75;1;0.75" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="70" cy="55" r="44" fill="none" stroke="#60a5fa" stroke-width="1.5" opacity="0.65"/>
+            <!-- Right circle: Human -->
+            <circle cx="110" cy="55" r="44" fill="url(#ssVgR)">
+              <animate attributeName="opacity" values="1;0.75;1" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="110" cy="55" r="44" fill="none" stroke="#fb923c" stroke-width="1.5" opacity="0.65"/>
+            <!-- Intersection glow -->
+            <ellipse cx="90" cy="55" rx="21" ry="42" fill="url(#ssVgC)">
+              <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite"/>
+            </ellipse>
+            <!-- Left label -->
+            <text x="34" y="51" font-size="8.5" font-weight="700" fill="#60a5fa" text-anchor="middle" font-family="DM Sans,sans-serif">AI</text>
+            <text x="34" y="62" font-size="6" fill="#60a5fa" text-anchor="middle" font-family="DM Sans,sans-serif" opacity="0.8">POWER</text>
+            <!-- Right label -->
+            <text x="146" y="51" font-size="8.5" font-weight="700" fill="#fb923c" text-anchor="middle" font-family="DM Sans,sans-serif">HUMAN</text>
+            <text x="146" y="62" font-size="6" fill="#fb923c" text-anchor="middle" font-family="DM Sans,sans-serif" opacity="0.8">HEART</text>
+            <!-- Center: Story -->
+            <text x="90" y="51" font-size="8" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Playfair Display,serif">STORY</text>
+            <text x="90" y="62" font-size="6" fill="rgba(255,255,255,0.75)" text-anchor="middle" font-family="Playfair Display,serif">SELLING</text>
+          </svg>
+        </span>
+        <h3 class="platform-title">Storyselling In The Age of AI</h3>
+        <p class="platform-body">Earn your Online Mini M.B.A. in 2 Weeks Rather than 2 Years. Master "Hybrid Advisor" life skills to rapidly accelerate your income, engineer unshakeable trust, and ethically motivate any audience to take action.</p>
+        <ul class="platform-features" aria-label="Storyselling Features">
+          <li>Master the Acclaimed ACTOR Model</li>
+          <li>Compress Decades of Expertise into Days</li>
+          <li>Engineer Trust with Narrative Intelligence</li>
+        </ul>
+        <a href="https://become-a-hybrid-advisor.netlify.app" class="platform-link secondary" target="_blank" rel="noopener noreferrer">Explore the Framework →</a>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+
+<section class="cta-section" id="cta" aria-labelledby="cta-heading">
+  <div class="gold-shimmer" aria-hidden="true"></div>
+  <div class="cta-glow" aria-hidden="true"></div>
+  <div class="container">
+    <h2 id="cta-heading">Ready to Build a Sales Machine Fueled by AI &amp; Human Connection?</h2>
+    <p>Reserve your spot in the next session. Real, actionable strategy. Zero pitch.</p>
+    <button class="btn-primary" style="font-size:1.3rem; padding:1.2rem 3rem;" onclick="openModal(event)">Register for a Free Guest Event →</button>
+    <p class="cta-note">Seats for our live sprints and workshops are strictly capped to ensure a high-quality, interactive experience.</p>
+  </div>
+</section>
+
+</main>
+
+<div class="modal-overlay" id="modalOverlay" aria-modal="true" role="dialog" aria-labelledby="modal-title">
+
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close modal">×</button>
+    <div id="formContent">
+      <h2 id="modal-title">Live Event Registration</h2>
+      <h3 style="font-size:1.4rem; color:#fff; margin-bottom:0.5rem; font-weight: 600;">Secure Your Spot for the Next Session</h3>
+      <p>Fill out your details below and we will send you the Zoom link and calendar invite.</p>
+      
+      <form onsubmit="event.preventDefault(); submitForm();">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="eventSelection">Select Your Event</label>
+            <select id="eventSelection" required aria-required="true" style="width: 100%; padding: 1.1rem 1.4rem; background: var(--bg); border: 2px solid var(--border); border-radius: 8px; color: #fff; font-size: 1.1rem; font-family: 'DM Sans', sans-serif; transition: border-color 0.2s; appearance: none; cursor: pointer;">
+              <option value="" disabled selected>Choose a session...</option>
+              <option value="15-min-sprint">15-Minute AI Sales Sprint</option>
+              <option value="45-min-workshop">45-Minute "Brain on Story" Workshop</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" required aria-required="true"/>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" required aria-required="true"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="formEmail">Business Email</label>
+          <input type="email" id="formEmail" required aria-required="true"/>
+        </div>
+        <div class="form-group">
+          <label for="formPhone">Best Phone Number</label>
+          <input type="tel" id="formPhone" required aria-required="true"/>
+        </div>
+        <div class="form-group">
+          <label for="formCompany">Company Name</label>
+          <input type="text" id="formCompany" required aria-required="true"/>
+        </div>
+        <div class="form-group honeypot">
+          <label for="honeypotField">Do not fill this out</label>
+          <input type="text" id="honeypotField" tabindex="-1"/>
+        </div>
+        
+        <p class="form-error" id="formError" role="alert">Please complete all required fields correctly.</p>
+        <button type="submit" class="btn-primary" style="width:100%; margin-top:1rem; font-size:1.2rem; padding: 1.2rem;">Reserve My Seat →</button>
+      </form>
+    </div>
+    
+    <div class="form-success" id="formSuccess" aria-live="polite">
+      <div class="check" aria-hidden="true">✓</div>
+      <h3>Registration Confirmed</h3>
+      <p>Your spot is secured! Please check your inbox (and spam folder) for the Zoom link and calendar invite details.</p>
+    </div>
+  </div>
+</div>
+
+<footer aria-label="Site Footer">
+  <div class="footer-links">
+    <a href="https://salesforlife.ai" target="_blank" rel="noopener noreferrer">SalesForLife.ai</a>
+<a href="https://linkedin.com/in/scottmagnacca" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
+    <a href="#">Privacy Policy</a>
+  </div>
+  <p>© 2026 Scott Magnacca · SalesForLife.ai. All rights reserved.</p>
+</footer>
+
+<script>
+// ── User data: localStorage cache + form prefill ───────────────────
+function getUserData() {
+  try { return JSON.parse(localStorage.getItem('sm_user') || '{}'); } catch(e) { return {}; }
+}
+function saveUserData(data) {
+  var d = getUserData();
+  for (var k in data) if (Object.prototype.hasOwnProperty.call(data, k)) d[k] = data[k];
+  try { localStorage.setItem('sm_user', JSON.stringify(d)); } catch(e) {}
+}
+function prefillForms() {
+  var d = getUserData();
+  var map = {
+    emailInput: d.email, 'apop1-email': d.email, 'apop2-email': d.email,
+    formEmail: d.email, firstName: d.firstName, lastName: d.lastName,
+    formPhone: d.phone, formCompany: d.company
+  };
+  for (var id in map) {
+    if (!map[id]) continue;
+    var el = document.getElementById(id);
+    if (el && !el.value) el.value = map[id];
+  }
+}
+// Stub — overwritten by popup script once loaded
+window.suppressAllPopups = function() {};
+
+// ── Hero canvas: particle network with connecting lines ────────────
+(function() {
+  var canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var W, H, particles = [];
+  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  function Particle() { this.reset(); }
+  Particle.prototype.reset = function() {
+    this.x = Math.random() * W; this.y = Math.random() * H;
+    this.r = Math.random() * 2 + 1;
+    this.vx = (Math.random() - 0.5) * 0.55; this.vy = (Math.random() - 0.5) * 0.55;
+    this.alpha = Math.random() * 0.5 + 0.4;
+  };
+  resize();
+  for (var i = 0; i < 110; i++) particles.push(new Particle());
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    // Draw connecting lines between close particles
+    for (var i = 0; i < particles.length; i++) {
+      for (var j = i + 1; j < particles.length; j++) {
+        var dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y;
+        var d = Math.sqrt(dx * dx + dy * dy);
+        if (d < 110) {
+          ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y); ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = 'rgba(96,165,250,' + (0.35 * (1 - d / 110)) + ')';
+          ctx.lineWidth = 1; ctx.stroke();
+        }
+      }
+    }
+    // Draw dots
+    particles.forEach(function(p) {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > W || p.y < 0 || p.y > H) p.reset();
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(96,165,250,' + p.alpha + ')'; ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize', resize);
+  draw();
+})();
+
+// ── Quiz ──────────────────────────────────────────────────────────
+var quizScores = [null, null, null];
+
+function updatePie(pct) {
+  var pie = document.getElementById('pieChart');
+  var txt = document.getElementById('pieChartText');
+  if (pie) pie.style.setProperty('--progress', pct + '%');
+  if (txt) txt.textContent = pct + '%';
+  var sidebar = document.getElementById('sidebarText');
+  if (sidebar) {
+    if (pct === 0) sidebar.textContent = 'Complete the 3 questions to unlock your AI survival strategy.';
+    else if (pct < 67) sidebar.textContent = 'Great start! Keep going...';
+    else if (pct < 100) sidebar.textContent = 'Almost there — one more question!';
+    else sidebar.textContent = 'All done! Enter your email to unlock your score.';
+  }
+}
+
+function selectOption(step, optIdx, score) {
+  var stepEl = document.getElementById('step' + step);
+  if (!stepEl) return;
+  stepEl.querySelectorAll('.quiz-option').forEach(function(btn, i) {
+    btn.classList.toggle('selected', i === optIdx);
+    btn.setAttribute('aria-checked', i === optIdx ? 'true' : 'false');
+  });
+  quizScores[step] = score;
+  var err = document.getElementById('err' + step);
+  if (err) err.style.display = 'none';
+}
+
+function nextStep(step) {
+  if (quizScores[step] === null) {
+    var err = document.getElementById('err' + step);
+    if (err) { err.style.display = 'block'; err.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
+    return;
+  }
+  document.getElementById('step' + step).classList.remove('active');
+  var dot = document.getElementById('dot' + step);
+  if (dot) { dot.classList.remove('active'); dot.classList.add('done'); }
+  var next = document.getElementById('step' + (step + 1));
+  if (next) next.classList.add('active');
+  var nextDot = document.getElementById('dot' + (step + 1));
+  if (nextDot) nextDot.classList.add('active');
+  updatePie(Math.round(((step + 1) / 3) * 100));
+}
+
+function submitQuiz() {
+  if (quizScores[2] === null) {
+    var err = document.getElementById('err2');
+    if (err) { err.style.display = 'block'; err.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
+    return;
+  }
+  document.getElementById('step2').classList.remove('active');
+  var dot2 = document.getElementById('dot2');
+  if (dot2) { dot2.classList.remove('active'); dot2.classList.add('done'); }
+  updatePie(100);
+  var congrats = document.getElementById('congratsMsg');
+  if (congrats) {
+      congrats.style.display = 'block';
+      congrats.innerHTML = 'Assessment Complete!<br><span style="color:#fff; font-size:0.95rem; font-weight:400; display:block; margin-top:0.5rem;">Enter your email to unlock your results.</span>';
+  }
+  var emailWrap = document.getElementById('quizEmail');
+  if (emailWrap) {
+    emailWrap.style.display = 'block';
+    emailWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(function() { var i = document.getElementById('emailInput'); if (i) i.focus(); }, 400);
+  }
+}
+
+function unlockScore() {
+  var emailEl = document.getElementById('emailInput');
+  var emailErr = document.getElementById('emailErr');
+  var val = emailEl ? emailEl.value.trim() : '';
+  if (!val || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+    if (emailErr) emailErr.style.display = 'block';
+    return;
+  }
+  if (emailErr) emailErr.style.display = 'none';
+  saveUserData({ email: val });
+  window.suppressAllPopups();
+  var total = (quizScores[0] || 0) + (quizScores[1] || 0) + (quizScores[2] || 0);
+  var pct = Math.round((total / 12) * 100);
+  var emailWrap = document.getElementById('quizEmail');
+  if (emailWrap) emailWrap.style.display = 'none';
+  var resultWrap = document.getElementById('quizResult');
+  if (resultWrap) { resultWrap.style.display = 'block'; resultWrap.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+  // Animated count-up
+  var scoreNum = document.getElementById('scoreNum');
+  var analyzing = document.getElementById('scoreAnalyzing');
+  var scoreLabel = document.getElementById('scoreLabel');
+  var scoreDesc = document.getElementById('scoreDesc');
+  var scoreCircle = document.getElementById('scoreCircle');
+  var duration = 2000, start = null;
+  function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+  function tick(ts) {
+    if (!start) start = ts;
+    var progress = Math.min((ts - start) / duration, 1);
+    if (scoreNum) scoreNum.textContent = Math.round(easeOut(progress) * pct);
+    if (progress < 1) { requestAnimationFrame(tick); return; }
+    var color = pct >= 71 ? '#EF4444' : pct >= 36 ? '#F59E0B' : '#10B981';
+    var label = pct >= 71 ? '⚠ High Risk' : pct >= 36 ? 'Moderate Risk' : 'Minimal Risk';
+    var desc = pct >= 71
+      ? 'Your role shows high vulnerability to AI disruption. Act now — the skills that future-proof your career are learnable, and the window to get ahead is still open.'
+      : pct >= 36
+      ? 'You have some protection, but AI is closing the gap fast. Building your Hybrid Advisor skills now puts you permanently ahead of the curve.'
+      : "Your role relies heavily on uniquely human skills. Keep compounding these — they're your most durable competitive advantage in the AI era.";
+    if (scoreCircle) scoreCircle.style.borderColor = color;
+    if (scoreNum) scoreNum.style.color = color;
+    if (analyzing) analyzing.style.display = 'none';
+    if (scoreLabel) { scoreLabel.textContent = label; scoreLabel.style.color = color; }
+    if (scoreDesc) scoreDesc.textContent = desc;
+    
+    // Trigger fireworks: 3 bursts over 3 seconds
+    if (window.confetti) {
+      function fireworkBurst(particleCount) {
+        var defaults = { spread: 360, ticks: 100, gravity: 0.2, decay: 0.94, startVelocity: 30, colors: ['#3b6ef6', '#14b8a6', '#f5c842', '#ffffff', '#fb7185'], zIndex: 10000 };
+        function randomInRange(min, max) { return Math.random() * (max - min) + min; }
+        confetti(Object.assign({}, defaults, { particleCount: particleCount, origin: { x: randomInRange(0.1, 0.9), y: Math.random() - 0.2 } }));
+      }
+      fireworkBurst(100);
+      setTimeout(function() { fireworkBurst(120); }, 1000);
+      setTimeout(function() { fireworkBurst(180); }, 2000);
+    }
+  }
+  requestAnimationFrame(tick);
+}
+
+// ── Modal ─────────────────────────────────────────────────────────
+function openModal(e) {
+  if (e) e.preventDefault();
+  var overlay = document.getElementById('modalOverlay');
+  if (!overlay) return;
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  prefillForms();
+  setTimeout(function() { var f = overlay.querySelector('input:not([value])') || overlay.querySelector('input'); if (f) f.focus(); }, 100);
+}
+function closeModal() {
+  var overlay = document.getElementById('modalOverlay');
+  if (overlay) overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('DOMContentLoaded', function() {
+  var overlay = document.getElementById('modalOverlay');
+  if (overlay) overlay.addEventListener('click', function(e) { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+  prefillForms();
+  // Hamburger nav toggle
+  var hamburger = document.getElementById('hamburger');
+  var navLinks = document.getElementById('navLinks');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', function() {
+      var isOpen = navLinks.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    navLinks.querySelectorAll('a, button').forEach(function(el) {
+      el.addEventListener('click', function() {
+        navLinks.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+});
+
+function submitForm() {
+  if (document.getElementById('honeypotField').value) return;
+  var first = document.getElementById('firstName').value.trim();
+  var last = document.getElementById('lastName').value.trim();
+  var email = document.getElementById('formEmail').value.trim();
+  var phone = document.getElementById('formPhone').value.trim();
+  var company = document.getElementById('formCompany').value.trim();
+  var err = document.getElementById('formError');
+  if (!first || !last || !company || !phone || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    if (err) err.style.display = 'block'; return;
+  }
+  if (err) err.style.display = 'none';
+  saveUserData({
+    email: email, firstName: first, lastName: last,
+    phone: phone, company: company, formSubmitted: true
+  });
+  window.suppressAllPopups();
+  document.getElementById('formContent').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+}
+
+// ── Stats count-up on scroll ──────────────────────────────────────
+(function() {
+  var els = document.querySelectorAll('.stat-num[data-target]');
+  if (!els.length || !('IntersectionObserver' in window)) return;
+  function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+  function animateStat(el) {
+    var target = parseInt(el.dataset.target, 10);
+    var suffix = el.dataset.suffix || '';
+    var prefix = /^\$/.test(el.textContent) ? '$' : '';
+    var duration = 5500, startTime = null;
+    function step(ts) {
+      if (!startTime) startTime = ts;
+      var p = Math.min((ts - startTime) / duration, 1);
+      el.textContent = prefix + Math.round(easeOut(p) * target).toLocaleString() + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) { animateStat(entry.target); io.unobserve(entry.target); }
+    });
+  }, { threshold: 0.4 });
+  els.forEach(function(el) { io.observe(el); });
+})();
+</script>
+
+<!-- ── Section canvas background effects ─────────────────────────── -->
+<script>
+(function() {
+  'use strict';
+
+  // Create a full-bleed canvas inserted as first child of section
+  function mkCanvas(section) {
+    var c = document.createElement('canvas');
+    c.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;';
+    c.setAttribute('aria-hidden', 'true');
+    section.insertBefore(c, section.firstChild);
+    return c;
+  }
+
+  // ── Rising Sparks (testimonials) ─────────────────────────────────
+  function riseSparks(section) {
+    var c = mkCanvas(section), ctx = c.getContext('2d'), W, H, pts = [];
+    var COLS = [[245,158,11],[96,165,250],[245,200,66],[129,140,248],[251,146,60]];
+    function rs() { W = c.width = section.offsetWidth; H = c.height = section.offsetHeight; }
+    rs(); window.addEventListener('resize', rs);
+    function mk(bottom) {
+      var col = COLS[Math.floor(Math.random()*COLS.length)];
+      return { x:Math.random()*W, y:bottom?H+6:Math.random()*H,
+               r:Math.random()*2.5+1.5, vy:-(Math.random()*0.8+0.35),
+               vx:(Math.random()-0.5)*0.5, col:col };
+    }
+    for (var i=0;i<55;i++) pts.push(mk(false));
+    (function draw() {
+      ctx.clearRect(0,0,W,H);
+      pts.forEach(function(p,i) {
+        p.x+=p.vx; p.y+=p.vy;
+        if (p.y<-10) pts[i]=mk(true);
+        var a = Math.sin(Math.max(0,Math.min(1, 1-p.y/H)) * Math.PI) * 0.85;
+        ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.283);
+        ctx.fillStyle='rgba('+p.col[0]+','+p.col[1]+','+p.col[2]+','+a+')'; ctx.fill();
+      });
+      requestAnimationFrame(draw);
+    })();
+  }
+
+  // ── Drifting Aurora Orbs ──────────────────────────────────────────
+  function auroraOrbs(section, orbs) {
+    var c = mkCanvas(section), ctx = c.getContext('2d'), W, H, t = 0;
+    function rs() { W = c.width = section.offsetWidth; H = c.height = section.offsetHeight; }
+    rs(); window.addEventListener('resize', rs);
+    (function draw() {
+      t += 0.007;
+      ctx.clearRect(0,0,W,H);
+      orbs.forEach(function(o,i) {
+        var x = W*(o.cx + Math.sin(t*o.sx+i*1.4)*o.mx);
+        var y = H*(o.cy + Math.cos(t*o.sy+i*0.9)*o.my);
+        var rad = Math.max(W,H)*o.r;
+        var g = ctx.createRadialGradient(x,y,0,x,y,rad);
+        g.addColorStop(0, o.c0); g.addColorStop(1,'rgba(0,0,0,0)');
+        ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+      });
+      requestAnimationFrame(draw);
+    })();
+  }
+
+  // ── Particle Network (offers) ─────────────────────────────────────
+  function nodeNetwork(section, r, g, b) {
+    var c = mkCanvas(section), ctx = c.getContext('2d'), W, H, pts = [];
+    function rs() { W = c.width = section.offsetWidth; H = c.height = section.offsetHeight; }
+    rs(); window.addEventListener('resize', rs);
+    for (var i=0;i<42;i++) pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-0.5)*0.45,vy:(Math.random()-0.5)*0.45});
+    (function draw() {
+      ctx.clearRect(0,0,W,H);
+      pts.forEach(function(p){
+        p.x+=p.vx; p.y+=p.vy;
+        if(p.x<0||p.x>W)p.vx*=-1; if(p.y<0||p.y>H)p.vy*=-1;
+      });
+      for (var i=0;i<pts.length;i++) {
+        for (var j=i+1;j<pts.length;j++) {
+          var dx=pts[i].x-pts[j].x, dy=pts[i].y-pts[j].y, d=Math.sqrt(dx*dx+dy*dy);
+          if (d<145) {
+            ctx.beginPath(); ctx.moveTo(pts[i].x,pts[i].y); ctx.lineTo(pts[j].x,pts[j].y);
+            ctx.strokeStyle='rgba('+r+','+g+','+b+','+(0.35*(1-d/145))+')';
+            ctx.lineWidth=1; ctx.stroke();
+          }
+        }
+      }
+      pts.forEach(function(p){
+        ctx.beginPath(); ctx.arc(p.x,p.y,2.5,0,6.283);
+        ctx.fillStyle='rgba('+r+','+g+','+b+',0.65)'; ctx.fill();
+      });
+      requestAnimationFrame(draw);
+    })();
+  }
+
+  // ── Matrix Rain (platforms) ───────────────────────────────────────
+  function matrixRain(section, r, g, b) {
+    var c = mkCanvas(section), ctx = c.getContext('2d'), W, H, cols, drops;
+    var SZ = 14, chars = '01■□◆◇⬡10▪▫';
+    function rs() {
+      W = c.width = section.offsetWidth; H = c.height = section.offsetHeight;
+      cols = Math.floor(W/SZ); drops = [];
+      for (var i=0;i<cols;i++) drops[i] = -(Math.random()*(H/SZ));
+    }
+    rs(); window.addEventListener('resize', rs);
+    (function draw() {
+      ctx.clearRect(0,0,W,H);
+      ctx.font = SZ+'px monospace';
+      for (var i=0;i<cols;i++) {
+        drops[i] += 0.5;
+        if (drops[i]*SZ > H+60 && Math.random()>0.972) drops[i]=-(Math.random()*20);
+        var head = Math.floor(drops[i]);
+        if (head>=0 && head*SZ<H) {
+          ctx.fillStyle='rgba('+r+','+g+','+b+',0.85)';
+          ctx.fillText(chars[Math.floor(Math.random()*chars.length)], i*SZ+2, head*SZ);
+        }
+        for (var j=1;j<=12;j++) {
+          var row=head-j;
+          if (row<0||row*SZ>H) continue;
+          ctx.fillStyle='rgba('+r+','+g+','+b+','+(Math.max(0,(1-j/12)*0.38))+')';
+          ctx.fillText(chars[Math.floor(Math.random()*chars.length)], i*SZ+2, row*SZ);
+        }
+      }
+      requestAnimationFrame(draw);
+    })();
+  }
+
+  // ── Bokeh Circles (photos) ────────────────────────────────────────
+  function bokeh(section, r, g, b) {
+    var c = mkCanvas(section), ctx = c.getContext('2d'), W, H, circles = [];
+    function rs() { W = c.width = section.offsetWidth; H = c.height = section.offsetHeight; }
+    rs(); window.addEventListener('resize', rs);
+    for (var i=0;i<18;i++) circles.push({x:Math.random()*W, y:Math.random()*H,
+      r:Math.random()*55+18, vx:(Math.random()-0.5)*0.35, vy:(Math.random()-0.5)*0.35,
+      a:Math.random()*0.22+0.1});
+    (function draw() {
+      ctx.clearRect(0,0,W,H);
+      circles.forEach(function(o){
+        o.x+=o.vx; o.y+=o.vy;
+        if(o.x<-o.r*2)o.x=W+o.r; else if(o.x>W+o.r*2)o.x=-o.r;
+        if(o.y<-o.r*2)o.y=H+o.r; else if(o.y>H+o.r*2)o.y=-o.r;
+        ctx.beginPath(); ctx.arc(o.x,o.y,o.r,0,6.283);
+        ctx.strokeStyle='rgba('+r+','+g+','+b+','+o.a+')';
+        ctx.lineWidth=1.5; ctx.stroke();
+        ctx.beginPath(); ctx.arc(o.x,o.y,o.r*0.12,0,6.283);
+        ctx.fillStyle='rgba('+r+','+g+','+b+','+(o.a*0.55)+')'; ctx.fill();
+      });
+      requestAnimationFrame(draw);
+    })();
+  }
+
+  // ── Gold Rays (cta) ───────────────────────────────────────────────
+  function goldRays(section) {
+    var c = mkCanvas(section), ctx = c.getContext('2d'), W, H, t=0, rays=[];
+    function rs() { W = c.width = section.offsetWidth; H = c.height = section.offsetHeight; }
+    rs(); window.addEventListener('resize', rs);
+    for (var i=0;i<18;i++) rays.push({base:(i/18)*Math.PI*2, spd:(i%2?0.18:-0.14)});
+    (function draw() {
+      t+=0.004;
+      ctx.clearRect(0,0,W,H);
+      var cx=W/2, cy=H*1.15, len=Math.max(W,H)*1.5;
+      rays.forEach(function(ray) {
+        var angle=ray.base+t*ray.spd, sp=0.038;
+        ctx.save(); ctx.translate(cx,cy); ctx.rotate(angle);
+        var grd=ctx.createLinearGradient(0,0,len,0);
+        grd.addColorStop(0,'rgba(245,158,11,0.22)');
+        grd.addColorStop(0.35,'rgba(245,200,66,0.1)');
+        grd.addColorStop(1,'rgba(245,200,66,0)');
+        ctx.beginPath(); ctx.moveTo(0,0);
+        ctx.lineTo(len,-len*sp); ctx.lineTo(len,len*sp);
+        ctx.closePath(); ctx.fillStyle=grd; ctx.fill();
+        ctx.restore();
+      });
+      requestAnimationFrame(draw);
+    })();
+  }
+
+
+  // ── Ring Sparkle (quiz/assessment section) ───────────────────────
+  function ringSparkle(section) {
+    var c = mkCanvas(section), ctx = c.getContext('2d'), W, H;
+    function rs() { W = c.width = section.offsetWidth; H = c.height = section.offsetHeight; }
+    rs(); window.addEventListener('resize', rs);
+
+    var COLS = [
+      [59,110,246], [96,165,250], [20,184,166], [129,140,248],
+      [245,158,11], [167,139,250], [251,146,60], [52,211,153],
+      [96,165,250], [20,184,166]
+    ];
+    var EXPAND = 90, SPARK = 22, TOTAL = EXPAND + SPARK;
+
+    function mkRing(scatter) {
+      var rMin = Math.random() * 7 + 4;
+      return { x: Math.random()*W, y: Math.random()*H,
+               rMin: rMin, rMax: rMin*3,
+               col: COLS[Math.floor(Math.random()*COLS.length)],
+               t: scatter ? Math.random()*TOTAL : 0,
+               spd: Math.random()*0.4+0.65,
+               lw: Math.random()*1.3+0.7,
+               a: Math.random()*0.38+0.22 };
+    }
+    function reset(ring) {
+      var rMin = Math.random()*7+4;
+      ring.x=Math.random()*W; ring.y=Math.random()*H;
+      ring.rMin=rMin; ring.rMax=rMin*3;
+      ring.col=COLS[Math.floor(Math.random()*COLS.length)];
+      ring.t=0; ring.spd=Math.random()*0.4+0.65;
+      ring.lw=Math.random()*1.3+0.7;
+      ring.a=Math.random()*0.38+0.22;
+    }
+
+    var rings=[];
+    for(var i=0;i<100;i++) rings.push(mkRing(true));
+
+    (function draw() {
+      ctx.clearRect(0,0,W,H);
+      rings.forEach(function(ring) {
+        ring.t += ring.spd;
+        if (ring.t >= TOTAL) { reset(ring); return; }
+        var r=ring.col[0], g=ring.col[1], b=ring.col[2];
+
+        if (ring.t < EXPAND) {
+          // Expand phase: ease-in growth, fade in first quarter
+          var p = ring.t / EXPAND;
+          var ep = p*p; // ease-in
+          var radius = ring.rMin + (ring.rMax - ring.rMin) * ep;
+          var alpha = ring.a * Math.min(1, p*5);
+          ctx.beginPath(); ctx.arc(ring.x, ring.y, radius, 0, 6.283);
+          ctx.strokeStyle='rgba('+r+','+g+','+b+','+alpha+')';
+          ctx.lineWidth=ring.lw; ctx.stroke();
+        } else {
+          // Sparkle phase
+          var sp = (ring.t - EXPAND) / SPARK; // 0→1
+          var sa = ring.a * (1 - sp);
+
+          // Ring fades out
+          ctx.beginPath(); ctx.arc(ring.x, ring.y, ring.rMax, 0, 6.283);
+          ctx.strokeStyle='rgba('+r+','+g+','+b+','+(sa*0.45)+')';
+          ctx.lineWidth=ring.lw; ctx.stroke();
+
+          // 6 radiating spark lines
+          var inner = ring.rMax, outer = ring.rMax*(1+sp*0.9);
+          ctx.save(); ctx.translate(ring.x, ring.y);
+          ctx.strokeStyle='rgba('+r+','+g+','+b+','+sa+')';
+          ctx.lineWidth=1.1;
+          for(var j=0;j<6;j++){
+            var ang=(j/6)*6.283 + 0.26;
+            ctx.beginPath();
+            ctx.moveTo(Math.cos(ang)*inner, Math.sin(ang)*inner);
+            ctx.lineTo(Math.cos(ang)*outer, Math.sin(ang)*outer);
+            ctx.stroke();
+          }
+          ctx.restore();
+
+          // Center flash dot
+          var dotR = ring.rMax*0.18*(1-sp);
+          if(dotR>0.5){
+            ctx.beginPath(); ctx.arc(ring.x,ring.y,dotR,0,6.283);
+            ctx.fillStyle='rgba('+r+','+g+','+b+','+(sa*0.9)+')'; ctx.fill();
+          }
+        }
+      });
+      requestAnimationFrame(draw);
+    })();
+  }
+
+  // ── Wire-up sections on load ──────────────────────────────────────
+  document.addEventListener('DOMContentLoaded', function() {
+
+    // Quote: two drifting aurora orbs (blue + teal)
+    var quote = document.querySelector('.quote-section');
+    if (quote) auroraOrbs(quote, [
+      {cx:0.28,cy:0.5,sx:0.8,sy:0.6,mx:0.22,my:0.32,r:0.48,c0:'rgba(59,110,246,0.28)'},
+      {cx:0.72,cy:0.45,sx:0.6,sy:0.9,mx:0.2,my:0.28,r:0.42,c0:'rgba(20,184,166,0.22)'}
+    ]);
+
+    // Stats: aurora orbs (blue + indigo)
+    var stats = document.querySelector('.stats-section');
+    if (stats) auroraOrbs(stats, [
+      {cx:0.15,cy:0.5,sx:0.55,sy:0.7,mx:0.22,my:0.32,r:0.52,c0:'rgba(59,110,246,0.3)'},
+      {cx:0.85,cy:0.5,sx:0.7,sy:0.5,mx:0.2,my:0.3,r:0.48,c0:'rgba(129,140,248,0.24)'}
+    ]);
+
+    // Testimonials: rising amber+blue sparks
+    var testi = document.querySelector('.testimonials-section');
+    if (testi) riseSparks(testi);
+
+    // Story: drifting blue aurora
+    var story = document.getElementById('story');
+    if (story) auroraOrbs(story, [
+      {cx:0.5,cy:0.4,sx:0.38,sy:0.55,mx:0.35,my:0.25,r:0.52,c0:'rgba(96,165,250,0.22)'},
+      {cx:0.15,cy:0.7,sx:0.6,sy:0.4,mx:0.18,my:0.28,r:0.38,c0:'rgba(59,110,246,0.16)'}
+    ]);
+
+    // Photos: bokeh soft circles
+    var photos = document.querySelector('.photos-section');
+    if (photos) bokeh(photos, 96, 165, 250);
+
+    // Offers: particle network
+    var offers = document.getElementById('offers');
+    if (offers) nodeNetwork(offers, 59, 110, 246);
+
+    // Books: drifting blue/purple aurora
+    var books = document.querySelector('.books-section');
+    if (books) auroraOrbs(books, [
+      {cx:0.12,cy:0.4,sx:0.45,sy:0.6,mx:0.25,my:0.22,r:0.42,c0:'rgba(59,110,246,0.24)'},
+      {cx:0.88,cy:0.6,sx:0.65,sy:0.42,mx:0.22,my:0.3,r:0.38,c0:'rgba(129,140,248,0.2)'}
+    ]);
+
+    // Platforms: matrix rain
+    var platforms = document.querySelector('.platforms-section');
+    if (platforms) matrixRain(platforms, 59, 110, 246);
+
+    // Quiz / Assessment: ring sparkle
+    var quizSection = document.querySelector('.quiz-section');
+    if (quizSection) ringSparkle(quizSection);
+
+    // CTA: gold rays
+    var cta = document.querySelector('.cta-section');
+    if (cta) goldRays(cta);
+  });
+})();
+</script>
+
+<!-- ── Auto-popup 1: 2-min · AI Prompt Video ──────────────────────── -->
+<div class="apop-overlay" id="apop1" role="dialog" aria-modal="true" aria-labelledby="apop1-title">
+  <div class="apop">
+    <button class="apop-close" onclick="closeApop('apop1')" aria-label="Close">×</button>
+    <span class="apop-icon" aria-hidden="true">🎬</span>
+    <h2 class="apop-title" id="apop1-title">Watch Our New 2-Minute Video</h2>
+    <p class="apop-sub">The Exact AI Prompt That Changes Everything</p>
+    <div class="apop-box">
+      <strong>The LinkedIn Prospect Prompt</strong>
+      <p>Enter your email and I'll send you the exact 120-second video showing the prompt I use with ChatGPT &amp; Gemini to understand, connect, and engage any prospect on LinkedIn — a priceless addition to your sales toolbox.</p>
+    </div>
+    <div id="apop1-form">
+      <input type="email" id="apop1-email" placeholder="Your best email address" aria-label="Email address"/>
+      <button class="apop-btn" onclick="submitApop('apop1')">Send Me the Prompt Video &rarr;</button>
+      <p class="apop-note">No spam. Unsubscribe any time.</p>
+    </div>
+    <div class="apop-success" id="apop1-success">
+      <div class="apop-check">✓</div>
+      <h3>You're In!</h3>
+      <p>Check your inbox — the 2-minute video is on its way.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── Auto-popup 2: 3-min · Free 15-Min Sales Sprint ─────────────── -->
+<div class="apop-overlay" id="apop2" role="dialog" aria-modal="true" aria-labelledby="apop2-title">
+  <div class="apop">
+    <button class="apop-close" onclick="closeApop('apop2')" aria-label="Close">×</button>
+    <span class="apop-icon" aria-hidden="true">⚡</span>
+    <h2 class="apop-title" id="apop2-title">Free 15-Minute Sales Sprint on Zoom</h2>
+    <p class="apop-sub">Limited Spots — Sign Up Now</p>
+    <div class="apop-box">
+      <strong>3 Prompts. 15 Minutes. Real Results.</strong>
+      <p>In this fast-paced session I'll share the top 3 AI prompts I use every day to engage clients, build interest, and drive sales. Enter your email below and I'll send you a sneak peek of the content right now.</p>
+    </div>
+    <div id="apop2-form">
+      <input type="email" id="apop2-email" placeholder="Your best email address" aria-label="Email address"/>
+      <button class="apop-btn" onclick="submitApop('apop2')" style="background:linear-gradient(135deg,#0d9488,#14b8a6);">Get My Sneak Peek &rarr;</button>
+      <p class="apop-note">No spam. Unsubscribe any time.</p>
+    </div>
+    <div class="apop-success" id="apop2-success">
+      <div class="apop-check">✓</div>
+      <h3>Spot Reserved!</h3>
+      <p>Your sneak peek is on its way. See you on Zoom!</p>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Timed auto-popups ─────────────────────────────────────────────────────
+// Psychology-based timing:
+//   Popup 1 (video prompt): 60s — user has read the hero + value prop,
+//     interest is peak but commitment hasn't formed yet.
+//   Popup 2 (Sales Sprint): fires 2.5 min AFTER popup 1 is dismissed.
+//     User who stays past popup 1 is highly engaged; a second offer
+//     after a respectful gap converts without feeling aggressive.
+//   Rule: popup 2 is NEVER shown while popup 1 is visible.
+// ─────────────────────────────────────────────────────────────────────────
+(function() {
+  var apop1Timer = null;
+  var apop2Timer = null;
+
+  // If user already gave us their email, suppress all popups immediately
+  if (getUserData().email) {
+    sessionStorage.setItem('apop-dismissed-apop1', '1');
+    sessionStorage.setItem('apop-dismissed-apop2', '1');
+  }
+
+  // Global suppression — called from quiz, popup submit, and modal form submit
+  window.suppressAllPopups = function() {
+    ['apop1', 'apop2'].forEach(function(id) {
+      sessionStorage.setItem('apop-dismissed-' + id, '1');
+      var el = document.getElementById(id);
+      if (el) el.classList.remove('open');
+    });
+    if (apop1Timer) { clearTimeout(apop1Timer); apop1Timer = null; }
+    if (apop2Timer) { clearTimeout(apop2Timer); apop2Timer = null; }
+  };
+
+  function openApop(id) {
+    if (sessionStorage.getItem('apop-dismissed-' + id)) return;
+    var main = document.getElementById('modalOverlay');
+    if (main && main.classList.contains('open')) return;
+    if (id === 'apop2') {
+      var p1 = document.getElementById('apop1');
+      if (p1 && p1.classList.contains('open')) return;
+    }
+    var el = document.getElementById(id);
+    if (!el) return;
+    prefillForms();
+    el.classList.add('open');
+    el.addEventListener('click', function(e) { if (e.target === el) closeApop(id); }, { once: true });
+    setTimeout(function() {
+      var inp = el.querySelector('input[type="email"]');
+      if (inp && !inp.value) inp.focus();
+    }, 200);
+  }
+
+  function scheduleApop2() {
+    if (sessionStorage.getItem('apop-dismissed-apop2')) return;
+    if (apop2Timer) return;
+    apop2Timer = setTimeout(function() { openApop('apop2'); }, 150 * 1000);
+  }
+
+  window.closeApop = function(id) {
+    var el = document.getElementById(id);
+    if (el) el.classList.remove('open');
+    sessionStorage.setItem('apop-dismissed-' + id, '1');
+    if (id === 'apop1') scheduleApop2();
+  };
+
+  window.submitApop = function(id) {
+    var inp = document.getElementById(id + '-email');
+    if (!inp || !inp.value || !inp.value.includes('@')) {
+      if (inp) { inp.style.borderColor = '#ef4444'; inp.focus(); }
+      return;
+    }
+    // Save email and suppress all remaining popups
+    saveUserData({ email: inp.value.trim() });
+    window.suppressAllPopups();
+    var form = document.getElementById(id + '-form');
+    var success = document.getElementById(id + '-success');
+    if (form) form.style.display = 'none';
+    if (success) success.style.display = 'block';
+    setTimeout(function() { closeApop(id); }, 3500);
+  };
+
+  // Enter key support
+  ['apop1-email', 'apop2-email'].forEach(function(eid) {
+    var el = document.getElementById(eid);
+    if (el) el.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') submitApop(eid.replace('-email', ''));
+    });
+  });
+
+  // Popup 1: 60 seconds
+  apop1Timer = setTimeout(function() { openApop('apop1'); }, 60 * 1000);
+
+  // Popup 2 fallback: if popup 1 already dismissed (prior visit), show at 90s
+  if (sessionStorage.getItem('apop-dismissed-apop1') &&
+      !sessionStorage.getItem('apop-dismissed-apop2')) {
+    apop2Timer = setTimeout(function() { openApop('apop2'); }, 90 * 1000);
+  }
+})();
+</script>
+
+<script>
+/* ============================================================
+   PILLAR CARDS: Typewriter titles (gold + flash) & bodies (white → gold)
+   Triggered on scroll into view, runs once
+============================================================ */
+(function() {
+  var pillarCards = document.querySelectorAll('.pillar-card[data-pillar]');
+  if (!pillarCards.length) return;
+
+  var hasRun = false;
+
+  function typeText(el, text, speed, onDone) {
+    var i = 0;
+    var cursor = document.createElement('span');
+    cursor.className = 'typewriter-cursor';
+    el.textContent = '';
+    el.appendChild(cursor);
+    var interval = setInterval(function() {
+      if (i < text.length) {
+        el.insertBefore(document.createTextNode(text[i]), cursor);
+        i++;
+      } else {
+        clearInterval(interval);
+        if (cursor.parentNode) cursor.parentNode.removeChild(cursor);
+        if (onDone) onDone();
+      }
+    }, speed);
+  }
+
+  function animateCard(card, delay) {
+    setTimeout(function() {
+      var titleEl = card.querySelector('.pillar-title');
+      var bodyEl = card.querySelector('.pillar-body');
+      var titleText = titleEl.getAttribute('data-text');
+      var bodyText = bodyEl.getAttribute('data-text');
+
+      // Step 1: Type out the title in gold at a brisk pace
+      typeText(titleEl, titleText, 84, function() {
+        // Flash once when title completes
+        titleEl.classList.add('flash');
+
+        // Step 2: After a short pause, type out the body in white at reading speed
+        setTimeout(function() {
+          typeText(bodyEl, bodyText, 34, function() {
+            // Step 3: Gradually turn body text to gold
+            bodyEl.classList.add('to-gold');
+          });
+        }, 400);
+      });
+    }, delay);
+  }
+
+  function startAnimations() {
+    if (hasRun) return;
+    hasRun = true;
+    pillarCards.forEach(function(card, idx) {
+      animateCard(card, idx * 3200);
+    });
+  }
+
+  // Use IntersectionObserver to trigger when pillars scroll into view
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          startAnimations();
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.25 });
+    observer.observe(document.querySelector('.pillars-grid'));
+  } else {
+    // Fallback: run after a delay
+    setTimeout(startAnimations, 2000);
+  }
+})();
+</script>
+
+</body>
+</html>

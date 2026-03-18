@@ -41,8 +41,8 @@
                 <img src="assets/buffett3.png" class="buffett-sketch" alt="Warren Buffett Sketch 3">
             </div>
 
-            <p>If you can't communicate, it's like winking at a girl in the dark — nothing happens. You can have all the brainpower in the world, but you have to be able to transmit it.</p>
-            <p class="quote-author">— Warren Buffett, Master Storyseller</p>
+            <p id="hero-quote" style="color: #ffffff; min-height: 48px; font-size: 1.15rem; margin-bottom: 1rem; line-height: 1.6;"></p>
+            <p class="quote-author" id="hero-author" style="color: var(--accent-blue); min-height: 24px; font-weight: 600;"></p>
             <a href="#transformation" class="btn-secondary oval">See How It Works</a>
         </div>
     </header>
@@ -105,58 +105,36 @@
                         </filter>
                       </defs>
 
-                      <!-- STAR PINPOINT — IDEA at (202,313) -->
-                      <circle cx="202" cy="313" r="14" fill="rgba(200,220,255,0.2)" filter="url(#fwGlowSoft)">
-                        <animate attributeName="r"       values="10;22;10"     dur="2s" repeatCount="indefinite"/>
-                        <animate attributeName="opacity" values="0.2;0.65;0.2" dur="2s" repeatCount="indefinite"/>
-                      </circle>
-                      <!-- Long horizontal rays (gold/amber) -->
-                      <line x1="202" y1="313" x2="202" y2="313" stroke="#ffcc44" stroke-width="3" stroke-linecap="round" filter="url(#fwGlowSoft)">
-                        <animate attributeName="x2"           values="202;257;257;202" keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
-                        <animate attributeName="stroke-width" values="1;3.5;2;1"       keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
-                        <animate attributeName="opacity"      values="0;1;0.6;0"       keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
-                      </line>
-                      <line x1="202" y1="313" x2="202" y2="313" stroke="#ff9922" stroke-width="3" stroke-linecap="round" filter="url(#fwGlowSoft)">
-                        <animate attributeName="x2"           values="202;147;147;202" keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
-                        <animate attributeName="stroke-width" values="1;3.5;2;1"       keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
-                        <animate attributeName="opacity"      values="0;1;0.6;0"       keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
-                      </line>
-                      <!-- Diagonal upper-right / lower-left (bright blue) -->
-                      <line x1="202" y1="313" x2="202" y2="313" stroke="#55ccff" stroke-width="2" stroke-linecap="round" filter="url(#fwGlowSoft)">
-                        <animate attributeName="x2"      values="202;237;237;202" keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
-                        <animate attributeName="y2"      values="313;293;293;313" keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
-                        <animate attributeName="opacity" values="0;0.9;0.5;0"     keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
-                      </line>
-                      <line x1="202" y1="313" x2="202" y2="313" stroke="#4499ff" stroke-width="2" stroke-linecap="round" filter="url(#fwGlowSoft)">
-                        <animate attributeName="x2"      values="202;167;167;202" keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
-                        <animate attributeName="y2"      values="313;333;333;313" keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
-                        <animate attributeName="opacity" values="0;0.9;0.5;0"     keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
-                      </line>
-                      <!-- Diagonal upper-left / lower-right (purple/violet) -->
-                      <line x1="202" y1="313" x2="202" y2="313" stroke="#aa55ff" stroke-width="2" stroke-linecap="round" filter="url(#fwGlowSoft)">
-                        <animate attributeName="x2"      values="202;167;167;202" keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
-                        <animate attributeName="y2"      values="313;293;293;313" keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
-                        <animate attributeName="opacity" values="0;0.9;0.5;0"     keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
-                      </line>
-                      <line x1="202" y1="313" x2="202" y2="313" stroke="#cc44ff" stroke-width="2" stroke-linecap="round" filter="url(#fwGlowSoft)">
-                        <animate attributeName="x2"      values="202;237;237;202" keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
-                        <animate attributeName="y2"      values="313;333;333;313" keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
-                        <animate attributeName="opacity" values="0;0.9;0.5;0"     keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
-                      </line>
-                      <!-- Short vertical rays (white) -->
-                      <line x1="202" y1="313" x2="202" y2="313" stroke="white" stroke-width="1.5" stroke-linecap="round" filter="url(#fwGlowSoft)">
-                        <animate attributeName="y2"      values="313;291;291;313" keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
-                        <animate attributeName="opacity" values="0;0.7;0.35;0"   keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
-                      </line>
-                      <line x1="202" y1="313" x2="202" y2="313" stroke="white" stroke-width="1.5" stroke-linecap="round" filter="url(#fwGlowSoft)">
-                        <animate attributeName="y2"      values="313;335;335;313" keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
-                        <animate attributeName="opacity" values="0;0.7;0.35;0"   keyTimes="0;0.2;0.7;1" dur="2s" repeatCount="indefinite"/>
-                      </line>
-                      <!-- Bright pinpoint core -->
-                      <circle cx="202" cy="313" r="3" fill="white" filter="url(#fwGlowHard)">
-                        <animate attributeName="r"       values="2;5;2"     dur="2s" repeatCount="indefinite"/>
-                        <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
-                      </circle>
+                      <!-- BLOCK EXISTING LIGHTBULB -->
+                      <circle cx="202" cy="313" r="65" fill="#060b18" opacity="0.95"/>
+                      
+                      <!-- MULTI COLORED RADIATING STARBURST -->
+                      <g transform="translate(202, 313)">
+                        <g filter="url(#fwGlowSoft)">
+                          <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="20s" repeatCount="indefinite"/>
+                          <!-- Core burst -->
+                          <polygon points="0,-45 10,-10 45,0 10,10 0,45 -10,10 -45,0 -10,-10" fill="url(#fwGold)" opacity="0.8"/>
+                          <polygon points="0,-35 25,-25 35,0 25,25 0,35 -25,25 -35,0 -25,-25" fill="#ff3366" opacity="0.6"/>
+                          <polygon points="0,-50 15,-15 50,0 15,15 0,50 -15,15 -50,0 -15,-15" fill="#33ccff" opacity="0.5">
+                              <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="12s" repeatCount="indefinite"/>
+                          </polygon>
+                        </g>
+                        <!-- Radiating Rays -->
+                        <g opacity="0.9">
+                          <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="15s" repeatCount="indefinite"/>
+                          <line x1="0" y1="0" x2="0" y2="-65" stroke="#ff3366" stroke-width="4" filter="url(#fwGlowSoft)"/>
+                          <line x1="0" y1="0" x2="46" y2="-46" stroke="#33ccff" stroke-width="4" filter="url(#fwGlowSoft)"/>
+                          <line x1="0" y1="0" x2="65" y2="0" stroke="#ffcc00" stroke-width="4" filter="url(#fwGlowSoft)"/>
+                          <line x1="0" y1="0" x2="46" y2="46" stroke="#9933ff" stroke-width="4" filter="url(#fwGlowSoft)"/>
+                          <line x1="0" y1="0" x2="0" y2="65" stroke="#33ff99" stroke-width="4" filter="url(#fwGlowSoft)"/>
+                          <line x1="0" y1="0" x2="-46" y2="46" stroke="#ff3366" stroke-width="4" filter="url(#fwGlowSoft)"/>
+                          <line x1="0" y1="0" x2="-65" y2="0" stroke="#33ccff" stroke-width="4" filter="url(#fwGlowSoft)"/>
+                          <line x1="0" y1="0" x2="-46" y2="-46" stroke="#ffcc00" stroke-width="4" filter="url(#fwGlowSoft)"/>
+                        </g>
+                        <circle cx="0" cy="0" r="10" fill="#ffffff" filter="url(#fwGlowHard)">
+                          <animate attributeName="r" values="8;13;8" dur="2s" repeatCount="indefinite"/>
+                        </circle>
+                      </g>
 
                       <!-- STORY BOOK BORDER: crystal polygon top-right -->
                       <!-- Dark fill to cover STORY text from underlying PNG -->
@@ -169,6 +147,15 @@
                         <animate attributeName="opacity"      values="0.5;1;0.5"  dur="4s" repeatCount="indefinite" begin="0.8s"/>
                         <animate attributeName="stroke-width" values="2;4.5;2"    dur="4s" repeatCount="indefinite" begin="0.8s"/>
                       </polygon>
+                      
+                      <!-- SVG OPEN BOOK IN STORY NODE -->
+                      <g transform="translate(428, 95) scale(2.2)" filter="url(#fwGlowSoft)">
+                          <path d="M4 6 L4 18 C4 18 7 20 12 18 L12 6 C12 6 7 8 4 6 Z M12 6 L12 18 C12 18 17 20 20 18 L20 6 C20 6 17 8 12 6 Z" fill="none" stroke="#ffe566" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <line x1="6" y1="10" x2="10" y2="10" stroke="#ffe566" stroke-width="1" stroke-linecap="round"/>
+                          <line x1="6" y1="13" x2="10" y2="13" stroke="#ffe566" stroke-width="1" stroke-linecap="round"/>
+                          <line x1="14" y1="10" x2="18" y2="10" stroke="#ffe566" stroke-width="1" stroke-linecap="round"/>
+                          <line x1="14" y1="13" x2="18" y2="13" stroke="#ffe566" stroke-width="1" stroke-linecap="round"/>
+                      </g>
                       <polygon points="370,55 495,35 560,95 538,185 420,200 357,132"
                                fill="none" stroke="#ffe566" stroke-width="1" opacity="0.5">
                         <animate attributeName="opacity" values="0.2;0.7;0.2" dur="3.8s" repeatCount="indefinite"/>
@@ -184,6 +171,12 @@
                       <!-- MOMENTUM — single clockwise arc building over 3s -->
                       <!-- Cover existing 3 blue arrows on PNG -->
                       <circle cx="500" cy="415" r="78" fill="#060b18" opacity="0.93"/>
+                      
+                      <!-- SVG RUNNER -->
+                      <g transform="translate(470, 380) scale(2.4)" filter="url(#fwBlueGlow)">
+                          <circle cx="12" cy="5" r="2.5" fill="#55ccff" />
+                          <path d="M 12 9 L 12 15 L 8 20 M 12 15 L 16 21 M 8 9 L 12 13 L 17 10 M 8 9 L 5 12 L 2 12" fill="none" stroke="#55ccff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                      </g>
                       <!-- Building arc: 300° clockwise from 3 o'clock, repeats -->
                       <path d="M 562,415 A 62,62 0 1 1 531,361"
                             fill="none" stroke="#4fc3f7" stroke-width="5.5"
@@ -488,6 +481,44 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- AUDIO EXPERIENCES SECTION -->
+    <section class="container" style="padding: 4rem 2rem 2rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 2rem;">
+        <div class="section-badge" style="display:inline-block; background:rgba(59,110,246,0.15); color:var(--accent-blue); padding:0.4rem 1rem; border-radius:20px; font-weight:700; font-size:0.8rem; letter-spacing:0.1em; margin-bottom:1.5rem; border:1px solid rgba(59,110,246,0.3);">
+            CLIENT CASE STUDIES
+        </div>
+        <h2 style="margin-bottom: 2.5rem; color: #fff; font-family: 'Outfit', sans-serif; font-size: clamp(2rem, 3vw, 2.5rem); font-weight: 700;">Click Here For Audio Experiences</h2>
+        <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+            <a href="#" class="btn-secondary oval" style="display:flex; align-items:center; gap:0.5rem; padding: 1rem 2.5rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Olivia
+            </a>
+            <a href="#" class="btn-secondary oval" style="display:flex; align-items:center; gap:0.5rem; padding: 1rem 2.5rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Liam
+            </a>
+            <a href="#" class="btn-secondary oval" style="display:flex; align-items:center; gap:0.5rem; padding: 1rem 2.5rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Noah
+            </a>
+        </div>
+    </section>
+
+    <!-- EYE-CATCHING QUIZ CTA -->
+    <section class="container" style="padding: 2rem 2rem 8rem; text-align: center;">
+        <div style="background: linear-gradient(145deg, #0e121e 0%, #060b18 100%); border: 2px solid rgba(79,168,232,0.3); border-radius: 20px; padding: 4rem 2rem; position: relative; overflow: hidden; box-shadow: 0 0 40px rgba(79,168,232,0.15);">
+            <!-- Ambient glowing orbs inside CTA -->
+            <div style="position:absolute; top:-30%; left:-10%; width:400px; height:400px; background:radial-gradient(circle, rgba(79,168,232,0.15), transparent 70%); border-radius:50%; filter:blur(30px); pointer-events:none;"></div>
+            <div style="position:absolute; bottom:-30%; right:-10%; width:400px; height:400px; background:radial-gradient(circle, rgba(230,168,23,0.12), transparent 70%); border-radius:50%; filter:blur(30px); pointer-events:none;"></div>
+            
+            <div style="position:relative; z-index:2;">
+                <div style="display:inline-block; background:rgba(79,168,232,0.15); color:#4fa8e8; padding:0.5rem 1.2rem; border-radius:20px; font-weight:800; font-size:0.85rem; letter-spacing:0.1em; margin-bottom:1.5rem; border:1px solid rgba(79,168,232,0.4);">⚡ FREE · 60 SECONDS · INSTANT RESULTS</div>
+                <h2 style="font-family: 'Outfit', sans-serif; font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 800; color: #fff; margin-bottom: 1.2rem; line-height: 1.2;">Find Out If Your Organization Is <br><span style="color:#4fa8e8;">AI-Ready or At Risk</span></h2>
+                <p style="color: rgba(255,255,255,0.7); font-size: 1.15rem; max-width: 650px; margin: 0 auto 2.5rem; line-height: 1.7;">Take the 60-Second AI Risk Assessment. Benchmarked against 5,000+ leaders. Uncover the gaps in your strategy before they become permanent career losses.</p>
+                
+                <a href="https://60-second-ai-quiz.netlify.app/" target="_blank" style="display:inline-block; background:linear-gradient(135deg, #3b82f6, #0ea5e9); color:#fff; font-size:1.15rem; font-weight:700; padding:1.1rem 2.8rem; border-radius:30px; text-decoration:none; box-shadow:0 10px 25px rgba(59,130,246,0.35); transition:transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 15px 35px rgba(59,130,246,0.5)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 25px rgba(59,130,246,0.35)';">
+                    Get My Readiness Report →
+                </a>
             </div>
         </div>
     </section>

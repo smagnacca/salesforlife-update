@@ -193,6 +193,33 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(runSequence, 132000);
     }
     
+    // Hero Quote Typing Animation
+    const heroQuote = document.getElementById('hero-quote');
+    const heroAuthor = document.getElementById('hero-author');
+    if (heroQuote && heroAuthor) {
+        const quoteText = "If you can't communicate, it's like winking at a girl in the dark — nothing happens. You can have all the brainpower in the world, but you have to be able to transmit it.".split(' ');
+        const authorText = "— Warren Buffett, Master Storyseller".split(' ');
+        
+        const typeWords = (words, el, speed, cb) => {
+            let i = 0;
+            const iv = setInterval(() => {
+                if(i < words.length) {
+                    el.innerHTML += (i === 0 ? '' : ' ') + words[i];
+                    i++;
+                } else {
+                    clearInterval(iv);
+                    if(cb) cb();
+                }
+            }, speed);
+        };
+        
+        setTimeout(() => {
+            typeWords(quoteText, heroQuote, 250, () => {
+                setTimeout(() => typeWords(authorText, heroAuthor, 250), 500);
+            });
+        }, 1500);
+    }
+    
     // --- CHECKOUT & ENROLLMENT LOGIC ---
     const checkoutModal = document.getElementById('checkout-modal');
     const closeCheckoutBtn = document.querySelector('.hide-checkout');
