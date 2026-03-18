@@ -207,14 +207,26 @@
         <div class="container split" style="align-items: center;">
             
             <div class="book-image-container text-center" style="position: relative; max-width: 400px; margin: 0 auto;">
-                <img src="assets/book.png" alt="Storyselling in the Age of AI Book Cover" class="book-cover hover-float" style="width: 100%; max-width: 280px; position: relative; z-index: 2; border-radius: 5px; box-shadow: 0 0 40px rgba(232, 93, 4, 0.4); border: 1px solid rgba(255,255,255,0.1);">
-                <br>
-                <a href="#pathways" class="btn-primary" style="position: relative; z-index: 2; background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); border:none; padding: 12px 40px; border-radius: 8px; margin-top: 1.5rem; display: inline-block; font-weight: bold; box-shadow: 0 4px 15px rgba(234, 88, 12, 0.4);">Get the Book</a>
+                <!-- 3D Book presentation with gold shimmer glow -->
+                <div class="book-3d-scene">
+                  <div class="book-3d-wrap">
+                    <img src="assets/book.png" alt="Storyselling in the Age of AI Book Cover" class="book-cover-3d">
+                  </div>
+                </div>
+                <a href="#pathways" class="btn-primary" style="position: relative; z-index: 2; background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); border:none; padding: 12px 40px; border-radius: 8px; margin-top: 2rem; display: inline-block; font-weight: bold; box-shadow: 0 4px 15px rgba(234, 88, 12, 0.4);">Get the Book</a>
             </div>
             
             <div class="book-content" style="padding-left: 2rem;">
-                <span class="badge" style="background: rgba(0, 180, 216, 0.15); color: var(--accent-blue); padding: 6px 16px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1.5px; border: 1px solid rgba(0, 180, 216, 0.3);">Meet Your Instructor</span>
-                <h2 style="font-size: 2.8rem; margin-top: 1.5rem; margin-bottom: 0.5rem; letter-spacing: -1px;">Scott Magnacca</h2>
+                <!-- Badge + headshot inline -->
+                <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+                    <span class="badge" style="background: rgba(0, 180, 216, 0.15); color: var(--accent-blue); padding: 6px 16px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1.5px; border: 1px solid rgba(0, 180, 216, 0.3);">Meet Your Instructor</span>
+                    <img src="assets/scott.png" alt="Scott Magnacca" class="instructor-avatar-sm">
+                </div>
+                <!-- Name + headshot inline -->
+                <div style="display:flex; align-items:center; gap:18px; margin-top:1.5rem; margin-bottom:0.5rem;">
+                    <h2 style="font-size: 2.8rem; margin:0; letter-spacing: -1px;">Scott Magnacca</h2>
+                    <img src="assets/scott.png" alt="Scott Magnacca" class="instructor-avatar-md">
+                </div>
                 <p style="color: #f97316; font-weight: 600; font-size: 1rem; margin-bottom: 2rem; letter-spacing: 0.5px;">Author · Keynote Speaker · AI Readiness Strategist</p>
                 
                 <p style="font-size: 1.05rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 1.5rem;">Scott Magnacca has spent 20+ years helping financial advisors, sales leaders, and enterprise teams translate complexity into clarity. His book <em>Storyselling in the Age of AI</em> is used by Fortune 500 organizations to bridge the gap between AI capability and human connection.</p>

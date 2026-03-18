@@ -443,6 +443,134 @@ input:focus { border-color: var(--accent-blue); }
     pointer-events: none;
 }
 
+/* =====================================================
+   INSTRUCTOR HEADSHOT AVATARS
+   ===================================================== */
+
+/* Small avatar — sits to the right of the badge */
+.instructor-avatar-sm {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top center;
+    border: 2px solid rgba(255, 215, 0, 0.65);
+    box-shadow:
+        0 0 10px rgba(255, 215, 0, 0.35),
+        0 0 22px rgba(255, 215, 0, 0.15);
+    flex-shrink: 0;
+    animation: avatarGoldPulse 4s ease-in-out infinite;
+}
+
+/* Medium avatar — sits next to the "Scott Magnacca" heading */
+.instructor-avatar-md {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top center;
+    border: 2.5px solid rgba(255, 215, 0, 0.7);
+    box-shadow:
+        0 0 14px rgba(255, 215, 0, 0.4),
+        0 0 30px rgba(255, 215, 0, 0.18);
+    flex-shrink: 0;
+    animation: avatarGoldPulse 4s ease-in-out infinite 0.6s;
+}
+
+@keyframes avatarGoldPulse {
+    0%   { box-shadow: 0 0 10px rgba(255,215,0,0.30), 0 0 20px rgba(255,215,0,0.12); border-color: rgba(255,215,0,0.55); }
+    50%  { box-shadow: 0 0 18px rgba(255,215,0,0.60), 0 0 36px rgba(255,215,0,0.28); border-color: rgba(255,215,0,0.90); }
+    100% { box-shadow: 0 0 10px rgba(255,215,0,0.30), 0 0 20px rgba(255,215,0,0.12); border-color: rgba(255,215,0,0.55); }
+}
+
+/* =====================================================
+   3D BOOK COVER WITH GOLD SHIMMER GLOW
+   ===================================================== */
+
+/* Perspective scene wrapper */
+.book-3d-scene {
+    perspective: 900px;
+    perspective-origin: 50% 40%;
+    padding: 2rem 1rem 1.5rem;
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+}
+
+/* The element that rotates in 3D */
+.book-3d-wrap {
+    position: relative;
+    transform: rotateY(-18deg) rotateX(4deg);
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+    display: inline-block;
+    animation: book3dFloat 6s ease-in-out infinite;
+}
+
+.book-3d-wrap:hover {
+    transform: rotateY(-6deg) rotateX(2deg) scale(1.04);
+}
+
+@keyframes book3dFloat {
+    0%   { transform: rotateY(-18deg) rotateX(4deg) translateY(0px); }
+    50%  { transform: rotateY(-14deg) rotateX(3deg) translateY(-10px); }
+    100% { transform: rotateY(-18deg) rotateX(4deg) translateY(0px); }
+}
+
+/* The actual book image */
+.book-cover-3d {
+    width: 100%;
+    max-width: 260px;
+    border-radius: 4px 10px 10px 4px;
+    position: relative;
+    z-index: 2;
+    display: block;
+    /* Spine shadow on left to enhance 3D */
+    box-shadow:
+        -8px 0 18px rgba(0,0,0,0.6),
+        4px 4px 20px rgba(0,0,0,0.5);
+}
+
+/* Gold shimmer glow — pseudo-element on the wrap */
+.book-3d-wrap::before {
+    content: '';
+    position: absolute;
+    inset: -14px -10px;
+    border-radius: 6px 14px 14px 6px;
+    z-index: 1;
+    background: transparent;
+    box-shadow:
+        0 0 25px 8px rgba(255, 215, 0, 0.30),
+        0 0 55px 18px rgba(255, 185, 0, 0.18),
+        0 0 90px 30px rgba(255, 140, 0, 0.10);
+    animation: bookGoldGlow 3.5s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* Thin gold border ring */
+.book-3d-wrap::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 4px 12px 12px 4px;
+    z-index: 3;
+    border: 1.5px solid rgba(255, 215, 0, 0.50);
+    animation: bookBorderShimmer 3.5s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes bookGoldGlow {
+    0%   { box-shadow: 0 0 20px 6px rgba(255,215,0,0.22), 0 0 45px 14px rgba(255,185,0,0.12), 0 0 80px 26px rgba(255,140,0,0.07); }
+    50%  { box-shadow: 0 0 35px 14px rgba(255,215,0,0.50), 0 0 70px 28px rgba(255,185,0,0.28), 0 0 110px 40px rgba(255,140,0,0.16); }
+    100% { box-shadow: 0 0 20px 6px rgba(255,215,0,0.22), 0 0 45px 14px rgba(255,185,0,0.12), 0 0 80px 26px rgba(255,140,0,0.07); }
+}
+
+@keyframes bookBorderShimmer {
+    0%   { border-color: rgba(255,215,0,0.35); }
+    50%  { border-color: rgba(255,240,120,0.85); }
+    100% { border-color: rgba(255,215,0,0.35); }
+}
+
 /* Typewriter CSS */
 .typewriter-text { margin-top: 5px; }
 .typewriter-text:not(.finished-typing)::after {
