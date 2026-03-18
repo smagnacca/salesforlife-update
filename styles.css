@@ -390,16 +390,57 @@ input:focus { border-color: var(--accent-blue); }
 @keyframes twinkle { 0% { opacity: 0.1; transform: scale(0.6); box-shadow: 0 0 2px currentColor; } 100% { opacity: 0.8; transform: scale(1.4); box-shadow: 0 0 10px currentColor, 0 0 20px currentColor; } }
 
 
-/* Flywheel Animation */
-.flywheel-animate {
-    animation: floatGlow 6s ease-in-out infinite;
+/* Flywheel Animation — wrapper + slow clockwise rotation */
+.flywheel-wrap {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
     border-radius: 50%;
-    border: 2px solid rgba(0, 180, 216, 0.4);
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    box-shadow:
+        0 0 40px rgba(255, 215, 0, 0.12),
+        0 0 80px rgba(0, 180, 216, 0.15),
+        0 20px 60px rgba(0, 0, 0, 0.6);
+    /* gentle ambient gold pulse on the container */
+    animation: fwWrapPulse 5s ease-in-out infinite;
 }
-@keyframes floatGlow {
-    0% { transform: translateY(0); box-shadow: 0 0 30px rgba(0, 180, 216, 0.2); }
-    50% { transform: translateY(-15px); box-shadow: 0 0 60px rgba(0, 180, 216, 0.6); }
-    100% { transform: translateY(0); box-shadow: 0 0 30px rgba(0, 180, 216, 0.2); }
+
+@keyframes fwWrapPulse {
+    0%   { box-shadow: 0 0 40px rgba(255,215,0,0.10), 0 0 80px rgba(0,180,216,0.12), 0 20px 60px rgba(0,0,0,0.6); }
+    50%  { box-shadow: 0 0 70px rgba(255,215,0,0.28), 0 0 120px rgba(0,180,216,0.18), 0 20px 60px rgba(0,0,0,0.6); }
+    100% { box-shadow: 0 0 40px rgba(255,215,0,0.10), 0 0 80px rgba(0,180,216,0.12), 0 20px 60px rgba(0,0,0,0.6); }
+}
+
+/* The inner div that carries both the image and SVG overlay — rotates together */
+.flywheel-spin {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    animation: fwSpinCW 30s linear infinite;
+    transform-origin: 50% 50%;
+}
+
+@keyframes fwSpinCW {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+.flywheel-spin img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 50%;
+}
+
+/* SVG gold-shimmer overlay — same footprint as the image */
+.flywheel-svg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
 }
 
 /* Typewriter CSS */

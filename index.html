@@ -69,7 +69,135 @@
                 </div>
             </div>
             <div class="image-content">
-                <img src="assets/flywheel.png" alt="The Flywheel Concept" class="glass-image flywheel-animate">
+                <!-- Animated flywheel: gold shimmer + slow clockwise rotation -->
+                <div class="flywheel-wrap">
+                  <div class="flywheel-spin">
+                    <img src="assets/flywheel.png" alt="The Flywheel Concept">
+                    <svg class="flywheel-svg-overlay"
+                         viewBox="0 0 630 630"
+                         xmlns="http://www.w3.org/2000/svg">
+                      <defs>
+                        <filter id="fwGlowSoft" x="-50%" y="-50%" width="200%" height="200%">
+                          <feGaussianBlur in="SourceGraphic" stdDeviation="5"  result="b1"/>
+                          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="b2"/>
+                          <feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                        <filter id="fwGlowHard" x="-80%" y="-80%" width="260%" height="260%">
+                          <feGaussianBlur in="SourceGraphic" stdDeviation="3"  result="b1"/>
+                          <feGaussianBlur in="SourceGraphic" stdDeviation="9"  result="b2"/>
+                          <feGaussianBlur in="SourceGraphic" stdDeviation="18" result="b3"/>
+                          <feMerge><feMergeNode in="b3"/><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                        <linearGradient id="fwGold" gradientUnits="userSpaceOnUse"
+                                        x1="0" y1="315" x2="630" y2="315">
+                          <stop offset="0%"   stop-color="#b8860b"/>
+                          <stop offset="35%"  stop-color="#ffd700"/>
+                          <stop offset="65%"  stop-color="#fff8dc"/>
+                          <stop offset="100%" stop-color="#b8860b"/>
+                          <animateTransform attributeName="gradientTransform"
+                            type="rotate" from="0 315 315" to="360 315 315"
+                            dur="4s" repeatCount="indefinite"/>
+                        </linearGradient>
+                      </defs>
+
+                      <!-- LIGHTBULB BUBBLE: center ≈ (202,313) r ≈ 115 -->
+                      <circle cx="202" cy="313" r="119" fill="none"
+                              stroke="url(#fwGold)" stroke-width="3.5"
+                              filter="url(#fwGlowSoft)">
+                        <animate attributeName="opacity"   values="0.55;1;0.55"    dur="3.5s" repeatCount="indefinite"/>
+                        <animate attributeName="stroke-width" values="2.5;5;2.5"  dur="3.5s" repeatCount="indefinite"/>
+                      </circle>
+                      <circle cx="202" cy="313" r="113" fill="rgba(255,200,0,0.04)"
+                              stroke="#ffe566" stroke-width="1.5">
+                        <animate attributeName="opacity" values="0.3;0.8;0.3" dur="4.2s" repeatCount="indefinite" begin="0.5s"/>
+                      </circle>
+                      <!-- glass sheen sweep -->
+                      <circle cx="202" cy="313" r="116" fill="none"
+                              stroke="white" stroke-width="2.5"
+                              stroke-dasharray="45 685" stroke-linecap="round" opacity="0.75">
+                        <animateTransform attributeName="transform"
+                          type="rotate" from="0 202 313" to="360 202 313"
+                          dur="5s" repeatCount="indefinite"/>
+                        <animate attributeName="opacity" values="0.4;0.9;0.4" dur="5s" repeatCount="indefinite"/>
+                      </circle>
+                      <circle cx="202" cy="313" r="116" fill="none"
+                              stroke="#ffd700" stroke-width="1.5"
+                              stroke-dasharray="20 685" stroke-linecap="round">
+                        <animateTransform attributeName="transform"
+                          type="rotate" from="180 202 313" to="540 202 313"
+                          dur="5s" repeatCount="indefinite"/>
+                      </circle>
+
+                      <!-- STORY BOOK BORDER: crystal polygon top-right -->
+                      <polygon points="365,48 500,25 568,90 545,192 415,210 348,138"
+                               fill="rgba(255,200,0,0.04)"
+                               stroke="url(#fwGold)" stroke-width="3" stroke-linejoin="round"
+                               filter="url(#fwGlowSoft)">
+                        <animate attributeName="opacity"      values="0.5;1;0.5"  dur="4s" repeatCount="indefinite" begin="0.8s"/>
+                        <animate attributeName="stroke-width" values="2;4.5;2"    dur="4s" repeatCount="indefinite" begin="0.8s"/>
+                      </polygon>
+                      <polygon points="370,55 495,35 560,95 538,185 420,200 357,132"
+                               fill="none" stroke="#ffe566" stroke-width="1" opacity="0.5">
+                        <animate attributeName="opacity" values="0.2;0.7;0.2" dur="3.8s" repeatCount="indefinite"/>
+                      </polygon>
+                      <polygon points="365,48 500,25 568,90 545,192 415,210 348,138"
+                               fill="none" stroke="white" stroke-width="2"
+                               stroke-dasharray="35 700" stroke-linecap="round" opacity="0.6">
+                        <animateTransform attributeName="transform"
+                          type="rotate" from="0 458 118" to="360 458 118"
+                          dur="6s" repeatCount="indefinite"/>
+                      </polygon>
+
+                      <!-- ARROW 1 — upper diagonal (lightbulb → book) -->
+                      <path d="M 316,218 Q 345,148 385,83" fill="none"
+                            stroke="#ffaa00" stroke-width="10" stroke-linecap="round" opacity="0.22"
+                            filter="url(#fwGlowHard)">
+                        <animate attributeName="opacity" values="0.15;0.4;0.15" dur="2.8s" repeatCount="indefinite"/>
+                      </path>
+                      <path d="M 316,218 Q 345,148 385,83" fill="none"
+                            stroke="url(#fwGold)" stroke-width="5" stroke-linecap="round"
+                            filter="url(#fwGlowSoft)">
+                        <animate attributeName="opacity"      values="0.65;1;0.65" dur="2.8s" repeatCount="indefinite"/>
+                        <animate attributeName="stroke-width" values="4;6.5;4"     dur="2.8s" repeatCount="indefinite"/>
+                      </path>
+                      <polygon points="383,66 402,91 375,96" fill="#ffd700" filter="url(#fwGlowSoft)">
+                        <animate attributeName="opacity" values="0.65;1;0.65" dur="2.8s" repeatCount="indefinite"/>
+                      </polygon>
+
+                      <!-- ARROW 2 — right side descending (book → circular arrows) -->
+                      <path d="M 540,190 Q 565,280 535,365" fill="none"
+                            stroke="#ffaa00" stroke-width="10" stroke-linecap="round" opacity="0.22"
+                            filter="url(#fwGlowHard)">
+                        <animate attributeName="opacity" values="0.15;0.4;0.15" dur="2.8s" repeatCount="indefinite" begin="0.9s"/>
+                      </path>
+                      <path d="M 540,190 Q 565,280 535,365" fill="none"
+                            stroke="url(#fwGold)" stroke-width="5" stroke-linecap="round"
+                            filter="url(#fwGlowSoft)">
+                        <animate attributeName="opacity"      values="0.65;1;0.65" dur="2.8s" repeatCount="indefinite" begin="0.9s"/>
+                        <animate attributeName="stroke-width" values="4;6.5;4"     dur="2.8s" repeatCount="indefinite" begin="0.9s"/>
+                      </path>
+                      <polygon points="520,365 542,385 552,360" fill="#ffd700" filter="url(#fwGlowSoft)">
+                        <animate attributeName="opacity" values="0.65;1;0.65" dur="2.8s" repeatCount="indefinite" begin="0.9s"/>
+                      </polygon>
+
+                      <!-- ARROW 3 — bottom curve (circular arrows → lightbulb) -->
+                      <path d="M 490,462 Q 400,508 282,462" fill="none"
+                            stroke="#ffaa00" stroke-width="10" stroke-linecap="round" opacity="0.22"
+                            filter="url(#fwGlowHard)">
+                        <animate attributeName="opacity" values="0.15;0.4;0.15" dur="2.8s" repeatCount="indefinite" begin="1.8s"/>
+                      </path>
+                      <path d="M 490,462 Q 400,508 282,462" fill="none"
+                            stroke="url(#fwGold)" stroke-width="5" stroke-linecap="round"
+                            filter="url(#fwGlowSoft)">
+                        <animate attributeName="opacity"      values="0.65;1;0.65" dur="2.8s" repeatCount="indefinite" begin="1.8s"/>
+                        <animate attributeName="stroke-width" values="4;6.5;4"     dur="2.8s" repeatCount="indefinite" begin="1.8s"/>
+                      </path>
+                      <polygon points="287,447 270,468 298,477" fill="#ffd700" filter="url(#fwGlowSoft)">
+                        <animate attributeName="opacity" values="0.65;1;0.65" dur="2.8s" repeatCount="indefinite" begin="1.8s"/>
+                      </polygon>
+                    </svg>
+                  </div>
+                </div>
             </div>
         </div>
     </section>
