@@ -194,6 +194,36 @@
                           values="0;0;0.95;0" keyTimes="0;0.82;0.92;1"
                           dur="3s" repeatCount="indefinite"/>
                       </polygon>
+                      
+                      <!-- FIX: Hide backwards arrowheads on the bottom-left PNG arrow -->
+                      <!-- Erases the backward arrowhead pointing at Momentum -->
+                      <circle cx="430" cy="450" r="45" fill="#060b18" opacity="0.95" filter="url(#fwGlowSoft)"/>
+                      <!-- Erases the backward arrowhead/tail near Starburst -->
+                      <circle cx="215" cy="380" r="40" fill="#060b18" opacity="0.95" filter="url(#fwGlowSoft)"/>
+                      
+                      <!-- NEW SVG ARROW BODY: Static glowing trail over the old arrow -->
+                      <path d="M 440,465 A 190,190 0 0 1 200,375"
+                            fill="none" stroke="#1155aa" stroke-width="8" opacity="0.6"
+                            stroke-linecap="round" filter="url(#fwGlowSoft)" />
+                            
+                      <!-- NEW SVG ARROW CORE: Flowing clockwise perfectly from Momentum up to Idea -->
+                      <path d="M 437,465 A 190,190 0 0 1 200,375"
+                            fill="none" stroke="#4fc3f7" stroke-width="4"
+                            stroke-linecap="round" stroke-dasharray="350 350"
+                            filter="url(#fwBlueGlow)">
+                        <animate attributeName="stroke-dashoffset"
+                          values="350;0" dur="3s" calcMode="linear" repeatCount="indefinite"/>
+                        <animate attributeName="opacity"
+                          values="0.4;1;0.4" dur="3s" repeatCount="indefinite"/>
+                      </path>
+                      
+                      <!-- Precise Clockwise Arrowhead arriving smoothly into the Idea node -->
+                      <g transform="translate(192, 362) rotate(-147)">
+                        <polygon points="-12,-10 16,0 -12,10" fill="#4fc3f7" filter="url(#fwBlueGlow)">
+                          <animate attributeName="opacity"
+                            values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/>
+                        </polygon>
+                      </g>
                     </svg>
                   </div>
                 </div>
@@ -371,7 +401,7 @@
                     <div class="most-popular-badge">MOST POPULAR</div>
                     <div class="card-header text-center pt-2">
                         <h3 class="tier-title text-purple">STORYSELLING MASTERCLASS</h3>
-                        <p class="price text-glow">$1497</p>
+                        <p class="price text-glow">$2999</p>
                         <p class="format text-muted">6 Weeks (Guided Cohort)</p>
                     </div>
                     <div class="card-divider"></div>
@@ -387,7 +417,7 @@
                             <img src="assets/badge_storyselling.png" class="mini-cert shine-effect" alt="Storyselling Certification">
                             <p>Certified Storyseller<br>LinkedIn Credential</p>
                         </div>
-                        <button class="btn-primary enroll-btn full-width oval" data-course="Storyselling Masterclass" data-price="1497">JOIN THE NEXT COHORT</button>
+                        <button class="btn-primary enroll-btn full-width oval" data-course="Storyselling Masterclass" data-price="2999">JOIN THE NEXT COHORT</button>
                     </div>
                 </div>
 
