@@ -1,0 +1,49 @@
+name: Send Daily Emails
+
+# Runs automatically every day at 9 AM Eastern Time
+# You never need to touch your computer for this to work
+on:
+  schedule:
+    - cron: '0 14 * * 1-5'   # 9 AM ET, Monday–Friday (14:00 UTC = 9 AM ET)
+  workflow_dispatch:           # Also lets you click "Run" manually in GitHub if needed
+
+jobs:
+  send-emails:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download your code
+        uses: actions/checkout@v4
+
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install required packages
+        run: pip install -r email-outreach/requirements.txt
+
+      - name: Write Google credentials file
+        # This takes the secret you stored in GitHub and writes it as a file
+        run: echo '${{ secrets.GOOGLE_CREDENTIALS_JSON }}' > email-outreach/credentials.json
+
+      - name: Write config file with your API keys
+        run: |
+          cat > email-outreach/config.py << 'CONFIGEOF'
+          SENDGRID_API_KEY     = "${{ secrets.SENDGRID_API_KEY }}"
+          FROM_EMAIL           = "${{ secrets.FROM_EMAIL }}"
+          FROM_NAME            = "${{ secrets.FROM_NAME }}"
+          SPREADSHEET_ID       = "${{ secrets.SPREADSHEET_ID }}"
+          CONTACTS_SHEET       = "Contacts"
+          LOG_SHEET            = "Sent Log"
+          CONTACTS_EXCEL_FILE  = "contacts.xlsx"
+          DAILY_LIMIT          = 50
+          UNSUBSCRIBE_URL      = "${{ secrets.UNSUBSCRIBE_URL }}"
+          PHYSICAL_ADDRESS     = "${{ secrets.PHYSICAL_ADDRESS }}"
+          CONFIGEOF
+
+      - name: Send today's 50 emails
+        run: python email-outreach/send_emails.py
+
+      - name: Update open & click tracking
+        run: python email-outreach/update_tracking.py

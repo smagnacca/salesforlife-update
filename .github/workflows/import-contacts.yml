@@ -1,0 +1,49 @@
+name: Import Contacts (Run Once)
+
+# You trigger this manually ONE TIME to upload your Excel file to Google Sheets.
+# After that, never run it again.
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: 'Type YES to confirm upload (this overwrites existing contacts)'
+        required: true
+        default: 'NO'
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    if: github.event.inputs.confirm == 'YES'
+
+    steps:
+      - name: Download your code
+        uses: actions/checkout@v4
+
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install required packages
+        run: pip install -r email-outreach/requirements.txt
+
+      - name: Write Google credentials file
+        run: echo '${{ secrets.GOOGLE_CREDENTIALS_JSON }}' > email-outreach/credentials.json
+
+      - name: Write config file
+        run: |
+          cat > email-outreach/config.py << 'CONFIGEOF'
+          SENDGRID_API_KEY     = "${{ secrets.SENDGRID_API_KEY }}"
+          FROM_EMAIL           = "${{ secrets.FROM_EMAIL }}"
+          FROM_NAME            = "${{ secrets.FROM_NAME }}"
+          SPREADSHEET_ID       = "${{ secrets.SPREADSHEET_ID }}"
+          CONTACTS_SHEET       = "Contacts"
+          LOG_SHEET            = "Sent Log"
+          CONTACTS_EXCEL_FILE  = "contacts.xlsx"
+          DAILY_LIMIT          = 50
+          UNSUBSCRIBE_URL      = "${{ secrets.UNSUBSCRIBE_URL }}"
+          PHYSICAL_ADDRESS     = "${{ secrets.PHYSICAL_ADDRESS }}"
+          CONFIGEOF
+
+      - name: Upload contacts Excel to Google Sheets
+        run: python email-outreach/import_contacts.py
