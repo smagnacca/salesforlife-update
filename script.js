@@ -366,10 +366,10 @@ document.addEventListener('DOMContentLoaded', () => {
             element.style.transition = 'none';
             element.style.backgroundPosition = '200% 50%';
             void element.offsetWidth; // flush
-            element.style.transition = 'background-position 4s linear';
+            element.style.transition = 'background-position 12s linear';
             element.style.backgroundPosition = '-100% 50%';
             
-            await new Promise(r => setTimeout(r, 4000));
+            await new Promise(r => setTimeout(r, 12000));
             
             // Wait 3 seconds
             await new Promise(r => setTimeout(r, 3000));
@@ -379,10 +379,10 @@ document.addEventListener('DOMContentLoaded', () => {
             element.style.transition = 'none';
             element.style.backgroundPosition = '200% 50%';
             void element.offsetWidth; // flush
-            element.style.transition = 'background-position 4s linear';
+            element.style.transition = 'background-position 12s linear';
             element.style.backgroundPosition = '-100% 50%';
             
-            await new Promise(r => setTimeout(r, 4000));
+            await new Promise(r => setTimeout(r, 12000));
             
             // Wait before next blue wave
             if (i < 2) await new Promise(r => setTimeout(r, 3000));
