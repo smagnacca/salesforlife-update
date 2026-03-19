@@ -237,12 +237,15 @@ h1, h2, h3 {
 .modal-content {
     width: 90%; max-width: 500px; position: relative;
 }
-.close {
-    position: absolute; top: 1rem; right: 1.5rem;
-    color: var(--text-muted); font-size: 2rem;
+.close, span.close-discount {
+    position: absolute; top: 0.5rem; right: 1.5rem;
+    color: var(--text-muted); font-size: 3.5rem;
     cursor: pointer;
+    line-height: 1;
+    z-index: 10;
+    transition: color 0.3s;
 }
-.close:hover { color: var(--text-main); }
+.close:hover, span.close-discount:hover { color: var(--text-main); }
 .price-display { margin-bottom: 2rem; font-size: 1.2rem; }
 .price-display strong { color: var(--accent-gold); }
 
