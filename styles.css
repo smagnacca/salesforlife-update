@@ -683,3 +683,54 @@ audio::-webkit-media-controls-enclosure { background-color: rgba(255,255,255,0.2
 .buffett-sketch.active { opacity: 1 !important; clip-path: circle(100% at 50% 50%) !important; z-index: 2; }
 .shading-pencil { display: none !important; }
 
+/* Bottom Contact CTA Animations */
+.text-wave-animation {
+    background: linear-gradient(
+        270deg, 
+        #ffffff 0%, 
+        #ffffff 40%, 
+        #00b4d8 50%, 
+        #ea580c 60%, 
+        #ffffff 100%
+    );
+    background-size: 300% 100%;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: textWave 4s infinite linear;
+}
+
+@keyframes textWave {
+    0% { background-position: 200% 50%; }
+    100% { background-position: -100% 50%; }
+}
+
+.orange-heartbeat-glow {
+    border: 1px solid rgba(234, 88, 12, 0.3) !important;
+    animation: orangeHeartbeat 4s infinite ease-in-out;
+}
+
+@keyframes orangeHeartbeat {
+    0%   { box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 15px rgba(234, 88, 12, 0.1); }
+    15%  { box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 45px rgba(234, 88, 12, 0.6); border-color: rgba(234, 88, 12, 0.9) !important; }
+    30%  { box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 20px rgba(234, 88, 12, 0.2); border-color: rgba(234, 88, 12, 0.4) !important; }
+    45%  { box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 55px rgba(234, 88, 12, 0.8); border-color: rgba(234, 88, 12, 1.0) !important; }
+    100% { box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 15px rgba(234, 88, 12, 0.1); }
+}
+
+.orange-border-pulse {
+    animation: orangeBorderPulse 4s infinite ease-in-out;
+}
+
+@keyframes orangeBorderPulse {
+    0% { border-color: rgba(234, 88, 12, 0.2) !important; box-shadow: 0 0 40px rgba(234, 88, 12, 0.05) !important; }
+    50% { border-color: rgba(234, 88, 12, 0.9) !important; box-shadow: 0 0 60px rgba(234, 88, 12, 0.4) !important; }
+    100% { border-color: rgba(234, 88, 12, 0.2) !important; box-shadow: 0 0 40px rgba(234, 88, 12, 0.05) !important; }
+}
+
+.waveform-base {
+    background-size: 300% 100% !important;
+    color: transparent !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+}

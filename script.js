@@ -344,4 +344,54 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1500);
     });
 
+    // Bottom Text Wave Animation Sequence
+    const bottomText = document.getElementById('future-proof-text');
+    if (bottomText) {
+        const bottomObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    bottomObserver.unobserve(entry.target);
+                    startWaveSequence(bottomText);
+                }
+            });
+        }, { threshold: 0.5 });
+        bottomObserver.observe(document.getElementById('future-proof-box') || bottomText);
+    }
+
+    async function startWaveSequence(element) {
+        element.classList.add('waveform-base');
+        for (let i = 0; i < 3; i++) {
+            // Blue Wave
+            element.style.backgroundImage = 'linear-gradient(270deg, #ffffff 0%, #ffffff 45%, #00b4d8 50%, #ffffff 55%, #ffffff 100%)';
+            element.style.transition = 'none';
+            element.style.backgroundPosition = '200% 50%';
+            void element.offsetWidth; // flush
+            element.style.transition = 'background-position 4s linear';
+            element.style.backgroundPosition = '-100% 50%';
+            
+            await new Promise(r => setTimeout(r, 4000));
+            
+            // Wait 3 seconds
+            await new Promise(r => setTimeout(r, 3000));
+            
+            // Orange Wave
+            element.style.backgroundImage = 'linear-gradient(270deg, #ffffff 0%, #ffffff 45%, #ea580c 50%, #ffffff 55%, #ffffff 100%)';
+            element.style.transition = 'none';
+            element.style.backgroundPosition = '200% 50%';
+            void element.offsetWidth; // flush
+            element.style.transition = 'background-position 4s linear';
+            element.style.backgroundPosition = '-100% 50%';
+            
+            await new Promise(r => setTimeout(r, 4000));
+            
+            // Wait before next blue wave
+            if (i < 2) await new Promise(r => setTimeout(r, 3000));
+        }
+        // Stop effect
+        element.style.transition = 'none';
+        element.style.backgroundImage = 'none';
+        element.style.color = '#ffffff';
+        element.classList.remove('waveform-base');
+    }
+
 });
