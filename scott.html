@@ -107,7 +107,8 @@
   /* QUIZ GRID LAYOUT */
   .quiz-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1100px; margin: 0 auto; align-items: start; }
   @media (max-width: 900px) { .quiz-layout { grid-template-columns: 1fr; gap: 2rem; } }
-  .quiz-wrap { max-width: 100%; margin: 0; background: rgba(18,18,26,0.6); padding: 2.5rem; border-radius: 14px; border: 2px solid var(--accent); backdrop-filter: blur(10px); text-align: center; display: flex; flex-direction: column; min-height: 500px; justify-content: center; }
+  @keyframes boxGlow { 0% { box-shadow: 0 0 18px rgba(59,110,246,0.4), 0 0 40px rgba(59,110,246,0.15); } 100% { box-shadow: 0 0 30px rgba(59,110,246,0.65), 0 0 65px rgba(59,110,246,0.28); } }
+  .quiz-wrap { max-width: 100%; margin: 0; background: rgba(18,18,26,0.6); padding: 2.5rem; border-radius: 14px; border: 3px solid var(--accent); backdrop-filter: blur(10px); text-align: center; display: flex; flex-direction: column; min-height: 500px; justify-content: center; box-shadow: 0 0 22px rgba(59,110,246,0.45), 0 0 50px rgba(59,110,246,0.18); animation: boxGlow 3s ease-in-out infinite alternate; }
   
   /* PULSING LABEL & WAVE TEXT */
   .pulse-label { font-size: 0.95rem; font-weight: 900; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.75rem; animation: pulseGlow 3s infinite alternate ease-in-out; }
@@ -120,7 +121,7 @@
   .risk-wave { display: inline-block; color: #fff; }
 
   /* DYNAMIC PIE CHART SIDEBAR */
-  .quiz-sidebar { background: rgba(18,18,26,0.6); padding: 2.5rem; border-radius: 14px; border: 2px solid var(--accent); backdrop-filter: blur(10px); text-align: center; position: sticky; top: 100px; display: flex; flex-direction: column; min-height: 500px; justify-content: center; align-items: center; }
+  .quiz-sidebar { background: rgba(18,18,26,0.6); padding: 2.5rem; border-radius: 14px; border: 3px solid var(--accent); backdrop-filter: blur(10px); text-align: center; position: sticky; top: 100px; display: flex; flex-direction: column; min-height: 500px; justify-content: center; align-items: center; box-shadow: 0 0 22px rgba(59,110,246,0.45), 0 0 50px rgba(59,110,246,0.18); animation: boxGlow 3s ease-in-out infinite alternate; }
   .pie-chart-container { width: 160px; height: 160px; margin: 0 auto 1.5rem; border-radius: 50%; background: conic-gradient(var(--accent) var(--progress, 0%), var(--accent2) calc(var(--progress, 0%) + 10%), var(--surface2) 0deg); display: flex; align-items: center; justify-content: center; position: relative; box-shadow: 0 0 30px rgba(59,110,246,0.25); transition: background 1s cubic-bezier(0.4, 0, 0.2, 1); animation: piePulse 3s infinite alternate; }
   @keyframes piePulse { 0% { box-shadow: 0 0 20px rgba(59,110,246,0.15); } 100% { box-shadow: 0 0 40px rgba(96,165,250,0.4); } }
   .pie-chart-inner { width: 120px; height: 120px; background: var(--bg); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 900; color: #fff; font-family: 'Playfair Display', serif; }
@@ -143,10 +144,44 @@
   .quiz-option .opt-letter { font-weight: 700; color: var(--accent2); min-width: 1rem; font-size: 0.85rem; }
   .quiz-option .opt-check { margin-left: auto; color: var(--accent); display: none; font-size: 0.8rem; }
   .quiz-option.selected .opt-check { display: block; }
-  .quiz-progress { display: flex; gap: 0.35rem; justify-content: center; margin-bottom: 1.75rem; }
-  .quiz-dot { width: 25px; height: 4px; border-radius: 2px; background: var(--border); transition: background 0.3s; }
-  .quiz-dot.done { background: var(--accent); }
-  .quiz-dot.active { background: var(--accent2); box-shadow: 0 0 6px rgba(96,165,250,0.4); }
+  /* ── Icon progress tracker ─────────────────────────────────────── */
+  .quiz-progress { display: flex; align-items: center; justify-content: center; margin-bottom: 1.75rem; }
+  .qstep { display: flex; flex-direction: column; align-items: center; gap: 0.28rem; }
+  .qstep-icon-wrap {
+    width: 46px; height: 46px; border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.04);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    transition: border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.175,0.885,0.32,1.275);
+    filter: grayscale(1) opacity(0.45);
+  }
+  .qstep.active .qstep-icon-wrap {
+    border-color: #60a5fa;
+    background: rgba(96,165,250,0.14);
+    box-shadow: 0 0 14px rgba(96,165,250,0.55), 0 0 28px rgba(96,165,250,0.2);
+    filter: grayscale(0) opacity(1);
+    animation: stepPulse 1.8s ease-in-out infinite alternate;
+  }
+  .qstep.done .qstep-icon-wrap {
+    border-color: var(--accent);
+    background: rgba(59,110,246,0.28);
+    box-shadow: 0 0 16px rgba(59,110,246,0.7), 0 0 32px rgba(59,110,246,0.25);
+    filter: grayscale(0) opacity(1);
+    animation: stepDonePop 0.45s cubic-bezier(0.175,0.885,0.32,1.275) forwards;
+  }
+  @keyframes stepPulse { 0% { box-shadow: 0 0 10px rgba(96,165,250,0.45); } 100% { box-shadow: 0 0 20px rgba(96,165,250,0.75), 0 0 38px rgba(96,165,250,0.3); } }
+  @keyframes stepDonePop { 0% { transform: scale(1); } 40% { transform: scale(1.35); } 70% { transform: scale(0.92); } 100% { transform: scale(1); } }
+  .qstep-label { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.25); transition: color 0.35s; }
+  .qstep.active .qstep-label { color: #60a5fa; }
+  .qstep.done .qstep-label { color: var(--accent); }
+  .qstep-line {
+    flex: 1; height: 2px; min-width: 22px; max-width: 48px;
+    background: rgba(255,255,255,0.1); margin: 0 3px 20px;
+    border-radius: 2px;
+    transition: background 0.4s ease, box-shadow 0.4s ease;
+  }
+  .qstep-line.done { background: var(--accent); box-shadow: 0 0 7px rgba(59,110,246,0.55); }
   .quiz-error { color: var(--error); font-size: 0.7rem; margin-top: 0.6rem; display: none; font-weight: 500; }
   
   .quiz-email-wrap, .quiz-result-wrap { display: none; animation: fadeIn 0.4s ease-in; }
@@ -709,9 +744,25 @@
         <p class="section-sub" style="margin:0 auto 1.25rem; font-size:0.85rem;">Answer 3 research-backed questions to instantly generate your personalized AI vulnerability score.</p>
         
         <div class="quiz-progress" id="quizProgress" aria-hidden="true">
-          <div class="quiz-dot active" id="dot0"></div>
-          <div class="quiz-dot" id="dot1"></div>
-          <div class="quiz-dot" id="dot2"></div>
+          <div class="qstep active" id="dot0">
+            <div class="qstep-icon-wrap" title="Automatable Tasks">🤖</div>
+            <div class="qstep-label">Tasks</div>
+          </div>
+          <div class="qstep-line" id="line0"></div>
+          <div class="qstep" id="dot1">
+            <div class="qstep-icon-wrap" title="Industry Adoption">📈</div>
+            <div class="qstep-label">Industry</div>
+          </div>
+          <div class="qstep-line" id="line1"></div>
+          <div class="qstep" id="dot2">
+            <div class="qstep-icon-wrap" title="Human Skill Resiliency">🧠</div>
+            <div class="qstep-label">Skills</div>
+          </div>
+          <div class="qstep-line" id="line2"></div>
+          <div class="qstep" id="dot3">
+            <div class="qstep-icon-wrap" title="Unlock Your Score">🔓</div>
+            <div class="qstep-label">Unlock</div>
+          </div>
         </div>
         
         <div class="quiz-step active" id="step0" role="group" aria-labelledby="q0-title">
@@ -1405,6 +1456,8 @@ function nextStep(step) {
   document.getElementById('step' + step).classList.remove('active');
   var dot = document.getElementById('dot' + step);
   if (dot) { dot.classList.remove('active'); dot.classList.add('done'); }
+  var line = document.getElementById('line' + step);
+  if (line) line.classList.add('done');
   var next = document.getElementById('step' + (step + 1));
   if (next) next.classList.add('active');
   var nextDot = document.getElementById('dot' + (step + 1));
@@ -1421,6 +1474,10 @@ function submitQuiz() {
   document.getElementById('step2').classList.remove('active');
   var dot2 = document.getElementById('dot2');
   if (dot2) { dot2.classList.remove('active'); dot2.classList.add('done'); }
+  var line2 = document.getElementById('line2');
+  if (line2) line2.classList.add('done');
+  var dot3 = document.getElementById('dot3');
+  if (dot3) dot3.classList.add('active');
   updatePie(100);
   var congrats = document.getElementById('congratsMsg');
   if (congrats) {
@@ -1450,6 +1507,8 @@ function unlockScore() {
   var pct = Math.round((total / 12) * 100);
   var emailWrap = document.getElementById('quizEmail');
   if (emailWrap) emailWrap.style.display = 'none';
+  var dot3Final = document.getElementById('dot3');
+  if (dot3Final) { dot3Final.classList.remove('active'); dot3Final.classList.add('done'); }
   var resultWrap = document.getElementById('quizResult');
   if (resultWrap) { resultWrap.style.display = 'block'; resultWrap.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
   // Animated count-up
