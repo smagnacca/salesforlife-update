@@ -348,6 +348,8 @@
   .testimonial-card:hover { transform: translateY(-4px); box-shadow: 0 15px 40px rgba(0,0,0,0.3); }
   .testimonial-card::before { content: '\201C'; position: absolute; top: 1.2rem; left: 1.8rem; font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--accent); opacity: 0.4; line-height: 1; }
   .testimonial-quote { color: var(--text); font-size: 1.15rem; line-height: 1.75; margin-bottom: 1.8rem; padding-top: 1.5rem; font-style: italic; }
+  @keyframes tCursorBlink { 50% { opacity: 0; } }
+  .ttype-cursor { display: inline-block; width: 2px; height: 1.05em; background: currentColor; margin-left: 1px; vertical-align: text-bottom; animation: tCursorBlink 0.65s step-end infinite; }
   .testimonial-source { display: flex; flex-direction: column; gap: 0.2rem; }
   .testimonial-title { font-weight: 700; color: #fff; font-size: 1rem; }
   .testimonial-company { color: var(--accent2); font-size: 0.95rem; font-weight: 500; }
@@ -2177,6 +2179,95 @@ function submitForm() {
     // Fallback: run after a delay
     setTimeout(startAnimations, 2000);
   }
+})();
+</script>
+
+
+<script>
+// ── Testimonial typewriter animation ─────────────────────────────────────────
+// Fires once when the testimonials section scrolls into view.
+// Each card: types out in white → fades out → fades back in as bright gold.
+(function () {
+  var section = document.querySelector('.testimonials-section');
+  if (!section) return;
+
+  var quotes = Array.prototype.slice.call(section.querySelectorAll('.testimonial-quote'));
+  // Capture original text before we clear anything
+  var texts = quotes.map(function (q) { return q.textContent; });
+
+  // Prepare: hide text, set initial color to white
+  quotes.forEach(function (q) {
+    q.textContent = '';
+    q.style.color = '#ffffff';
+    q.style.opacity = '0';
+  });
+
+  var started = false;
+  // ~55 ms/char ≈ 200 wpm — comfortable pace for a 60-year-old reading along
+  var CHAR_MS = 55;
+
+  function typeCard(idx) {
+    if (idx >= quotes.length) return;
+    var el = quotes[idx];
+    var text = texts[idx];
+    var i = 0;
+
+    // Blinking cursor appended during typing
+    var cursor = document.createElement('span');
+    cursor.className = 'ttype-cursor';
+    cursor.setAttribute('aria-hidden', 'true');
+
+    // Fade the card in before we start typing
+    el.style.transition = 'opacity 0.4s ease';
+    el.style.color = '#ffffff';
+    el.style.opacity = '1';
+
+    function type() {
+      if (i < text.length) {
+        el.textContent = text.substring(0, i + 1);
+        el.appendChild(cursor);
+        i++;
+        setTimeout(type, CHAR_MS);
+      } else {
+        // Typing complete ─ remove cursor
+        if (cursor.parentNode) cursor.parentNode.removeChild(cursor);
+        el.textContent = text; // ensure full text is set cleanly
+
+        // Pause so reader can finish the sentence, then dissolve white
+        setTimeout(function () {
+          el.style.transition = 'opacity 0.65s ease';
+          el.style.opacity = '0';
+
+          // After white fades out, swap to gold and fade back in
+          setTimeout(function () {
+            el.style.color = '#f5c842';
+            el.style.transition = 'opacity 0.9s ease';
+            el.style.opacity = '1';
+
+            // Move to next card once gold is fully visible
+            setTimeout(function () {
+              typeCard(idx + 1);
+            }, 600);
+          }, 700);
+        }, 800);
+      }
+    }
+
+    type();
+  }
+
+  // Trigger when 25 % of the section is visible
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting && !started) {
+        started = true;
+        observer.disconnect();
+        setTimeout(function () { typeCard(0); }, 350);
+      }
+    });
+  }, { threshold: 0.25 });
+
+  observer.observe(section);
 })();
 </script>
 
