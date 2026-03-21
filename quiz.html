@@ -1516,5 +1516,46 @@
     animate();
   })();
   </script>
+
+<!-- Hidden Netlify form for lead capture -->
+<form name="sfl-quiz-leads" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="email" name="email" />
+  <input type="text"  name="source" />
+  <input type="text"  name="bot-field" />
+</form>
+
+<script>
+// ── Netlify lead capture for quiz.html contact form and popups ──────
+function postToNetlify(data) {
+  try {
+    var formData = new URLSearchParams();
+    formData.append('form-name', 'sfl-quiz-leads');
+    formData.append('email',  data.email  || '');
+    formData.append('source', data.source || 'SalesForLife Quiz');
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: formData.toString()
+    }).catch(function(err) { console.error('Netlify POST error:', err); });
+  } catch(e) {}
+}
+
+function handleContactSubmit(event) {
+  event.preventDefault();
+  var email = event.target.querySelector('.contact-input').value;
+  postToNetlify({ email: email, source: 'SalesForLife Quiz Contact Form' });
+  var btn = event.target.querySelector('.contact-button');
+  if (btn) { btn.textContent = '✓ You\'re in!'; btn.style.background = 'linear-gradient(135deg,#4CAF50,#45a049)'; }
+}
+
+function submitPopupForm(event, type) {
+  event.preventDefault();
+  var email = event.target.querySelector('input[type="email"]').value;
+  postToNetlify({ email: email, source: 'SalesForLife Quiz Popup (' + type + ')' });
+  var form = event.target;
+  if (form) form.innerHTML = '<p style="color:#4CAF50;font-weight:700;padding:1rem 0;">✓ You\'re in! Check your inbox.</p>';
+}
+</script>
+
 </body>
 </html>
