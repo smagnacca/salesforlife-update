@@ -1298,6 +1298,16 @@
   <p>© 2026 Scott Magnacca · SalesForLife.ai. All rights reserved.</p>
 </footer>
 
+<form name="scottmagnacca-leads" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="text" name="firstName" />
+  <input type="text" name="lastName" />
+  <input type="email" name="email" />
+  <input type="tel" name="phone" />
+  <input type="text" name="company" />
+  <input type="text" name="source" />
+  <input type="text" name="bot-field" />
+</form>
+
 <script>
 // ── User data: localStorage cache + form prefill ───────────────────
 function getUserData() {
@@ -1305,7 +1315,31 @@ function getUserData() {
 }
 function saveUserData(data) {
   var d = getUserData();
-  for (var k in data) if (Object.prototype.hasOwnProperty.call(data, k)) d[k] = data[k];
+  var isNewLead = false;
+  for (var k in data) {
+    if (Object.prototype.hasOwnProperty.call(data, k)) {
+      if (data[k] && d[k] !== data[k]) { isNewLead = true; }
+      d[k] = data[k];
+    }
+  }
+  
+  // Submit updated details to Netlify hidden form
+  if (isNewLead && d.email) {
+    var formData = new URLSearchParams();
+    formData.append('form-name', 'scottmagnacca-leads');
+    formData.append('firstName', d.firstName || '');
+    formData.append('lastName', d.lastName || '');
+    formData.append('email', d.email || '');
+    formData.append('phone', d.phone || '');
+    formData.append('company', d.company || '');
+    formData.append('source', data.source || 'ScottMagnacca.com Form');
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: formData.toString()
+    }).catch(function(err){ console.error(err); });
+  }
+
   try { localStorage.setItem('sm_user', JSON.stringify(d)); } catch(e) {}
 }
 function prefillForms() {
